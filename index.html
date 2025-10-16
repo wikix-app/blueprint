@@ -13,6 +13,7 @@ function updateProgressBar() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Blueprint</title>
   <style>
+  :root { --embed-header: 64px; }
   @font-face {
     font-family: 'Nunito';
     src: url('https://font.wikix-thegreatapp.workers.dev/Nunito-Variable.woff2') format('woff2');
@@ -25,6 +26,7 @@ function updateProgressBar() {
     padding: 0;
     box-sizing: border-box;
   }
+  html, body { height: 100%; }
   
   body {
     font-family: 'Nunito', sans-serif;
@@ -49,7 +51,7 @@ function updateProgressBar() {
 
   .progress-track {
     position: fixed;
-    top: 12px;
+    top: calc(var(--embed-header) + 12px);
     left: 12px;
     right: 12px;
     height: 8px;
@@ -70,9 +72,19 @@ function updateProgressBar() {
     pointer-events: none;
   }
   
+  /* Fixed viewport below wrapper header to eliminate scrollbars */
+  #viewport {
+    position: fixed;
+    top: var(--embed-header);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
   .slide {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: none;
     justify-content: center;
     align-items: center;
@@ -446,7 +458,7 @@ function updateProgressBar() {
   </style>
   </head>
   <body>
-  
+  <div id="viewport">
   <div class="progress-track" id="progressTrack">
     <div class="progress-bar" id="progressBar"></div>
   </div>
@@ -1005,27 +1017,33 @@ function updateProgressBar() {
   let touchEndX = 0;
   
   /* --- FIT-TO-SLIDE LOGIC --------------------------------------------------- */
+  // Fixed embed header height from wrapper (in pixels). Adjust if wrapper header changes.
+  const EMBED_HEADER_PX = 64;
   /**
    * Computes a safe scale so that the content fits within its slide's viewport.
    * Uses the slide's inner height (minus a small margin) vs. the content's natural scroll height.
    */
   function computeScaleToFit(contentElement, slideElement) {
-    if (!contentElement || !slideElement) return 1;
+    if (!contentElement || !slideElement) return { scale: 1, translateY: 0 };
   
     // Reset any previous scaling to measure natural size
     contentElement.style.transform = 'none';
   
-    // Available vertical space = slide's inner height minus a small breathing room
+    // Available vertical space = slide's inner height minus small breathing room and wrapper header
     const slideRect = slideElement.getBoundingClientRect();
-    const availableHeight = Math.max(0, slideRect.height - 24);
+    const availableHeight = Math.max(0, slideRect.height - 24 - EMBED_HEADER_PX);
   
     // Total content height if unscaled
     const contentHeight = contentElement.scrollHeight;
   
-    if (contentHeight <= 0 || availableHeight <= 0) return 1;
+    if (contentHeight <= 0 || availableHeight <= 0) return { scale: 1, translateY: 0 };
   
     const scale = Math.min(1, availableHeight / contentHeight);
-    return scale;
+    const scaledHeight = contentHeight * scale;
+    // Center within the reduced available height, then shift up by half the header so visual center aligns below header
+    const baseCenter = Math.max(0, (availableHeight - scaledHeight) / 2);
+    const translateY = baseCenter - (EMBED_HEADER_PX / 2);
+    return { scale, translateY };
   }
   
   /**
@@ -1038,8 +1056,8 @@ function updateProgressBar() {
     const content = active.querySelector('.content');
     if (!content) return;
   
-    const scale = computeScaleToFit(content, active);
-    content.style.transform = `scale(${scale})`;
+    const { scale, translateY } = computeScaleToFit(content, active);
+    content.style.transform = `translateY(${translateY}px) scale(${scale})`;
   }
   
   /**
@@ -1164,6 +1182,6 @@ document.addEventListener('click', (e) => {
     }
   }, true);
   </script>
-  
+  </div>
   </body>
   </html>
