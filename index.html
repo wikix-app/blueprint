@@ -1,35 +1,39 @@
-function updateProgressBar() {
-    const progress = Math.min(((currentSlide + 1) / 28) * 100, 100);
-    progressBar.style.width = progress + '%';
-    
-    if (currentSlide > 0) {
-      progressBar.classList.add('visible');
-    } else {
-      progressBar.classList.remove('visible');
-    }<!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="fr">
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course Blueprint</title>
+  <link rel="preload" href="https://font.wikix-thegreatapp.workers.dev/Nunito-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
   <style>
-  :root { --embed-header: 64px; }
-  @font-face {
-    font-family: 'Nunito';
+/*   @font-face {
+    font-family: 'Nunito', sans-serif !important;  
     src: url('https://font.wikix-thegreatapp.workers.dev/Nunito-Variable.woff2') format('woff2');
-    font-weight: 200 1000;
-    font-display: block;
-  }
+      font-weight: 400;      
+    font-display: swap;
+  } */
+
+  @font-face {
+  font-family: 'Nunito'; /* only the font name, no !important */
+    src: /*  url('file:///android_asset/fonts/Nunito-Regular.ttf') format('truetype'),  
+        url('https://font.wikix-thegreatapp.workers.dev/Nunito-Regular.ttf') format('truetype');
+ */
+url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+
+  font-weight: 200 1000;
+  font-display: block;
+}
+
   
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  html, body { height: 100%; }
   
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif !important;
     background: #f5f5f0;
     color: #2a2a2a;
     overflow: hidden;
@@ -51,15 +55,15 @@ function updateProgressBar() {
 
   .progress-track {
     position: fixed;
-    top: calc(var(--embed-header) + 12px);
-    left: 12px;
-    right: 12px;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 8px;
     background: rgba(0,0,0,0.08);
-    border-radius: 4px;
+    border-radius: 0;
     z-index: 1000;
     cursor: pointer;
-    max-width: calc(100% - 24px);
+    max-width: 100%;
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -72,23 +76,13 @@ function updateProgressBar() {
     pointer-events: none;
   }
   
-  /* Fixed viewport below wrapper header to eliminate scrollbars */
-  #viewport {
-    position: fixed;
-    top: var(--embed-header);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-  }
-
   .slide {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: none;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    padding: 0;
     opacity: 0;
     transition: opacity 0.5s ease;
     border: 4px solid #2E8B57;
@@ -116,6 +110,7 @@ function updateProgressBar() {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 0px;
   }
   
   .title-slide {
@@ -136,13 +131,17 @@ function updateProgressBar() {
                 0 6px 0 #3cb371,
                 0 10px 20px rgba(60,179,113,0.25);
     margin-bottom: 20px;
+    margin-top: 0;
     font-display: block;
+    display: inline-block;            /* ensure tight box so centering is precise */
+    margin-left: auto;                /* center horizontally within centered .content */
+    margin-right: auto;
   }
   
   h2 {
     font-size: clamp(1.5em, 5vw, 2.5em);
     color: #2E8B57;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     font-weight: 700;
   }
   
@@ -379,7 +378,7 @@ function updateProgressBar() {
   }
   
   .photo-caption {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif !important; 
     font-style: italic;
     font-size: clamp(13px, 3vw, 16px);
     color: #5a5a5a;
@@ -400,11 +399,11 @@ function updateProgressBar() {
   /* --- FIT-TO-SLIDE + NO-SCROLL GUARDRAILS ---------------------------------- */
   /* Reserve safe space under the fixed progress bar so content never sits beneath it */
   .slide {
-    padding-top: 56px; /* progress top(12) + height(8) + buffer */
+    padding-top: 0px; /* progress height only, no extra buffer éé  8*/ 
   }
   @media (max-width: 768px) {
     .slide {
-      padding-top: 48px;
+      padding-top: 0px;
     }
   }
 
@@ -417,7 +416,7 @@ function updateProgressBar() {
 
   /* 2) Make sure the scaling transform won’t cause blur and respects boundaries */
   .slide .content {
-    transform-origin: top center;        /* Scale from the top center */
+    transform-origin: center center;     /* Scale from center so title looks centered */
     will-change: transform;              /* Smoother scaling */
   }
 
@@ -454,11 +453,146 @@ function updateProgressBar() {
 
 
 
+
+
+
+/* Keep everything flush to screen edges  ééé */
+html, body, .slide, .content {
+  margin: 2px !important;
+  padding: 2px !important;
+}
+
+/* Add extra top padding while keeping 2px on other edges */
+html, body, .slide, .content {
+  padding-top: 6px !important; /* 2px base + 4px extra */
+}
+
+
+/* Remove decorative borders and rounding */
+.slide {
+   border: none !important; 
+ /*  border: 4px solid #2E8B57 !important; */
+  border-radius: 0 !important;
+}
+
+/* .slide {
+  margin: 4px;
+  padding: 4px;
+  width: calc(100vw - 8px);
+  height: calc(100vh - 8px);
+  box-sizing: border-box;
+} */
+
+
+/* Special case: center the main title like before */
+.title-slide .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.main-title {
+  margin: 0 auto;
+  position: relative;
+  top: -30px; /* ⬆ raise title by 50px — adjust as needed */
+}
+
+
+
+
+
+
+
+
+/* Make all text left-aligned by default */
+body, .slide, .content, h1, h2, h3, p, ul, ol, li, table, .quote-box, .fun-fact, .emphasis-box {
+  text-align: left !important;
+}
+
+/* Keep the main title centered on the title slide */
+.title-slide .main-title {
+  text-align: center !important;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* Center titles and captions on all slides that contain a photo/caption */
+.slide h2,
+.photo-caption {
+  text-align: center !important;
+}
+
+.photo-caption {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+/* === Responsive Fit for iframe or adaptive display === */
+
+
+
+
+
+/* --- crossfade-friendly slide rules --- */
+/* === Subtle Fast Cross-Fade Between Slides === */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in-out;
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* outgoing slide */
+.slide.active.fade-out {
+  opacity: 0;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   </style>
   </head>
   <body>
-  <div id="viewport">
+  
   <div class="progress-track" id="progressTrack">
     <div class="progress-bar" id="progressBar"></div>
   </div>
@@ -487,10 +621,10 @@ function updateProgressBar() {
   <!-- Slide 3: Key Concepts -->
   <div class="slide slide3" data-slide="3">
     <div class="content">
-      <div style="width: 100%; max-width: 650px; height: 280px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 15px 0;">
+      <!-- <div style="width: 100%; max-width: 650px; height: 280px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 15px 0;">
         Image Conceptuelle
       </div>
-      <p class="photo-caption">Représentation visuelle des concepts fondamentaux</p>
+      <p class="photo-caption">Représentation visuelle des concepts fondamentaux</p> -->
       <h2>🔑 Concepts Clés</h2>
       <ul>
         <li><strong>Concept Alpha:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
@@ -500,7 +634,7 @@ function updateProgressBar() {
         <li><strong>Concept Epsilon:</strong> Excepteur sint occaecat cupidatat non proident</li>
       </ul>
       <div style="width: 100%; max-width: 700px; height: 320px; border: 3px solid #5b9c77; border-radius: 8px; background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 15px 0;">
-        Synthèse Graphique
+        Image
       </div>
       <p class="photo-caption">Vue d'ensemble des interconnexions entre les concepts</p>
     </div>
@@ -509,8 +643,8 @@ function updateProgressBar() {
   <!-- Slide 4: Visual Diagram -->
   <div class="slide slide4" data-slide="4">
     <div class="content">
-      <h2>📊 Diagramme Conceptuel</h2>
-      <div style="width: 100%; max-width: 600px; height: 400px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 20px 0;">
+      <h2 style="margin-bottom: 0;">📊 Diagramme Conceptuel</h2>
+      <div style="width: 100%; max-width: 600px; height: 400px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 10px 0 20px 0;">
         Diagramme Conceptuel
       </div>
       <p>Ce diagramme illustre les relations entre les différents éléments du système. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
@@ -527,7 +661,7 @@ function updateProgressBar() {
       </div>
       <div style="background: #f0fdf4; border: 2px solid #5b9c77; border-radius: 8px; padding: 20px; margin-top: 15px; width: 100%;">
         <h3 style="color: #2E8B57; margin-bottom: 10px; font-size: clamp(1.1em, 3.8vw, 1.6em);">📌 Note Complémentaire</h3>
-        <p style="font-size: clamp(14px, 3.5vw, 17px);">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        <p style="font-size: clamp(14px, 3.5vw, 17px);">Doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
       </div>
     </div>
   </div>
@@ -540,9 +674,7 @@ function updateProgressBar() {
       </div>
       <p class="photo-caption">Documents d'époque illustrant l'évolution du sujet</p>
       <h2>🕰️ Contexte Historique</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-      <p>In <strong>anno MCMLIV</strong>, duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <p>In <strong>anno MCMLIV</strong>, duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <div style="width: 100%; max-width: 650px; height: 260px; border: 3px solid #5b9c77; border-radius: 8px; background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 15px 0;">
         Chronologie Visuelle
       </div>
@@ -661,7 +793,6 @@ function updateProgressBar() {
   <div class="slide slide12" data-slide="12">
     <div class="content">
       <h2>🧠 Cadre Théorique</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <p>Duis aute irure dolor in <strong>reprehenderit in voluptate</strong> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
       <div style="background: linear-gradient(135deg, #f0fdf4 0%, #e8f5e9 100%); border: 2px solid #3CB371; border-radius: 8px; padding: 20px; margin-top: 20px; width: 100%; box-shadow: 0 2px 8px rgba(46,139,87,0.12);">
@@ -968,33 +1099,36 @@ function updateProgressBar() {
     </div>
   </div>
   
-  <!-- Slide 29: Summary -->
-  <div class="slide slide29 summary-slide" data-slide="29">
-    <div class="content">
-      <h2 style="font-size: clamp(1.4em, 4.8vw, 2.2em); margin-bottom: 18px;">📝 Points Essentiels</h2>
-      <ul style="text-align: left; list-style: none; padding: 0; width: 100%; max-height: calc(100vh - 200px); overflow-y: auto;">
-        <li style="background: rgba(255,255,255,0.1); padding: 16px; margin: 8px 0; border-radius: 8px; border-left: 5px solid #baf990;">
-          <strong style="color: #baf990; font-size: clamp(13px, 3.3vw, 16px);">Concept fondamental:</strong> <span style="color: #fff; font-size: clamp(12px, 3vw, 15px);">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-        </li>
-        <li style="background: rgba(255,255,255,0.1); padding: 16px; margin: 8px 0; border-radius: 8px; border-left: 5px solid #baf990;">
-          <strong style="color: #baf990; font-size: clamp(13px, 3.3vw, 16px);">Méthodologie clé:</strong> <span style="color: #fff; font-size: clamp(12px, 3vw, 15px);">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
-        </li>
-        <li style="background: rgba(255,255,255,0.1); padding: 16px; margin: 8px 0; border-radius: 8px; border-left: 5px solid #baf990;">
-          <strong style="color: #baf990; font-size: clamp(13px, 3.3vw, 16px);">Application pratique:</strong> <span style="color: #fff; font-size: clamp(12px, 3vw, 15px);">Duis aute irure dolor in reprehenderit in voluptate.</span>
-        </li>
-        <li style="background: rgba(255,255,255,0.1); padding: 16px; margin: 8px 0; border-radius: 8px; border-left: 5px solid #baf990;">
-          <strong style="color: #baf990; font-size: clamp(13px, 3.3vw, 16px);">Impact et résultats:</strong> <span style="color: #fff; font-size: clamp(12px, 3vw, 15px);">Excepteur sint occaecat cupidatat non proident.</span>
-        </li>
-        <li style="background: rgba(255,255,255,0.1); padding: 16px; margin: 8px 0; border-radius: 8px; border-left: 5px solid #baf990;">
-          <strong style="color: #baf990; font-size: clamp(13px, 3.3vw, 16px);">Perspectives futures:</strong> <span style="color: #fff; font-size: clamp(12px, 3vw, 15px);">Sed ut perspiciatis unde omnis iste natus error.</span>
-        </li>
-      </ul>
-    </div>
+<!-- Slide 29: Summary -->
+<div class="slide slide29 summary-slide" data-slide="29">
+  <div class="content" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); transform: translateZ(0);">
+    <h2 style="font-size: clamp(1.4em, 4.8vw, 2.2em); margin-bottom: 22px; color: #fff;">📝 Points Essentiels</h2>
+    <ul style="list-style: none; padding: 0; max-height: calc(100vh - 200px); overflow-y: auto;">
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Concept fondamental:</strong> <span style="color: #fff;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Méthodologie clé:</strong> <span style="color: #fff;">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Application pratique:</strong> <span style="color: #fff;">Duis aute irure dolor in reprehenderit in voluptate.</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Impact et résultats:</strong> <span style="color: #fff;">Excepteur sint occaecat cupidatat non proident.</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Perspectives futures:</strong> <span style="color: #fff;">Sed ut perspiciatis unde omnis iste natus error.</span>
+      </li>
+    </ul>
   </div>
-  
+</div>
+
+
+
   <!-- Slide 30: Further Reading -->
-  <div class="slide slide30 further-reading" data-slide="30">
-    <div class="content">
+<!--    <div class="slide slide30 further-reading" data-slide="30">
+    <div class="content" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+
       <h2 style="font-size: clamp(1.4em, 4.8vw, 2.2em); margin-bottom: 22px; color: #fff;">📚 Pour Aller Plus Loin</h2>
       <ul style="max-height: calc(100vh - 200px); overflow-y: auto;">
         <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;"><strong style="color: #baf990;">Lorem Ipsum et Dolor Sit:</strong> <span style="color: #fff;">Une Analyse Complète - Journal de Recherche</span></li>
@@ -1004,7 +1138,104 @@ function updateProgressBar() {
         <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;"><strong style="color: #baf990;">Quis Nostrud Exercitation:</strong> <span style="color: #fff;">Applications Futures - Rapport Prospectif</span></li>
       </ul>
     </div>
+  </div>  
+ -->
+  
+
+ <!-- Slide 30: Further Reading -->
+<!-- Slide 30: Further Reading -->
+<!-- <div class="slide slide30 further-reading" data-slide="30">
+  <div class="content" style="background: rgba(255,255,255,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 8px; padding: 20px;">
+    <h2 style="font-size: clamp(1.4em, 4.8vw, 2.2em); margin-bottom: 22px; color: #fff;">📚 Pour Aller Plus Loin</h2>
+    <ul style="max-height: calc(100vh - 200px); overflow-y: auto;">
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Lorem Ipsum et Dolor Sit:</strong> <span style="color: #fff;">Une Analyse Complète - Journal de Recherche</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Consectetur Adipiscing:</strong> <span style="color: #fff;">Perspectives Modernes - Revue Académique</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Sed Do Eiusmod Tempor:</strong> <span style="color: #fff;">Guide Pratique - Manuel Professionnel</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Ut Labore et Dolore:</strong> <span style="color: #fff;">Études de Cas Internationales - Publication Scientifique</span>
+      </li>
+      <li style="background: rgba(255,255,255,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #fff; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); border-left: 5px solid #baf990;">
+        <strong style="color: #baf990;">Quis Nostrud Exercitation:</strong> <span style="color: #fff;">Applications Futures - Rapport Prospectif</span>
+      </li>
+    </ul>
   </div>
+</div>
+ -->
+
+
+
+ <!-- Slide 30: Further Reading -->
+<div class="slide slide30 further-reading" data-slide="30">
+  <div class="content" style="background: transparent; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 8px; padding: 16px;">
+    <h2 style="font-size: clamp(1.4em, 4vw, 1.8em); margin-bottom: 16px; color: #ffffff;">Pour Aller Plus Loin</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+      
+      <div style="background: #baf9901a; padding: 12px; border-radius: 8px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 4px solid #ffffff;">
+        <strong style="color: #baf990; font-size: clamp(12px, 2.8vw, 14px);">Lorem Ipsum et Dolor Sit</strong>
+        <p style="color: #fff; font-size: clamp(11px, 2.5vw, 13px); margin-top: 4px;">Une Analyse Complète - Journal de Recherche</p>
+      </div>
+      
+      <div style="background: #baf9901a; padding: 12px; border-radius: 8px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 4px solid #fff;">
+        <strong style="color: #baf990; font-size: clamp(12px, 2.8vw, 14px);">Consectetur Adipiscing</strong>
+        <p style="color: #fff; font-size: clamp(11px, 2.5vw, 13px); margin-top: 4px;">Perspectives Modernes - Revue Académique</p>
+      </div>
+      
+      <div style="background: #baf9901a; padding: 12px; border-radius: 8px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 4px solid #ffffff;">
+        <strong style="color: #baf990; font-size: clamp(12px, 2.8vw, 14px);">Sed Do Eiusmod Tempor</strong>
+        <p style="color: #fff; font-size: clamp(11px, 2.5vw, 13px); margin-top: 4px;">Guide Pratique - Manuel Professionnel</p>
+      </div>
+      
+      <div style="background: #baf9901a; padding: 12px; border-radius: 8px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 4px solid #fff;">
+        <strong style="color: #baf990; font-size: clamp(12px, 2.8vw, 14px);">Ut Labore et Dolore</strong>
+        <p style="color: #fff; font-size: clamp(11px, 2.5vw, 13px); margin-top: 4px;">Études de Cas Internationales - Publication Scientifique</p>
+      </div>
+      
+      <div style="background: #baf9901a; padding: 12px; border-radius: 8px; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-left: 4px solid #ffffff;">
+        <strong style="color: #baf990; font-size: clamp(12px, 2.8vw, 14px);">Quis Nostrud Exercitation</strong>
+        <p style="color: #fff; font-size: clamp(11px, 2.5vw, 13px); margin-top: 4px;">Applications Futures - Rapport Prospectif</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--   <div class="slide slide30 further-reading" data-slide="30" style="background-color: #f0fff4;">
+    <div class="content">
+      <h2 style="font-size: clamp(1.4em, 4.8vw, 2.2em); margin-bottom: 22px; color: #2E8B57;">📚 Pour Aller Plus Loin</h2>
+      <ul style="max-height: calc(100vh - 200px); overflow-y: auto;">
+        <li style="background: rgba(46,139,87,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #2E8B57; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-left: 5px solid #3CB371;">
+          <strong style="color: #3CB371;">Lorem Ipsum et Dolor Sit:</strong> <span style="color: #2E8B57;">Une Analyse Complète - Journal de Recherche</span>
+        </li>
+        <li style="background: rgba(46,139,87,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #2E8B57; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-left: 5px solid #3CB371;">
+          <strong style="color: #3CB371;">Consectetur Adipiscing:</strong> <span style="color: #2E8B57;">Perspectives Modernes - Revue Académique</span>
+        </li>
+        <li style="background: rgba(46,139,87,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #2E8B57; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-left: 5px solid #3CB371;">
+          <strong style="color: #3CB371;">Sed Do Eiusmod Tempor:</strong> <span style="color: #2E8B57;">Guide Pratique - Manuel Professionnel</span>
+        </li>
+        <li style="background: rgba(46,139,87,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #2E8B57; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-left: 5px solid #3CB371;">
+          <strong style="color: #3CB371;">Ut Labore et Dolore:</strong> <span style="color: #2E8B57;">Études de Cas Internationales - Publication Scientifique</span>
+        </li>
+        <li style="background: rgba(46,139,87,0.08); padding: 16px; margin: 10px 0; border-radius: 8px; color: #2E8B57; font-size: clamp(13px, 3.2vw, 17px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-left: 5px solid #3CB371;">
+          <strong style="color: #3CB371;">Quis Nostrud Exercitation:</strong> <span style="color: #2E8B57;">Applications Futures - Rapport Prospectif</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+   -->
+
+
+   
   
   <script>
   let currentSlide = 0;
@@ -1017,33 +1248,31 @@ function updateProgressBar() {
   let touchEndX = 0;
   
   /* --- FIT-TO-SLIDE LOGIC --------------------------------------------------- */
-  // Fixed embed header height from wrapper (in pixels). Adjust if wrapper header changes.
-  const EMBED_HEADER_PX = 64;
   /**
    * Computes a safe scale so that the content fits within its slide's viewport.
    * Uses the slide's inner height (minus a small margin) vs. the content's natural scroll height.
    */
   function computeScaleToFit(contentElement, slideElement) {
-    if (!contentElement || !slideElement) return { scale: 1, translateY: 0 };
+    if (!contentElement || !slideElement) return 1;
   
     // Reset any previous scaling to measure natural size
     contentElement.style.transform = 'none';
   
-    // Available vertical space = slide's inner height minus small breathing room and wrapper header
+    // Available vertical space = slide inner height minus paddings and a small breathing room
     const slideRect = slideElement.getBoundingClientRect();
-    const availableHeight = Math.max(0, slideRect.height - 24 - EMBED_HEADER_PX);
+    const cs = getComputedStyle(slideElement);
+    const paddingTop = parseFloat(cs.paddingTop) || 0;
+    const paddingBottom = parseFloat(cs.paddingBottom) || 0;
+    const innerHeight = Math.max(0, slideRect.height - paddingTop - paddingBottom);
+    const availableHeight = Math.max(0, innerHeight - 12);
   
     // Total content height if unscaled
     const contentHeight = contentElement.scrollHeight;
   
-    if (contentHeight <= 0 || availableHeight <= 0) return { scale: 1, translateY: 0 };
+    if (contentHeight <= 0 || availableHeight <= 0) return 1;
   
     const scale = Math.min(1, availableHeight / contentHeight);
-    const scaledHeight = contentHeight * scale;
-    // Center within the reduced available height, then shift up by half the header so visual center aligns below header
-    const baseCenter = Math.max(0, (availableHeight - scaledHeight) / 2);
-    const translateY = baseCenter - (EMBED_HEADER_PX / 2);
-    return { scale, translateY };
+    return scale;
   }
   
   /**
@@ -1056,8 +1285,8 @@ function updateProgressBar() {
     const content = active.querySelector('.content');
     if (!content) return;
   
-    const { scale, translateY } = computeScaleToFit(content, active);
-    content.style.transform = `translateY(${translateY}px) scale(${scale})`;
+    const scale = computeScaleToFit(content, active);
+    content.style.transform = `scale(${scale})`;
   }
   
   /**
@@ -1072,6 +1301,19 @@ function updateProgressBar() {
     });
   }
   window.addEventListener('resize', requestFit);
+
+  // Listen for wrapper messages to trigger a refit after container resizes/show
+  window.addEventListener('message', (event) => {
+    try {
+      const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+      if (!data || !data.type) return;
+      if (data.type === 'wikix:refit' || data.type === 'wikix:show') {
+        requestFit();
+      }
+    } catch (_) {
+      // ignore
+    }
+  });
   
 function updateProgressBar() {
   const progress = Math.min(((currentSlide + 1) / totalSlides) * 100, 100);
@@ -1084,7 +1326,7 @@ function updateProgressBar() {
   }
 }
   
-  function showSlide(index) {
+/*   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.remove('active');
     });
@@ -1093,8 +1335,43 @@ function updateProgressBar() {
     updateProgressBar();
     fitActiveSlide();
     console.log(`Current slide: ${index + 1} of ${totalSlides}`);
-  }
+  } */
+
+  // ééé
   
+  function showSlide(index) {
+  const current = document.querySelector('.slide.active');
+  const next = slides[index];
+
+  if (current === next) return;
+
+  // Make next slide visible
+  next.classList.add('active');
+
+  if (current) {
+    current.classList.add('fade-out');
+    setTimeout(() => {
+      current.classList.remove('fade-out', 'active');
+    }, 120); // 10–20 ms longer than CSS transition
+  }
+
+  currentSlide = index;
+  updateProgressBar();
+  fitActiveSlide();
+  console.log(`Current slide: ${currentSlide + 1} of ${totalSlides}`);
+
+}
+
+
+
+
+
+
+
+
+
+
+
   function nextSlide() {
     if (currentSlide < totalSlides - 1) {
       currentSlide++;
@@ -1182,6 +1459,6 @@ document.addEventListener('click', (e) => {
     }
   }, true);
   </script>
-  </div>
+  
   </body>
   </html>
