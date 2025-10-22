@@ -1,0 +1,80 @@
+0) BEFORE WE START:
+
+- YOU WILL ONLY DO 5 SLIDES AT A TIME, AND CONFIRM HERE WHEN YOU ARE READY FOR THE NEXT SLIDES
+- YOU WILL NOT REWRITE ANY SLIDE EVER : ONCE WRITTEN, IT IS DONE
+- You will send me the list of planned slides before starting so i can validate them. 
+Format : - Slide X - title (template slide Y) *return to line*
+- Now read the instructions
+
+1) Instructions:
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny3.html
+- This file is the **visual template**. 
+- You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
+- Fill only the placeholders with the course .json I have provided
+
+2) Content :
+
+- You MUST:
+  - Keep these slides in their position : 1 (title), 2 (introduction), and the last 3 (conclusion, summary, further readings)
+  - Keep the **progress bar** functional and visually identical, adjusted automatically to the new number of slides.
+  - Keep all **console logs** and any JS already in the template unchanged.
+  - Keep this local font src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  - Maintain all **fade transitions** and slide navigation behavior.
+
+- You HAVE TO:
+  - REARRANGE THE SLIDES TO FIT THE COURSE  
+  - MAKE SURE YOU USE SLIDES FROM EVERY PART OF THE TEMPLATE, NOT JUST THE FIRST ONES
+  - Make sure emphasis box slides are only used for the most important points/ key takeaways
+
+- You CAN:
+  - Rearrange existing container types.
+  - Duplicate, merge, or remove slides if it makes the pacing better.
+  - Adapt each slide’s type to match the new course flow.
+
+- You CANNOT :
+  - USE THE SAME SLIDE TWICE 
+  - put 2 similar slides (emphasis box, or photo) next to each other 
+  - une another slide than 19 (photo) for images
+
+4) Size :
+- Each slide must contain ≤150 words
+- If more text is needed, create additional slides.
+- Prefer short, concise sentences and bullet lists, while keeping proper sentences structure.
+- Never fill slides to the max; leave ~10% empty space.
+
+5) Rules (do not violate):
+- No scrolling anywhere. Never use overflow, max-height + scroll, or custom CSS.
+- Keep template classes/IDs and default sizes; do not change fonts/margins.
+- 1 heading ≤ 60 chars; 3–6 bullets, each ≤ 12 words; no deep nesting.
+- ≤ 1 main visual per slide; large tables split across slides (≤ 6 rows, ≤ 3 cols).
+- Do not place anything under the progress bar area.
+- Do NOT rewrite CSS, create new classes, or add new global styles.
+- Images should be alone (with title and caption) on their slides
+- Every slide MUST START with <!-- Slide X: name of the slide --> above it
+
+---
+
+- After sending the completed html artifact : stop output.
+
+
+
+
+
+
+
+
+
+
+
+===========
+  - RANDOMIZE THE OTHER SLIDES FROM TH so it's a completely new order. The seed id 675867
+
+
+- Adjust font size automatically to keep the content readable and fully visible.
+
+6) In the template, these specific slides apparences are only used once, nowhere else :
+1 : for main title, 2 : for introduction, 52 : for conclusion, 53 : for summary, 54 : for further readings
+---
+
+
+- YOU WILL ONLY DO 5 SLIDES AT A TIME, AND CONFIRM HERE WHEN YOU ARE READY FOR THE NEXT SLIDES

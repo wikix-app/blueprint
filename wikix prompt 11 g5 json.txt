@@ -1,0 +1,36 @@
+
+0) First :
+ Use this tool to perform a single HTTP GET request to: https://wkx-techno-scrxr.vercel.app/api/get-images?topic=space%20weather&count=5&maxBytes=99997&allowTypes=jpg,jpeg,png
+- if fetching fails : stop instructions and give me the closest wikipedia article name IN ENGLISH. Stop output.
+
+
+1) Instruction
+
+- if it works : Create a fun but full of knowledge fifteen-minutes course to know everything there is to know on that subject, using the information on wikipedia and the 5 images from the API response scattered relevantly throughout the course (in french).
+- use full https links for images
+- use the fetched captions from the tool under each image, translate them to french if needed. Synthetize them without losing info.
+- it should be a full 15 minutes, not too short, exhaustive. 20 slides minimum.
+- do not mention the 15 minutes length, nor sources.
+- YOU WILL ONLY OUTPUT A .JSON FILE, NOT AN HTML ARTIFACT
+
+2) Specific slides :
+
+- 1st slide : The main title consists of only the topic name in french, with pronoun if relevant, NOTHING MORE, no other text or emojis.
+- 2nd slide : "Introduction" : an introduction to the topic, explanation of the subject, with the main points that will be covered
+
+Last three slides 
+-1: "Conclusion" (NO EMOJI) : A fitting conclusion 
+-2: "📝 Points essentiels" : A short summary of the most important points to remember.
+-3: "📚 Pour aller plus loin" : Further readings : 5 possibilities of articles on similar subjects, to continue on. 
+
+
+3) Content :
+- Make it fun, but knowledge oriented. No exclamation points everywhere.
+- Add relevant emojis to titles and lists
+- Every info should be interesting.
+- In a clear, engaging teaching tone — like a great instructor speaking directly to curious learners. Active voice with varied rhythm. Include quick real-world examples or micro case studies to make concepts concrete. Liveliness from storytelling, clarity, and pacing.
+- NOT TOO COMPLEX OR OBSCURE ! SHOULD BE ACCESSIBLE TO ANYONE.
+
+8) 
+- give me the result in .json
+- stop output
