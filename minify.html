@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang=fr>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Course Blueprint</title>
+<style>@font-face{font-family:Nunito;src:url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');font-weight:200 1000;font-display:block}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Nunito,sans-serif!important;background:#f5f5f0;color:#2a2a2a;overflow:hidden;touch-action:pan-y}.progress-bar{position:absolute;top:0;left:0;height:100%;background:#bf003d;transition:width .3s ease;width:0;border-radius:2px;opacity:1}.progress-track{position:fixed;top:0;left:0;right:0;height:8px;background:rgba(0,0,0,.08);border-radius:0;z-index:1000;cursor:pointer;max-width:100%;opacity:0;transition:opacity .2s ease}.progress-track.visible{opacity:1}.progress-track #progressBar{pointer-events:none}.slide{width:100vw;height:100vh;display:none;justify-content:center;align-items:flex-start;padding:0;opacity:0;transition:opacity .5s ease;border:4px solid #2e8b57;border-radius:12px;position:absolute;top:0;left:0}.slide.active{display:flex;opacity:1}.slide.fade-out{opacity:0}.content{width:100%;max-width:900px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:0}.title-slide{background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%)}.main-title{font-weight:800;font-size:clamp(1.8em, 6vw, 3em);color:#2a8f5a;letter-spacing:-1px;text-transform:uppercase;padding:20px 30px;border-radius:10px;background:linear-gradient(to bottom,#fff,#f0fdf4);box-shadow:0 2px 0 rgba(60,179,113,.3),0 4px 0 rgba(60,179,113,.25),0 6px 0 #3cb371,0 10px 20px rgba(60,179,113,.25);margin-bottom:20px;margin-top:0;font-display:block;display:inline-block;margin-left:auto;margin-right:auto}h2{font-size:clamp(1.5em, 5vw, 2.5em);color:#2e8b57;margin-bottom:10px;font-weight:700}h3{font-size:clamp(1.2em, 4vw, 1.8em);color:#3cb371;margin-bottom:20px;font-weight:600}p{font-size:clamp(16px, 4vw, 20px);line-height:1.7;color:#3a3a3a;margin-bottom:15px}.emphasis-box{background:#2e8b57;color:#fff;padding:30px;border-radius:12px;margin:20px 0;width:100%}.emphasis-box h2,.emphasis-box h3{color:#fff}.emphasis-box p{color:#fff}.emphasis-box strong{color:#baf990}.fun-fact{background:#e8f5e9;border-left:6px solid #3cb371;padding:25px;margin:20px 0;border-radius:8px;width:100%}.fun-fact h3{color:#2e8b57;margin-bottom:12px}.quote-box{background:#f9f9f7;border-left:5px solid #5b9c77;padding:25px;font-style:italic;margin:20px 0;position:relative;border-radius:8px;width:100%}.quote-box::before{content:'"';font-size:4em;color:#3cb371;position:absolute;top:-10px;left:15px;opacity:.3}.quote-author{text-align:right;margin-top:15px;font-weight:600;color:#2e8b57;font-style:normal}table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden}th{background:#2e8b57;color:#fff;padding:15px;text-align:left;font-size:clamp(14px, 3.5vw, 18px)}td{padding:12px 15px;border-bottom:1px solid #e0e0e0;color:#3a3a3a;font-size:clamp(13px, 3vw, 16px);background:#fafafa}ol,ul{text-align:left;margin:20px 0;padding-left:25px;width:100%}li{margin-bottom:12px;color:#3a3a3a;font-size:clamp(15px, 3.8vw, 19px);line-height:1.6}li strong{color:#2e8b57}.diagram{width:100%;max-width:500px;height:auto;margin:20px 0;border-radius:8px;border:2px solid #3cb371}.chart-container{width:100%;padding:25px;background:#fff;border-radius:12px;margin:20px 0}.case-study{background:linear-gradient(135deg,#e8f5e9 0,#f0fdf4 100%);padding:25px;border-radius:12px;border:2px solid #5b9c77;margin:20px 0;width:100%}.case-study h3{color:#2e8b57;margin-bottom:15px}.slide2{background:#fafaf8}.slide3{background:#f5f5f0}.slide4{background:#e8f5e9}.slide5{background:#f9f9f7}.slide6{background:#f0fdf4}.slide7{background:#f0fdf4}.slide8{background:#e8f5e9}.slide9{background:#f0fdf4}.slide10{background:#f0fdf4}.slide11{background:#f0fdf4}.slide12{background:#fafaf8}.slide13{background:#e8f5e9}.slide14{background:#f5f5f0}.slide15{background:#f9f9f7}.slide16{background:#f0fdf4}.slide17{background:#fafaf8}.slide18{background:#e8f5e9}.slide19{background:#f5f5f0}.slide20{background:#f0fdf4}.slide21{background:#f0fdf4}.slide22{background:#fafaf8}.slide23{background:#e8f5e9}.slide24{background:#f5f5f0}.slide25{background:#f0fdf4}.slide26{background:#f0fdf4}.slide27{background:#fafaf8}.slide28{background:#e8f5e9}.slide29{background:#bae0bf}.slide30{background:#bae0bf}.summary-slide{background:#235347}.summary-slide h2,.summary-slide h3,.summary-slide p{color:#fff}.summary-slide strong{color:#baf990}.further-reading{background:#235347;color:#fff}.further-reading h2{color:#fff}.further-reading ul{list-style:none;padding:0}.further-reading li{background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px, 3.5vw, 18px)}.icon{font-size:2em;margin-right:10px}a{color:#2e8b57;text-decoration:none;font-weight:600}a:hover{color:#3cb371}.photo-caption{font-family:Nunito,sans-serif!important;font-style:italic;font-size:clamp(13px, 3vw, 16px);color:#5a5a5a;margin-top:10px;text-align:center}.slide{padding-top:0}@media (max-width:768px){.slide{padding:15px}.content{padding:10px}.slide img{max-width:90vw!important;max-height:55vh!important;width:auto!important;height:auto!important;display:block;object-fit:contain;margin-left:auto;margin-right:auto}}.slide,.slide .content{overflow:clip!important;overscroll-behavior:contain;contain:layout paint size}.slide .content{transform-origin:center center;will-change:transform}.slide .case-study,.slide .chart-container,.slide .diagram,.slide .emphasis-box,.slide .fun-fact,.slide .quote-box,.slide img,.slide table,.slide video{max-height:90vh;height:auto}.further-reading ul,.summary-slide ul{max-height:none!important;overflow:visible!important}.slide *{scrollbar-width:none;-ms-overflow-style:none}.slide ::-webkit-scrollbar{display:none}.content,.slide,body,html{margin:2px!important;padding:2px!important}.content,.slide,body,html{padding-top:6px!important}.slide{border:none!important;border-radius:0!important}.title-slide .content{display:flex;justify-content:center;align-items:center;text-align:center;position:relative}.main-title{margin:0 auto;position:relative;top:-30px}.content,.emphasis-box,.fun-fact,.quote-box,.slide,body,h1,h2,h3,li,ol,p,table,ul{text-align:left!important}.title-slide .main-title{text-align:center!important;display:inline-block;margin:0 auto}.photo-caption,.slide h2{text-align:center!important}.photo-caption{display:block;margin-left:auto;margin-right:auto}.slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:0;opacity:0;pointer-events:none;transition:opacity .1s ease-in-out;z-index:0}.slide.active{opacity:1;pointer-events:auto;z-index:2}.slide.active.fade-out{opacity:0;z-index:1}:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6){font-size:16px!important}</style>
+</head>
+<body>
+<div class=progress-track id=progressTrack>
+<div class=progress-bar id=progressBar></div>
+</div>
+<div class="slide active title-slide" data-slide=1>
+<div class=content>
+<h1 class=main-title>Le Lorem Ipsum</h1>
+</div>
+</div>
+<div class="slide slide2" data-slide=2>
+<div class=content>
+<div style="max-width:900px;margin:auto;background:#fff;padding:10px;border:4px solid #2e8b57;border-top-left-radius:80px;border-top-right-radius:8px;border-bottom-right-radius:80px;border-bottom-left-radius:8px;box-shadow:0 12px 32px rgba(46,139,87,.18)">
+<div style=padding:10px>
+<h2 style=color:#2e8b57;font-size:clamp(1.6em,4vw,1.9em);font-weight:800;margin-bottom:16px;text-align:center!important>Introduction</h2>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important>Deux coins présentent un <strong style=color:#2e8b57>arrondi extrême</strong> tandis que les deux autres restent légèrement courbes, créant une forme organique asymétrique qui évoque une goutte d'eau ou une feuille stylisée.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important;margin-top:14px>Cette géométrie <strong style=color:#2e8b57>non-uniforme</strong> brise la rigidité rectangulaire traditionnelle tout en maintenant une lisibilité parfaite du contenu central.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide3" data-slide=3>
+<div class=content>
+<div class=fun-fact style=padding:10px>
+<h3>💡 Le Saviez-Vous?</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat!</p>
+<p><strong>Fait intéressant:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+</div>
+</div>
+</div>
+<div class="slide slide4" data-slide=4>
+<div class=content>
+<h2>✅ Avantages et Défis</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%">
+<div style="background:#e8f5e9;padding:20px;border-radius:8px;box-shadow:0 8px 20px rgba(46,139,87,.25),0 0 0 3px #3cb371;border:2px solid #3cb371">
+<h3 style=color:#2e8b57>Avantages ✨</h3>
+<ul style=text-align:left;padding-left:20px>
+<li>Lorem ipsum dolor</li>
+<li>Consectetur adipiscing</li>
+<li>Sed do eiusmod</li>
+</ul>
+</div>
+<div style="background:#f9f9f7;padding:20px;border-radius:8px;box-shadow:0 8px 20px rgba(91,156,119,.25),0 0 0 3px #5b9c77;border:2px solid #5b9c77">
+<h3 style=color:#5b9c77>Défis ⚠️</h3>
+<ul style=text-align:left;padding-left:20px>
+<li>Ut labore dolore</li>
+<li>Quis nostrud exercitation</li>
+<li>Duis aute irure</li>
+</ul>
+</div>
+</div>
+<div style="margin-top:22px;padding:10px;background:#f9f9f7;border:3px dashed #3cb371;border-radius:10px;width:100%">
+<h3 style="color:#2e8b57;margin:0 0 10px 0;font-size:clamp(1.2em, 4vw, 1.7em)">💫 Balance</h3>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.6;margin:0">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore.</p>
+</div>
+</div>
+</div>
+<div class="slide slide5" data-slide=5>
+<div class=content>
+<div style="background:#fff;border:3px solid #2e8b57;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.08);width:100%;padding:8px">
+<h3 style=color:#2e8b57;font-size:clamp(1.3em,4vw,1.9em);margin-bottom:14px>🌍 Perspectives Élargies</h3>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.8>Nam facilisis sapien vel orci vehicula, at <strong style=color:#2e8b57>accumsan magna luctus</strong>. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+<div style="background:#f9f9f7;border:5px groove #3cb371;border-radius:8px;margin-top:15px;padding:4px">
+<p style=font-size:clamp(14px,3.5vw,17px);color:#2a2a2a>💡 <strong style=color:#2e8b57>Idée clé:</strong> Ut enim ad minim veniam, quis nostrud <strong style=color:#2e8b57>exercitation ullamco</strong> laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide6" data-slide=6>
+<div class=content>
+<div class=emphasis-box style=padding:10px>
+<h2>⚡ Point Important</h2>
+<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud <strong>exercitation ullamco laboris</strong> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+</div>
+</div>
+</div>
+<div class="slide slide7" data-slide=7>
+<div class=content>
+<div class=case-study style=padding:10px>
+<h3>📖 Étude de Cas: Initiative Ipsum</h3>
+<p><strong>Situation:</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+<p><strong>Approche:</strong> Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+<p><strong>Implémentation:</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+<p><strong>Impact:</strong> Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+</div>
+</div>
+</div>
+<div class="slide slide8" data-slide=8>
+<div class=content>
+<h2>🔑 Concepts Clés</h2>
+<ul>
+<li><strong>Concept Alpha:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+<li><strong>Concept Beta:</strong> Sed do eiusmod tempor incididunt ut labore et dolore</li>
+<li><strong>Concept Gamma:</strong> Ut enim ad minim veniam quis nostrud exercitation</li>
+<li><strong>Concept Delta:</strong> Duis aute irure dolor in reprehenderit voluptate</li>
+<li><strong>Concept Epsilon:</strong> Excepteur sint occaecat cupidatat non proident</li>
+</ul>
+</div>
+</div>
+<div class="slide slide9" data-slide=9>
+<div class=content>
+<h2>📈 Graphique Analytique</h2>
+<div style="width:100%;max-width:700px;height:350px;border:3px solid #3cb371;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:clamp(18px, 4vw, 24px);color:#2e8b57;font-weight:600;margin:20px 0;box-shadow:0 4px 6px rgba(0,0,0,.1)">
+Graphique de Données
+</div>
+<p class=photo-caption>Ce graphique montre la progression de divers indicateurs au fil du temps.</p>
+</div>
+</div>
+<div class="slide slide10" data-slide=10>
+<div class=content>
+<div class=emphasis-box style=padding:10px>
+<h2>⚠️ Erreurs Courantes à Éviter</h2>
+<p><strong>Erreur Numéro Un:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p><strong>Erreur Numéro Deux:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p><strong>Erreur Numéro Trois:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+</div>
+</div>
+</div>
+<div class="slide slide11" data-slide=11>
+<div class=content>
+<div style="background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);width:100%;padding:8px">
+<div style=background:#2e8b57;color:#fff;text-transform:uppercase;letter-spacing:.8px;font-weight:700;font-size:clamp(1.7em,3.6vw,1.5em);padding:4px>
+🗔 Dépêche de Terrain
+</div>
+<div style=background:#fafaf8;padding:4px>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify>
+Les <strong style=color:#2e8b57>capteurs périphériques</strong> ont enregistré une élévation brusque du champ local. Les opérateurs confirment une anomalie d’intensité <strong style=color:#2e8b57>modérée</strong>, visible sur la bande nord-est.
+</p>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify>
+Les transmissions sont maintenues sous <strong style=color:#2e8b57>surveillance constante</strong>, tandis que l’équipe évalue la portée du phénomène. Un suivi <strong style=color:#2e8b57>continu</strong> est recommandé.
+</p>
+<p style=text-align:right;font-style:italic;color:#5b9c77;margin-top:6px>— Transmission : Station Orbite-4</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide12" data-slide=12>
+<div class=content>
+<h2>🔧 Détails Techniques</h2>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Spécification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter Alpha</td>
+<td>Lorem ipsum dolor</td>
+</tr>
+<tr>
+<td>Parameter Beta</td>
+<td>Consectetur adipiscing</td>
+</tr>
+<tr>
+<td>Parameter Gamma</td>
+<td>Sed do eiusmod</td>
+</tr>
+<tr>
+<td>Parameter Delta</td>
+<td>Tempor incididunt</td>
+</tr>
+<tr>
+<td>Parameter Epsilon</td>
+<td>Ut labore et dolore</td>
+</tr>
+</tbody>
+</table>
+<div style="margin-top:20px;width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.08);overflow:hidden">
+<div style="background:linear-gradient(90deg,#2e8b57 0,#3cb371 100%);padding:10px 14px;color:#fff">
+<strong style="font-size:clamp(14px, 3.5vw, 17px)">⚙️ Note technique</strong>
+</div>
+<div style=padding:10px>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.7;margin:0">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide13" data-slide=13>
+<div class=content>
+<div class=case-study style=padding:10px>
+<h3>📖 Étude de Cas: Projet Lorem</h3>
+<p><strong>Contexte:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p><strong>Défi:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p><strong>Solution:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<p><strong>Résultat:</strong> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+</div>
+</div>
+</div>
+<div class="slide slide14" data-slide=14>
+<div class=content>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;max-width:940px;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)">
+<div style=background:linear-gradient(165deg,#2e8b57,#3cb371);display:flex;flex-direction:column;justify-content:center;padding:10px>
+<h3 style="color:#fff;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:14px;text-shadow:0 2px 8px rgba(0,0,0,.2)">🌊 Flux Dynamique</h3>
+<p style=color:rgba(255,255,255,.95);font-size:clamp(15px,3.8vw,18px);line-height:1.8>Les systèmes observés révèlent une <strong style=color:#baf990>alternance</strong> régulière entre phases actives et phases de repos.</p>
+</div>
+<div style=background:#fff;display:flex;flex-direction:column;justify-content:center;padding:10px>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.8>Cette <strong style=color:#2e8b57>dualité</strong> s'exprime dans la modulation des intensités mesurées, suggérant une régulation naturelle sous-jacente.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.8;margin-top:12px>Les implications théoriques restent à <strong style=color:#2e8b57>explorer</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide15" data-slide=15>
+<div class=content>
+<div class=quote-box>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+<div class=quote-author>— Dr. Placeholder Nome</div>
+</div>
+<div style="margin-top:20px;width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.12);overflow:hidden">
+<div style="background:linear-gradient(90deg,#2e8b57 0,#3cb371 100%);padding:10px 14px;color:#fff;display:flex;align-items:center;gap:10px">
+<span style=font-size:1.1em>🧭</span>
+<strong style="font-size:clamp(14px, 3.5vw, 18px)">Contexte</strong>
+</div>
+<div style=padding:16px>
+<p style="font-size:clamp(15px, 3.8vw, 18px);color:#2a2a2a;line-height:1.7;margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide16" data-slide=16>
+<div class=content>
+<div style="background:#f8fdf9;border-left:6px solid #2e8b57;border-radius:0 10px 10px 0;box-shadow:0 4px 16px rgba(0,0,0,.08);width:100%;padding:8px">
+<h3 style=color:#2e8b57;font-weight:800;text-transform:uppercase;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:10px>📔 Journal de Bord</h3>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify>
+07 h 15 — Les premières <strong style=color:#2e8b57>analyses</strong> indiquent une chute de pression inattendue. L’équipe reste sur le terrain malgré les conditions
+<strong style=color:#2e8b57>instables</strong>. Les transmissions sont sporadiques, mais la coordination demeure <strong style=color:#2e8b57>fluide</strong>.
+</p>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify>
+L’atmosphère garde une teinte <strong style=color:#2e8b57>gris-vert</strong> inhabituelle ; la lumière semble se plier différemment. Nous enregistrons <strong style=color:#2e8b57>tout</strong>.
+</p>
+<p style=text-align:right;font-style:italic;color:#5b9c77;margin-top:6px>— Entrée du 21 mai, Observateur #04</p>
+</div>
+</div>
+</div>
+<div class="slide slide17" data-slide=17>
+<div class=content>
+<div class=emphasis-box style=padding:10px>
+<h2>🔍 Analyse Comparative</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Quis nostrud exercitation</strong> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <strong>Excepteur sint occaecat</strong> cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+</div>
+</div>
+</div>
+<div class="slide slide18" data-slide=18>
+<div class=content>
+<div style="max-width:900px;margin:auto;background:#fafaf8;padding:0;border-top:10px inset #2e8b57;border-right:10px outset #3cb371;border-bottom:10px inset #2e8b57;border-left:10px outset #3cb371;border-radius:6px;box-shadow:0 15px 40px rgba(0,0,0,.15)">
+<div style=padding:10px;background:#fff;border-radius:2px>
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>🔲 Contraste Inset/Outset</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Les bordures <strong style=color:#2e8b57>inset</strong> (enfoncées) alternent avec les bordures <strong style=color:#2e8b57>outset</strong> (saillantes), générant un jeu d'ombres et de lumières qui défie la planéité de l'écran.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Cet effet de <strong style=color:#2e8b57>biseautage croisé</strong> rappelle les interfaces logicielles des années 90 revisitées avec une palette contemporaine apaisante.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide19" data-slide=19>
+<div class=content>
+<h2 style=margin-bottom:0>Photo illustrative</h2>
+<div style="width:100%;max-width:600px;height:400px;border:3px solid #3cb371;border-radius:8px;background:linear-gradient(135deg,#e8f5e9 0,#f0fdf4 100%);display:flex;align-items:center;justify-content:center;font-size:clamp(18px, 4vw, 24px);color:#2e8b57;font-weight:600;margin:10px 0 20px 0">
+Photo
+</div>
+<p> <i>Légende de la photo.</i></p>
+</div>
+</div>
+<div class="slide slide20" data-slide=20>
+<div class=content>
+<div style="position:relative;width:100%;max-width:980px;background:linear-gradient(180deg,#32750b,#52aa00);border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:10px">
+<div style="background:#fff9e6;border:1px solid rgba(0,0,0,.04);border-radius:6px;box-shadow:0 8px 18px rgba(0,0,0,.06);padding:4px">
+<h3 style=color:#2e8b57;font-size:clamp(1.35em,4vw,1.8em);margin-bottom:8px>🗒️ Bulletin — Tableau de Terrain</h3>
+<p style=font-size:clamp(14px,3.6vw,17px);line-height:1.75;text-align:justify;color:#2a2a2a>
+Un grand panneau avec éléments collés en <strong style=color:#2e8b57>superposition</strong> : la note principale est claire, et de petites « notes » indiquent des <strong style=color:#2e8b57>alertes</strong> ou des points d’action.
+</p>
+<p style=font-size:clamp(14px,3.6vw,17px);line-height:1.75;text-align:justify;color:#2a2a2a>
+Ce format favorise la <strong style=color:#2e8b57>clarté visuelle</strong> et aide à la <strong style=color:#2e8b57>priorisation</strong> rapide des informations critiques.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide21" data-slide=21>
+<div class=content>
+<h2>⚙️ Processus</h2>
+<div style="width:100%;max-width:650px;height:380px;border:3px solid #5b9c77;border-radius:8px;background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%);display:flex;align-items:center;justify-content:center;font-size:clamp(18px, 4vw, 24px);color:#2e8b57;font-weight:600;margin:20px 0">
+Schéma du Processus
+</div>
+<p class=photo-caption>Visualisation du processus complet du début à la fin. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+</div>
+</div>
+<div class="slide slide22" data-slide=22>
+<div class=content>
+<h2>💎 Meilleures Pratiques</h2>
+<ul>
+<li><strong>Pratique Alpha:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit sed do</li>
+<li><strong>Pratique Beta:</strong> Ut enim ad minim veniam quis nostrud exercitation ullamco</li>
+<li><strong>Pratique Gamma:</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse</li>
+<li><strong>Pratique Delta:</strong> Excepteur sint occaecat cupidatat non proident sunt in culpa</li>
+<li><strong>Pratique Epsilon:</strong> Sed ut perspiciatis unde omnis iste natus error sit</li>
+</ul>
+<div style="margin-top:0;padding:10px;background:#fff;border-left:4px solid #5b9c77;border-radius:6px;width:100%;box-shadow:0 2px 6px rgba(91,156,119,.15)">
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.6;margin:0"><strong style=color:#2e8b57>⭐ Essence:</strong> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
+</div>
+</div>
+</div>
+<div class="slide slide23" data-slide=23>
+<div class=content>
+<div style=position:relative;max-width:900px;margin:auto>
+<svg style=position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;z-index:0;opacity:.06 viewBox="0 0 200 200">
+<circle cx=100 cy=100 r=95 fill=none stroke=#2E8B57 stroke-width=1.5 />
+<circle cx=100 cy=100 r=75 fill=none stroke=#3CB371 stroke-width=1 />
+<circle cx=100 cy=100 r=55 fill=none stroke=#2E8B57 stroke-width=0.8 />
+<circle cx=100 cy=100 r=35 fill=none stroke=#3CB371 stroke-width=0.6 />
+</svg>
+<div style="position:relative;background:linear-gradient(145deg,#fff 0,#f8fdf9 100%);border-radius:50%;width:420px;height:420px;margin:0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(46,139,87,.12),0 0 0 16px rgba(46,139,87,.06),0 16px 45px rgba(0,0,0,.12)">
+<div style="padding:48px 42px;text-align:center">
+<h3 style=color:#2e8b57;font-size:clamp(1.35em,3.8vw,1.8em);margin-bottom:18px>🌐 Orbites Concentriques</h3>
+<p style=color:#2a2a2a;font-size:clamp(14px,3.5vw,17px);line-height:1.75;text-align:center>Des <strong style=color:#2e8b57>cercles imbriqués</strong> évoquent les trajectoires planétaires ou les ondes de propagation. Le texte au centre représente le noyau d'information, tandis que les anneaux suggèrent son <strong style=color:#2e8b57>rayonnement progressif</strong> vers l'extérieur.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide24" data-slide=24>
+<div class=content>
+<h2>Rayons contrastés</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <strong>Excepteur sint occaecat</strong> cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+</div>
+</div>
+<div class="slide slide25" data-slide=25>
+<div class=content>
+<div style="background:#fff;border:4px solid #49b402;border-radius:12px;box-shadow:0 6px 20px rgba(46,139,87,.15);width:100%;padding:8px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4.2vw,1.9em);margin-bottom:18px>🌱 Contexte Général</h3>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8>
+Le développement des approches <strong style=color:#2e8b57>contemporaines</strong> repose sur une compréhension approfondie des interactions entre les différents systèmes impliqués. Cette <strong style=color:#2e8b57>vision intégrée</strong> favorise la création de modèles plus précis et plus représentatifs de la réalité observée.
+</p>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8>
+Dans ce contexte, il devient essentiel d’adopter une <strong style=color:#2e8b57>méthodologie flexible</strong>, capable de s’adapter aux conditions changeantes tout en maintenant une rigueur <strong style=color:#2e8b57>scientifique</strong> et analytique solide.
+</p>
+</div>
+</div>
+</div>
+<div class="slide slide26" data-slide=26>
+<div class=content>
+<div style=position:relative;max-width:880px;margin:auto;padding:10px>
+<svg style=position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:180px;height:180px;opacity:.12;z-index:0 viewBox="0 0 100 100">
+<polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill=#2E8B57 />
+</svg>
+<svg style=position:absolute;bottom:-50px;right:-30px;width:140px;height:140px;opacity:.08;z-index:0 viewBox="0 0 100 100">
+<polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill=#3CB371 />
+</svg>
+<div style="position:relative;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:3px solid rgba(46,139,87,.3);border-radius:16px;box-shadow:0 12px 40px rgba(46,139,87,.18);padding:10px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px;text-align:center>⬡ Structure Hexagonale</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Des formes <strong style=color:#2e8b57>géométriques pures</strong> flottent en arrière-plan, évoquant la cristallisation et l'organisation moléculaire. Le contenu principal reste parfaitement lisible grâce à une surface translucide légèrement floutée.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Cette composition suggère la <strong style=color:#2e8b57>complexité sous-jacente</strong> des systèmes naturels tout en maintenant une clarté de présentation optimale.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide27" data-slide=27>
+<div class=content>
+<h2>📋 Tableau Comparatif</h2>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Valeur Alpha</th>
+<th>Valeur Beta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item Primus</td>
+<td>Lorem ipsum</td>
+<td>Dolor sit</td>
+</tr>
+<tr>
+<td>Item Secundus</td>
+<td>Consectetur</td>
+<td>Adipiscing</td>
+</tr>
+<tr>
+<td>Item Tertius</td>
+<td>Sed eiusmod</td>
+<td>Tempor incididunt</td>
+</tr>
+<tr>
+<td>Item Quartus</td>
+<td>Ut labore</td>
+<td>Dolore magna</td>
+</tr>
+</tbody>
+</table>
+<div style="background:#2e8b57;border-left:5px solid #baf990;border-radius:8px;padding:20px;margin-top:20px;width:100%;box-shadow:0 4px 12px rgba(46,139,87,.35)">
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#fff"><strong style=color:#baf990>Observation:</strong> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur adipisci velit.</p>
+</div>
+</div>
+</div>
+<div class="slide slide28" data-slide=28>
+<div class=content>
+<div style=width:100%;position:relative;display:flex;justify-content:flex-start;align-items:flex-start;padding:8px>
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,#f7f9f6 0,#eef6ec 100%)"></div>
+<div style="position:absolute;left:-20%;top:20%;width:140%;height:36%;transform:rotate(-6deg);background:linear-gradient(90deg,#3cb371 0,#2e8b57 100%);box-shadow:0 12px 30px rgba(46,139,87,.12);clip-path:polygon(0 15%,100% 0,100% 85%,0% 100%)"></div>
+<div style="position:relative;width:100%;max-width:980px;background:rgba(255,255,255,.98);border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.08);padding:4px">
+<h3 style=font-family:Nunito,sans-serif;color:#214f3f;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:10px>🧾 Ruban Diagonal</h3>
+<p style=font-family:Nunito,sans-serif;color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.8;text-align:justify>
+Cette mise en page utilise une <strong style=color:#2e8b57>bande diagonale</strong> en arrière-plan pour signaler un <strong style=color:#2e8b57>élément important</strong> — le texte reste sur une carte claire et lisible au premier plan.
+</p>
+<p style=font-family:Nunito,sans-serif;color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.8;text-align:justify>
+L’ensemble crée un effet <strong style=color:#2e8b57>dynamique</strong> et professionnel, parfait pour mettre en avant des <strong style=color:#2e8b57>informations clés</strong>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide29" data-slide=29>
+<div class=content>
+<div class=fun-fact style=padding:10px>
+<h3>🌟 Fait Fascinant</h3>
+<p><strong>Nemo enim ipsam</strong> voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur <strong>magni dolores eos</strong> qui ratione voluptatem sequi nesciunt.</p>
+<p><strong>Remarquable:</strong> Neque porro quisquam est, qui dolorem ipsum quia <strong>dolor sit amet</strong>, consectetur, adipisci velit, sed quia non numquam eius modi <strong>tempora incidunt</strong> ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+<div style="margin:20px 0;padding:8px;background:#f9f9f7;border-right:5px solid #2e8b57;border-radius:4px">
+<p style=font-family:Nunito,sans-serif;font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.8;margin:0;text-align:justify>
+<strong style=color:#2e8b57;font-size:clamp(15px,3.8vw,18px)>Point clé:</strong> Similique sunt in culpa qui officia deserunt mollitia animi.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide30" data-slide=30>
+<div class=content>
+<div style="max-width:900px;margin:auto;position:relative;background:#fff;padding:10px;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12)">
+<div style="position:absolute;top:0;left:0;right:50%;bottom:50%;border-top:6px solid #2e8b57;border-left:6px solid #2e8b57;border-top-left-radius:12px"></div>
+<div style="position:absolute;top:50%;left:50%;right:0;bottom:0;border-bottom:6px solid #3cb371;border-right:6px solid #3cb371;border-bottom-right-radius:12px"></div>
+<div style=padding:10px;position:relative>
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>⚡ Division Diagonale</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Les bordures se divisent selon une <strong style=color:#2e8b57>diagonale invisible</strong> : le coin supérieur gauche et inférieur droit portent des couleurs et épaisseurs différentes, créant un mouvement dynamique du regard.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Cette composition évoque la <strong style=color:#2e8b57>dualité</strong>, le passage d'un état à un autre, ou encore la complémentarité de forces opposées en équilibre.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide31" data-slide=31>
+<div class=content>
+<div style="background:#fff;color:#2a2a2a;border-radius:10px;padding:10px;margin-top:20px;width:100%;border:1px solid rgba(0,0,0,.08);box-shadow:0 6px 16px rgba(0,0,0,.08)">
+<div style="border-bottom:2px solid rgba(46,139,87,.25);padding-bottom:12px;margin-bottom:12px">
+<h3 style=color:#2e8b57;margin-bottom:0;font-size:clamp(1.15em,3.8vw,1.6em);letter-spacing:.5px;text-transform:none>🎯 Application</h3>
+</div>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.7>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+<p style=font-size:clamp(15px,3.8vw,18px);line-height:1.7>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+<div style="background:#f0fdf4;border:2px solid #5b9c77;border-radius:8px;padding:8px;margin-top:15px;width:100%">
+<h3 style=color:#2e8b57;margin-bottom:10px;font-size:clamp(1.1em,3.8vw,1.6em)>📌 Note Complémentaire</h3>
+<p style=font-size:clamp(14px,3.5vw,17px)>Doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide32" data-slide=32>
+<div class=content>
+<div style=position:relative;width:100%;max-width:940px;margin:auto;padding:10px>
+<div style="position:absolute;inset:0;transform:rotate(-2deg);background:#f5fdf5;border:1px solid rgba(0,0,0,.05);border-radius:10px"></div>
+<div style="position:absolute;inset:0;transform:rotate(2deg);background:#eef9ef;border:1px solid rgba(0,0,0,.04);border-radius:10px"></div>
+<div style="position:relative;background:#fff;border-radius:10px;box-shadow:0 8px 26px rgba(0,0,0,.1);padding:10px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:12px>📑 Archive Stack</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.9;text-align:justify>
+Trois couches légèrement <strong style=color:#2e8b57>décalées</strong> créent l’illusion de feuilles superposées. Cette structure évoque la <strong style=color:#2e8b57>mémoire</strong> et la continuité du travail scientifique.
+</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.9;text-align:justify>
+Une mise en page idéale pour représenter des <strong style=color:#2e8b57>archives</strong>, des rapports successifs ou des journaux de mission.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide33" data-slide=33>
+<div class=content>
+<h2>🌐 Vue d'Ensemble de l'Écosystème</h2>
+<div style="width:100%;max-width:620px;height:400px;border:3px solid #3cb371;border-radius:8px;background:linear-gradient(135deg,#e8f5e9 0,#f0fdf4 100%);display:flex;align-items:center;justify-content:center;font-size:clamp(18px, 4vw, 24px);color:#2e8b57;font-weight:600;margin:15px 0">
+Écosystème Complet
+</div>
+<p class=photo-caption>Représentation complète des différents composants et leurs interactions</p>
+</div>
+</div>
+<div class="slide slide34" data-slide=34>
+<div class=content>
+<div style="position:relative;max-width:880px;margin:auto;background:#fff;border-radius:4px;box-shadow:0 10px 35px rgba(0,0,0,.15),inset 0 0 0 1px rgba(0,0,0,.06);padding:8px">
+<div style="position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 80px 80px 0;border-color:transparent #2e8b57 transparent transparent"></div>
+<div style="position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 80px 80px 0;border-color:transparent transparent transparent #e8f5e9;transform:translate(-1px,-1px)"></div>
+<div style=position:relative;padding:4px>
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>📋 Mémo Coin Plié</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Le coin supérieur droit se replie sur lui-même, créant l'illusion d'une <strong style=color:#2e8b57>page cornée</strong>. Ce détail tactile renforce l'aspect documentaire et confère une authenticité matérielle à l'information présentée.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Comme un document d'archive <strong style=color:#2e8b57>marqué pour référence</strong>, cette mise en page signale l'importance du contenu et invite à une attention particulière.</p>
+<p style=color:#5b9c77;font-size:clamp(13px,3.2vw,16px);margin-top:16px;font-style:italic;text-align:right;padding-right:100px>— Note marginale conservée</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide35" data-slide=35>
+<div class=content>
+<h2>🧠 Cadre Théorique</h2>
+<p>Duis aute irure dolor in <strong>reprehenderit in voluptate</strong> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+<div style="background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%);border:2px solid #3cb371;border-radius:8px;padding:20px;margin-top:20px;width:100%;box-shadow:0 2px 8px rgba(46,139,87,.12)">
+<h3 style="color:#2e8b57;margin-bottom:10px;font-size:clamp(1.1em, 3.8vw, 1.6em)">⚡ Insight Théorique</h3>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
+</div>
+</div>
+</div>
+<div class="slide slide36" data-slide=36>
+<div class=content>
+<div style="max-width:900px;margin:auto;background:#fff;padding:10px;border-left:18px solid #2e8b57;border-top:1px solid rgba(46,139,87,.2);border-right:1px solid rgba(46,139,87,.2);border-bottom:1px solid rgba(46,139,87,.2);border-top-right-radius:12px;border-bottom-right-radius:12px;outline:3px dashed #3CB371;outline-offset:6px;box-shadow:0 8px 24px rgba(0,0,0,.1)">
+<div style=padding:10px>
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>📍 Accent Gauche Massif</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Une <strong style=color:#2e8b57>barre verticale épaisse</strong> à gauche attire immédiatement l'œil, tandis qu'un outline pointillé externe crée une zone tampon aérée. Les bordures fines sur trois côtés complètent discrètement l'encadrement.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Cette configuration est idéale pour signaler des <strong style=color:#2e8b57>citations importantes</strong> ou des sections nécessitant une attention prioritaire.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide37" data-slide=37>
+<div class=content>
+<div style="background:#fcfbf7;border:1px solid #d6d1c4;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08),inset 0 0 120px rgba(235,230,210,.4);width:100%;padding:10px">
+<h3 style=color:#2e8b57;font-family:Nunito,sans-serif;font-size:clamp(1.4em,4.2vw,2em);margin-bottom:18px;text-transform:uppercase;letter-spacing:1px>🗞️ Chronique</h3>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.85;text-align:justify>
+Dans les premières heures du matin, un calme <strong style=color:#2e8b57>inhabituel</strong> règne sur les structures observées. Les signaux recueillis révèlent un schéma <strong style=color:#2e8b57>cyclique</strong> d’une remarquable précision. Les chercheurs notent une corrélation directe entre la stabilité des flux et la <strong style=color:#2e8b57>température ambiante</strong>.
+</p>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.85;text-align:justify>
+« Ce type de régularité, bien qu’attendu dans certains environnements, surprend par son <strong style=color:#2e8b57>amplitude</strong> », commente un analyste. Cette chronique met en lumière la <strong style=color:#2e8b57>fragilité</strong> et la beauté d’un système oscillant entre équilibre et déséquilibre.
+</p>
+<p style=text-align:right;font-style:italic;color:#5b9c77;margin-top:16px>— Extrait de la Revue d’Observation Terrienne</p>
+</div>
+</div>
+</div>
+<div class="slide slide38" data-slide=38>
+<div class=content>
+<div style=max-width:920px;margin:auto;position:relative;padding:10px>
+<div style=background:#2e8b57;height:100px;width:100%;position:absolute;top:0;left:0></div>
+<div style="background:#fff;margin-top:65px;border-radius:0;box-shadow:0 -8px 0 0 #fff,0 -8px 20px rgba(0,0,0,.15);position:relative;clip-path:polygon(0 0,5% 3%,10% 1%,15% 4%,20% 2%,25% 5%,30% 2%,35% 4%,40% 1%,45% 3%,50% 2%,55% 4%,60% 1%,65% 3%,70% 2%,75% 5%,80% 2%,85% 4%,90% 1%,95% 3%,100% 0,100% 100%,0 100%);padding:10px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px;margin-top:8px>📄 Effet Papier Déchiré</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Le bord supérieur <strong style=color:#2e8b57>irrégulier</strong> simule une feuille arrachée d'un bloc-notes. Cette texture organique contraste avec la rigueur scientifique du contenu, humanisant la présentation.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>L'approche rappelle les carnets de terrain et les <strong style=color:#2e8b57>notes manuscrites</strong> des premiers naturalistes, créant un lien entre tradition et modernité.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide39" data-slide=39>
+<div class=content>
+<h2 style=margin-bottom:0>🛠️ Ressources et Outils</h2>
+<table style="box-shadow:0 6px 20px rgba(46,139,87,.25);border:2px solid #2e8b57">
+<thead>
+<tr>
+<th>Outil</th>
+<th>Utilisation</th>
+<th>Niveau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tool Alpha</td>
+<td>Lorem ipsum dolor</td>
+<td>Débutant</td>
+</tr>
+<tr>
+<td>Tool Beta</td>
+<td>Consectetur adipiscing</td>
+<td>Intermédiaire</td>
+</tr>
+<tr>
+<td>Tool Gamma</td>
+<td>Sed do eiusmod</td>
+<td>Avancé</td>
+</tr>
+<tr>
+<td>Tool Delta</td>
+<td>Tempor incididunt</td>
+<td>Expert</td>
+</tr>
+</tbody>
+</table>
+<div style=margin-top:0;padding:3px;background:linear-gradient(135deg,#2e8b57,#3cb371);border-radius:8px;width:100%>
+<div style=background:#fff;border-radius:5px;padding:16px>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.6;margin:0"><strong style=color:#2e8b57>🔑 Recommandation:</strong> Similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide40" data-slide=40>
+<div class=content>
+<div class=quote-box>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+<div class=quote-author>— Prof. Exempli Gratia</div>
+</div>
+<div style="background:#f9f9f7;color:#2a2a2a;border-radius:8px;padding:10px;margin-top:20px;width:100%;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 8px rgba(0,0,0,.06)">
+<h3 style="color:#2e8b57;margin-bottom:10px;font-size:clamp(1.05em, 3.6vw, 1.5em)">💬 Réflexion</h3>
+<p style="font-size:clamp(15px, 3.8vw, 18px);line-height:1.7">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia <strong style=color:#2e8b57>consequuntur magni dolores eos</strong> qui ratione.</p>
+</div>
+</div>
+</div>
+<div class="slide slide41" data-slide=41>
+<div class=content>
+<div style="max-width:900px;margin:auto;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,rgba(245,255,245,.65),rgba(235,250,235,.7));backdrop-filter:blur(12px);border:1px solid rgba(60,179,113,.25);box-shadow:0 8px 26px rgba(0,0,0,.1);padding:8px">
+<div style=background:linear-gradient(90deg,#3cb371,#2e8b57);color:#fff;font-size:clamp(1.2em,3.6vw,1.6em);font-weight:700;text-transform:uppercase;padding:4px>
+📗 Rapport Synthétique
+</div>
+<div style=font-family:Nunito,sans-serif;color:#222;font-size:clamp(15px,3.8vw,18px);line-height:1.8;padding:4px>
+<p style=text-align:justify>Les dernières <strong style=color:#2e8b57>mesures</strong> indiquent un léger renforcement du champ local. La courbe reste <strong style=color:#2e8b57>régulière</strong>, confirmant la stabilité du système observé.</p>
+<p style=text-align:justify>Cette tendance met en évidence la <strong style=color:#2e8b57>résilience</strong> du modèle sous observation, malgré de légères fluctuations environnementales.</p>
+<p style=text-align:justify>Les opérateurs recommandent une <strong style=color:#2e8b57>veille continue</strong> et une réévaluation des seuils de sécurité dans les prochaines 48 heures.</p>
+<p style=text-align:right;color:#2e8b57;font-style:italic>— Note interne, Station Méridienne</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide42" data-slide=42>
+<div class=content>
+<h2>🔬 Méthodologie</h2>
+<ol>
+<li><strong>Étape Première:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+<li><strong>Étape Deuxième:</strong> Sed do eiusmod tempor incididunt ut labore</li>
+<li><strong>Étape Troisième:</strong> Ut enim ad minim veniam quis nostrud</li>
+<li><strong>Étape Quatrième:</strong> Duis aute irure dolor in reprehenderit</li>
+<li><strong>Étape Cinquième:</strong> Excepteur sint occaecat cupidatat</li>
+</ol>
+<div style="background:#f9f9f7;border:2px solid #3cb371;border-radius:8px;padding:20px;margin-top:20px;width:100%">
+<p style="font-size:clamp(15px, 3.8vw, 18px);color:#3a3a3a;line-height:1.6"><strong style=color:#2e8b57>💡 Conseil:</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+</div>
+</div>
+</div>
+<div class="slide slide43" data-slide=43>
+<div class=content>
+<div style="max-width:900px;margin:auto;background:linear-gradient(90deg,#e8f5e9,#f0fdf4);padding:10px;border-top:0 hidden;border-right:16px solid #2e8b57;border-bottom:0 hidden;border-left:16px solid #3cb371;border-radius:8px;box-shadow:0 0 0 2px rgba(46,139,87,.15),0 10px 30px rgba(0,0,0,.1)">
+<div style=padding:10px;background:rgba(255,255,255,.9);border-radius:4px>
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>🚪 Portail Latéral</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Les bordures <strong style=color:#2e8b57>horizontales disparaissent</strong> complètement (hidden) tandis que les côtés verticaux s'affirment avec vigueur. Cette configuration crée l'illusion de colonnes ou de montants de porte encadrant le contenu.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>L'œil traverse naturellement l'espace horizontalement, guidé par les <strong style=color:#2e8b57>piliers visuels</strong> qui soutiennent la structure informationnelle.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide44" data-slide=44>
+<div class=content>
+<h2>🔮 Tendances Futures</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <strong style=color:#2e8b57>labore</strong> et dolore magna aliqua. Quis nostrud <strong style=color:#2e8b57>exercitation</strong> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in <strong style=color:#2e8b57>voluptate</strong> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <strong style=color:#2e8b57>occaecat cupidatat</strong> non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit <strong style=color:#2e8b57>voluptatem accusantium</strong> doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
+</div>
+</div>
+<div class="slide slide45" data-slide=45>
+<div class=content>
+<div style="position:relative;max-width:940px;margin:auto;border-radius:12px;background:rgba(209,255,209,.6);backdrop-filter:blur(14px);border:1px solid rgba(46,139,87,.25);box-shadow:0 8px 28px rgba(0,0,0,.08);padding:8px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:12px>🔍 Observation Window</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.9;text-align:justify>
+Le texte flotte sur une <strong style=color:#2e8b57>vitre translucide</strong> au-dessus d’un fond flouté. Cet effet évoque la <strong style=color:#2e8b57>précision</strong> et la clarté de l’observation scientifique.
+</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.9;text-align:justify>
+La composition met en valeur la transparence et la profondeur, donnant un rendu <strong style=color:#2e8b57>aérien</strong> tout en restant lisible.
+</p>
+</div>
+</div>
+</div>
+<div class="slide slide46" data-slide=46>
+<div class=content>
+<h2>🎯 Applications Pratiques</h2>
+<ul>
+<li><strong>Application Alpha:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</li>
+<li><strong>Application Beta:</strong> Ut enim ad minim veniam quis nostrud exercitation ullamco</li>
+<li><strong>Application Gamma:</strong> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+<li><strong>Application Delta:</strong> Excepteur sint occaecat cupidatat non proident sunt</li>
+</ul>
+<div style="background:#fff;border:2px dashed #3cb371;border-radius:8px;padding:10px;margin-top:20px;width:100%;box-shadow:0 1px 3px rgba(60,179,113,.08)">
+<h3 style="color:#2e8b57;margin-bottom:8px;font-size:clamp(1.1em, 3.8vw, 1.5em)">✨ Exemple Pratique</h3>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#3a3a3a;margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
+</div>
+</div>
+</div>
+<div class="slide slide47" data-slide=47>
+<div class=content>
+<div style="max-width:900px;margin:auto;background:#fff;padding:10px;border-top:12px double #2e8b57;border-right:3px solid #3cb371;border-bottom:12px double #2e8b57;border-left:3px solid #3cb371;border-radius:8px;box-shadow:0 8px 25px rgba(0,0,0,.12)">
+<div style="padding:10px;border:1px dashed rgba(46,139,87,.3);border-radius:4px">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px>⚖️ Bordures Doubles Asymétriques</h3>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify>Les bordures <strong style=color:#2e8b57>horizontales épaisses</strong> en double ligne contrastent avec les fines lignes verticales, créant une hiérarchie directionnelle. L'intérieur pointillé ajoute une troisième <strong style=color:#2e8b57>couche de profondeur</strong>.</p>
+<p style=color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px>Cette structure suggère la <strong style=color:#2e8b57>stabilité verticale</strong> tout en permettant un mouvement latéral fluide, comme un cadre architectural supportant des flux horizontaux.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide48" data-slide=48>
+<div class=content>
+<h2>🚀 Étapes de Mise en Œuvre</h2>
+<ol>
+<li><strong>Phase Initiale:</strong> Lorem ipsum dolor sit amet consectetur adipiscing elit sed</li>
+<li><strong>Phase de Développement:</strong> Ut enim ad minim veniam quis nostrud exercitation</li>
+<li><strong>Phase de Test:</strong> Duis aute irure dolor in reprehenderit voluptate velit</li>
+<li><strong>Phase de Déploiement:</strong> Excepteur sint occaecat cupidatat non proident</li>
+<li><strong>Phase d'Évaluation:</strong> Sed ut perspiciatis unde omnis iste natus error</li>
+</ol>
+<div style="margin-top:-16px;padding:0;border:4px double #3cb371;border-radius:12px;background:#fff;width:100%;overflow:hidden">
+<div style="background:linear-gradient(90deg,#2e8b57 0,#3cb371 100%);padding:12px;text-align:center">
+<strong style="color:#fff;font-size:clamp(15px, 3.8vw, 18px)">🎯 Principe Directeur</strong>
+</div>
+<div style=padding:10px>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.6;margin:0">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide49" data-slide=49>
+<div class=content>
+<div style="max-width:800px;margin:auto;padding:4px;background:rgba(46,139,87,.35);border:1px solid rgba(255,255,255,.25);border-radius:10px;backdrop-filter:blur(8px) saturate(160%);box-shadow:0 6px 18px rgba(46,139,87,.2)">
+<div style="padding:4px;background:rgba(255,255,255,.25);border:1px dashed rgba(255,255,255,.45);border-radius:8px;backdrop-filter:blur(5px)">
+<div style="padding:8px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.35);border-radius:6px;backdrop-filter:blur(4px)">
+<h3 style=color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:10px>🎭 Trois Enceintes</h3>
+<p style=color:#1f1f1f;font-size:clamp(15px,3.8vw,18px);line-height:1.7;text-align:justify>Trois niveaux de <strong style=color:#2e8b57>verre imbriqués</strong> créent une profondeur élégante et subtile.</p>
+<p style=color:#1f1f1f;font-size:clamp(15px,3.8vw,18px);line-height:1.7;text-align:justify;margin-top:10px>Ces <strong style=color:#2e8b57>strates translucides</strong> protègent l’information tout en lui conférant une aura raffinée.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide slide50" data-slide=50>
+<div class=content>
+<div style="background:linear-gradient(145deg,#e8f5e9,#f0fdf4);border:2px dashed #2e8b57;border-radius:12px;width:100%;box-shadow:0 4px 12px rgba(0,0,0,.1);padding:8px">
+<h3 style=font-size:clamp(1.4em,4.5vw,2em);color:#2e8b57;margin-bottom:16px>🎓 Réflexion</h3>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8>Aliquam erat volutpat. Praesent vitae orci ac sapien <strong style=color:#2e8b57>porta consequat</strong>. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+<p style=font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <strong style=color:#2e8b57>Fin de la présentation</strong>.</p>
+</div>
+</div>
+</div>
+<div class="slide slide51" data-slide=51>
+<div class=content style=position:relative;z-index:1;padding-right:15px!important>
+<div style="position:relative;width:100%;max-width:980px;margin:20px auto 20px 20px;margin-right:20px!important;background:#fff;border-radius:6px;box-shadow:0 12px 25px rgba(0,0,0,.15);padding:10px 30px 10px 30px;background-image:repeating-linear-gradient(#fff 0,#fff 22px,#d0e3ff 23px);background-size:100% 24px;background-repeat:repeat-y;overflow:hidden">
+<div style=position:absolute;top:0;left:20px;width:2px;height:100%;background:#ff5b5b;opacity:.9></div>
+<div style="position:absolute;top:0;left:5px;width:10px;height:100%;background:repeating-radial-gradient(circle at center top,#d9d9d9 0 2px,transparent 3px);background-size:10px 100px"></div>
+<h3 style=color:#2e8b57;font-size:clamp(1.35em,4vw,1.8em);margin-bottom:8px>
+📗 Feuille de Cahier — Observations de Terrain
+</h3>
+<p style=font-size:clamp(14px,3.6vw,17px);line-height:1.8;text-align:justify;color:#2a2a2a;margin:0>
+Cette diapositive reproduit une <strong style=color:#2e8b57>vraie feuille de cahier</strong> : lignes bleues, marge rouge bien visible et perforations répétées sur toute la hauteur.
+</p>
+<p style=font-size:clamp(14px,3.6vw,17px);line-height:1.8;text-align:justify;color:#2a2a2a;margin-top:10px>
+Peu importe la longueur du texte, les <strong style=color:#2e8b57>trous de reliure</strong>
+s’ajustent à la hauteur du contenu — comme une feuille d’école réaliste.
+</p>
+</div>
+</div>
+</div>
+<div class="slide slide52" data-slide=52>
+<div class=content style=display:flex;justify-content:center;align-items:center;flex-direction:column>
+<div style="background:#fff;border-radius:12px;padding:30px;width:100%;max-width:800px;box-shadow:0 8px 24px rgba(0,0,0,.12);border:3px solid #2e8b57;text-align:center!important">
+<div style="border-bottom:4px double #2e8b57;padding-bottom:15px;margin-bottom:20px">
+<h3 style="font-family:Nunito,sans-serif;font-size:clamp(1.3em, 4.2vw, 1.9em);color:#2e8b57;margin:0;letter-spacing:2px;text-transform:uppercase;text-align:center!important">Conclusion</h3>
+</div>
+<p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin-bottom:15px;text-align:center!important">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+<p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin:0;text-align:center!important">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+</div>
+</div>
+</div>
+<div class="slide slide53 summary-slide" data-slide=53>
+<div class=content style="box-shadow:0 4px 12px rgba(0,0,0,.08);transform:translateZ(0)">
+<h2 style="font-size:clamp(1.4em, 4.8vw, 2.2em);margin-bottom:0;color:#fff">📝 Points Essentiels</h2>
+<div style="background:rgba(255,255,255,.08);padding:20px;margin:20px 0;border-radius:8px;color:#fff;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.25)">
+<strong style=color:#baf990;font-size:1.1em>Point 1 :</strong> Ceci est un résumé du premier point présenté précédemment.<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style=color:#baf990;font-size:1.1em>Point 2 :</strong> Ceci est un résumé du deuxième point, qui reprend les idées principales évoquées plus haut.<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style=color:#baf990;font-size:1.1em>Point 3 :</strong> Ceci est un résumé du troisième point, destiné à rappeler l’essentiel du développement correspondant.<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style=color:#baf990;font-size:1.1em>Point 4 :</strong> Ceci est un résumé du quatrième point, qui synthétise les arguments ou exemples discutés.<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style=color:#baf990;font-size:1.1em>Point 5 :</strong> Ceci est un résumé du cinquième et dernier point, concluant la série d’idées exposées.
+</div>
+</div>
+</div>
+<div class="slide slide54 further-reading" data-slide=54>
+<div class=content style="background:0 0;box-shadow:0 4px 12px rgba(0,0,0,.08);border-radius:8px;padding:10px">
+<h2 style="font-size:clamp(1.4em, 4vw, 1.8em);margin-bottom:16px;color:#fff">📚 Pour Aller Plus Loin</h2>
+<div style=display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px>
+<div style="background:#baf9901a;padding:10px;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);border-left:4px solid #baf990">
+<strong style="color:#baf990;font-size:clamp(12px, 2.8vw, 14px)">Lorem Ipsum et Dolor Sit</strong>
+<p style="color:#fff;font-size:clamp(11px, 2.5vw, 13px);margin-top:4px">Une Analyse Complète - Journal de Recherche</p>
+</div>
+<div style="background:#baf9901a;padding:10px;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);border-left:4px solid #baf990">
+<strong style="color:#baf990;font-size:clamp(12px, 2.8vw, 14px)">Consectetur Adipiscing</strong>
+<p style="color:#fff;font-size:clamp(11px, 2.5vw, 13px);margin-top:4px">Perspectives Modernes - Revue Académique</p>
+</div>
+<div style="background:#baf9901a;padding:10px;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);border-left:4px solid #baf990">
+<strong style="color:#baf990;font-size:clamp(12px, 2.8vw, 14px)">Sed Do Eiusmod Tempor</strong>
+<p style="color:#fff;font-size:clamp(11px, 2.5vw, 13px);margin-top:4px">Guide Pratique - Manuel Professionnel</p>
+</div>
+<div style="background:#baf9901a;padding:10px;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);border-left:4px solid #baf990">
+<strong style="color:#baf990;font-size:clamp(12px, 2.8vw, 14px)">Ut Labore et Dolore</strong>
+<p style="color:#fff;font-size:clamp(11px, 2.5vw, 13px);margin-top:4px">Études de Cas Internationales - Publication Scientifique</p>
+</div>
+<div style="background:#baf9901a;padding:10px;border-radius:8px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15);border-left:4px solid #baf990">
+<strong style="color:#baf990;font-size:clamp(12px, 2.8vw, 14px)">Quis Nostrud Exercitation</strong>
+<p style="color:#fff;font-size:clamp(11px, 2.5vw, 13px);margin-top:4px">Applications Futures - Rapport Prospectif</p>
+</div>
+</div>
+</div>
+</div>
+<script>let currentSlide=0;const slides=document.querySelectorAll(".slide"),totalSlides=slides.length,progressTrack=document.getElementById("progressTrack"),progressBar=document.getElementById("progressBar");let touchStartX=0,touchEndX=0;function computeScaleToFit(e,t){if(!e||!t)return 1;e.style.transform="none";const r=t.getBoundingClientRect(),i=getComputedStyle(t),n=parseFloat(i.paddingTop)||0,d=parseFloat(i.paddingBottom)||0,o=Math.max(0,r.height-n-d),s=Math.max(0,o-12),a=e.scrollHeight;if(a<=0||s<=0)return 1;return Math.min(1,s/a)}function fitActiveSlide(){const e=document.querySelector(".slide.active");if(!e)return;const t=e.querySelector(".content");if(!t)return;const r=computeScaleToFit(t,e);t.style.transform=`scale(${r})`}let _fitRaf=null;function requestFit(){_fitRaf||(_fitRaf=requestAnimationFrame((()=>{_fitRaf=null,fitActiveSlide()})))}function updateProgressBar(){const e=Math.min((currentSlide+1)/totalSlides*100,100);progressBar.style.width=e+"%",currentSlide>0?progressTrack.classList.add("visible"):progressTrack.classList.remove("visible")}function showSlide(e){const t=document.querySelector(".slide.active"),r=slides[e];t!==r&&(r.classList.add("active"),t&&(t.classList.add("fade-out"),setTimeout((()=>{t.classList.remove("fade-out","active")}),120)),currentSlide=e,updateProgressBar(),fitActiveSlide(),console.log(`Slide: ${currentSlide+1} OR ${r.getAttribute("data-slide")} of ${totalSlides}`))}function nextSlide(){currentSlide<totalSlides-1?(currentSlide++,showSlide(currentSlide)):(currentSlide=0,showSlide(currentSlide))}function prevSlide(){currentSlide>0?(currentSlide--,showSlide(currentSlide)):(currentSlide=totalSlides-1,showSlide(currentSlide))}function handleSwipe(){touchEndX<touchStartX-50&&nextSlide(),touchEndX>touchStartX+50&&prevSlide()}window.addEventListener("resize",requestFit),window.addEventListener("message",(e=>{try{const t="string"==typeof e.data?JSON.parse(e.data):e.data;if(!t||!t.type)return;"wikix:refit"!==t.type&&"wikix:show"!==t.type||requestFit()}catch(e){}})),progressTrack.addEventListener("click",(e=>{e.preventDefault(),e.stopPropagation();const t=progressTrack.getBoundingClientRect(),r=e.clientX-t.left,i=t.width,n=Math.max(0,Math.min(1,r/i))*(totalSlides-1),d=Math.round(n);currentSlide=Math.max(0,Math.min(d,totalSlides-1)),showSlide(currentSlide)})),document.addEventListener("click",(e=>{if(e.target===progressTrack||progressTrack.contains(e.target))return;const t=window.innerWidth;e.clientX>t/2?nextSlide():prevSlide()})),document.addEventListener("keydown",(e=>{"ArrowRight"===e.key?nextSlide():"ArrowLeft"===e.key&&prevSlide()})),document.addEventListener("touchstart",(e=>{touchStartX=e.changedTouches[0].screenX})),document.addEventListener("touchend",(e=>{touchEndX=e.changedTouches[0].screenX,handleSwipe()})),updateProgressBar(),fitActiveSlide(),console.log(`Starting presentation with ${totalSlides} slides`),console.log(`Current slide: 1 of ${totalSlides}`),window.addEventListener("load",fitActiveSlide),document.addEventListener("load",(function(e){!e.target||"IMG"!==e.target.tagName&&"VIDEO"!==e.target.tagName||requestFit()}),!0)</script>
+</body>
+</html>
