@@ -32,5 +32,5 @@ Last three slides
 - NOT TOO COMPLEX OR OBSCURE ! SHOULD BE ACCESSIBLE TO ANYONE.
 
 8) 
-- give me the result in .json
+- give me the result in a .json artifact
 - stop output

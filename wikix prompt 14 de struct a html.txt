@@ -1,0 +1,57 @@
+0) BEFORE WE START:
+
+- YOU WILL ONLY DO 5 SLIDES AT A TIME, AND CONFIRM HERE WHEN YOU ARE READY FOR THE NEXT SLIDES
+- YOU WILL NOT REWRITE ANY SLIDE EVER : ONCE WRITTEN, IT IS DONE.
+- YOU WILL CONFIRM YOU HAVE UNDERSTOOD STEP 2 AND WILL APPLY IT TO EVERY SLIDE BEFORE STARTING.
+
+- Now read the instructions
+
+1) Instructions:
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny3.html
+- This file is the **visual template**. 
+- Fill the placeholders with the content from course .json I have provided
+
+2) MANDATORY :
+
+EXTREMELY IMPORTANT : 
+- Use the markdown doc provided to know which slide goes with which template slide, searching by data-slide="x" in the template
+- Use the EXACT visual structure from template slide data-slide="x"  that you fetched - copy its internal divs, containers, and styling, then fill it with the content.
+
+- EXTREMELY IMPORTANT : Do not change the slides order
+
+3) Content :
+
+- You MUST:
+  - Keep the **progress bar** functional and visually identical, adjusted automatically to the new number of slides.
+  - Keep all **console logs** and any JS already in the template unchanged.
+  - Keep this local font src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  - Maintain all **fade transitions** and slide navigation behavior (last slide should loop back to first, and vice versa)
+
+4) Size :
+- Each slide must contain ≤150 words
+- If more text is needed, create additional slides using the template.
+- Prefer short, concise sentences and bullet lists, while keeping proper sentences structure.
+- Never fill slides to the max; leave ~10% empty space.
+
+5) Rules (do not violate):
+- No scrolling anywhere. Never use overflow, max-height + scroll, or custom CSS.
+- Keep template classes/IDs and default sizes; do not change fonts/margins.
+- 1 heading ≤ 60 chars; 3–6 bullets, each ≤ 12 words; no deep nesting.
+- ≤ 1 main visual per slide; large tables split across slides (≤ 6 rows, ≤ 3 cols).
+- Do not place anything under the progress bar area.
+- Do NOT rewrite CSS, create new classes, or add new global styles.
+- Every slide MUST START with <!-- Slide X: name of the slide --> above it
+
+---
+
+6) After every slide is done :  rename each slide to be in order of their appearance in the new html:
+
+<!-- Slide 1 -->
+<div class="slide slide1" data-slide="1">
+
+<!-- Slide 2 -->
+<div class="slide slide2" data-slide="2">
+
+...etc. DO NOT REWRITE ANYTHING ELSE, JUST THE SLIDES NUMBERS.
+
+- After sending the completed html artifact : stop output.
