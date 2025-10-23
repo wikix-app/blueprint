@@ -1,0 +1,385 @@
+
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Visuals Template</title>
+          </head>
+
+          
+          
+          <body>
+
+            <style>
+      
+      
+      @font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global override */
+html, body, :root, *, *::before, *::after {
+  font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+/* Stronger rule for headings (must come AFTER the global one) */
+h2, h2 *, body h2, body h2 * {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #2e8b57 !important;
+}
+
+
+
+
+
+            </style>
+
+
+
+
+<!-- Slide 32: Bonus - Cascade d'information -->
+<div class="slide" style="background:linear-gradient(to bottom,#f0fdf4 0%,#e8f5e9 50%,#f0fdf4 100%)" data-slide="32"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:14px">🔄 Chaîne de détection et réaction</h2><div style="max-width:700px;margin:0 auto"><div style="position:relative;padding-left:40px"><div style="position:absolute;left:16px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#2e8b57,#3cb371,#5b9c77)"></div><div style="margin:12px 0;position:relative"><div style="position:absolute;left:-32px;width:28px;height:28px;background:#2e8b57;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:clamp(13px,3.2vw,15px);border:3px solid #fff;box-shadow:0 2px 6px rgba(46,139,87,.3)">1</div><div style="background:#fff;border:2px solid #2e8b57;border-radius:10px;padding:8px;box-shadow:0 3px 10px rgba(46,139,87,.12)"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">🔭 Détection:</strong> Satellites SOHO/SDO observent une éruption solaire</p></div></div><div style="margin:12px 0;position:relative"><div style="position:absolute;left:-32px;width:28px;height:28px;background:#3cb371;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:clamp(13px,3.2vw,15px);border:3px solid #fff;box-shadow:0 2px 6px rgba(46,139,87,.3)">2</div><div style="background:#fff;border:2px solid #3cb371;border-radius:10px;padding:8px;box-shadow:0 3px 10px rgba(46,139,87,.12)"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">📡 Analyse:</strong> Calcul de l'intensité et temps d'arrivée sur Terre</p></div></div><div style="margin:12px 0;position:relative"><div style="position:absolute;left:-32px;width:28px;height:28px;background:#5b9c77;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:clamp(13px,3.2vw,15px);border:3px solid #fff;box-shadow:0 2px 6px rgba(46,139,87,.3)">3</div><div style="background:#fff;border:2px solid #5b9c77;border-radius:10px;padding:8px;box-shadow:0 3px 10px rgba(46,139,87,.12)"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">⚠️ Alerte:</strong> Diffusion aux opérateurs satellites, réseaux, aviation</p></div></div><div style="margin:12px 0;position:relative"><div style="position:absolute;left:-32px;width:28px;height:28px;background:#2e8b57;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:clamp(13px,3.2vw,15px);border:3px solid #fff;box-shadow:0 2px 6px rgba(46,139,87,.3)">4</div><div style="background:#fff;border:2px solid #2e8b57;border-radius:10px;padding:8px;box-shadow:0 3px 10px rgba(46,139,87,.12)"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">🛡️ Protection:</strong> Activation des modes sécurisés et contre-mesures</p></div></div></div><div style="background:linear-gradient(135deg,#2e8b57,#3cb371);color:#ffffff;padding:8px;border-radius:8px;margin-top:14px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);font-weight:600;color:#ffffff">⏰ Délai total: 15 minutes à 3 jours selon l'événement</p></div></div></div></div>
+
+<!-- Slide 33: Bonus - Matrice d'impact -->
+<div class="slide" style="background:#fafaf8" data-slide="33"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:14px">🎯 Matrice d'impact par secteur</h2><div style="max-width:750px;margin:0 auto"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px"><div style="background:linear-gradient(135deg,#2e8b57,#3cb371);padding:10px;border-radius:10px 10px 0 0;text-align:center;grid-column:1/-1"><p style="color:#fff;margin:0;font-weight:700;font-size:clamp(14px,3.5vw,16px)">Niveau de vulnérabilité</p></div><div style="background:#fff;border:3px solid #2e8b57;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">🛰️ Satellites</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:95%;height:100%;background:#bf003d;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#bf003d;font-weight:600">Critique</p></div><div style="background:#fff;border:3px solid #3cb371;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">⚡ Réseaux</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:90%;height:100%;background:#bf003d;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#bf003d;font-weight:600">Critique</p></div><div style="background:#fff;border:3px solid #5b9c77;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">📡 GPS</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:85%;height:100%;background:#e67e00;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#e67e00;font-weight:600">Élevée</p></div><div style="background:#fff;border:3px solid #2e8b57;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">✈️ Aviation</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:70%;height:100%;background:#e67e00;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#e67e00;font-weight:600">Élevée</p></div><div style="background:#fff;border:3px solid #3cb371;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">📻 Radio</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:65%;height:100%;background:#f4a430;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#f4a430;font-weight:600">Moyenne</p></div><div style="background:#fff;border:3px solid #5b9c77;padding:8px;border-radius:8px;text-align:center"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">🚀 Espace</strong></p><div style="width:100%;height:12px;background:#e8f5e9;border-radius:20px;margin-top:6px;overflow:hidden"><div style="width:100%;height:100%;background:#bf003d;border-radius:20px"></div></div><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#bf003d;font-weight:600">Maximale</p></div></div></div></div></div>
+
+<!-- Slide 34: Bonus - Architecture en couches -->
+<div class="slide" style="background:linear-gradient(to bottom,#e8f5e9,#f0fdf4)" data-slide="34"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:12px">🏗️ Architecture de l'espace proche</h2><div style="max-width:700px;margin:0 auto;position:relative"><div style="margin:10px 0;background:#fff;border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(46,139,87,.15);transform:perspective(800px) rotateX(2deg)"><div style="display:flex;align-items:center;gap:10px"><div style="min-width:50px;height:50px;background:linear-gradient(135deg,#2e8b57,#3cb371);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.3em,3.8vw,1.6em)">🌌</div><div style="flex:1"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57;font-size:clamp(14px,3.5vw,16px)">Magnétosphère</strong><br><span style="font-size:clamp(12px,3vw,14px)">60 000 km - Bouclier magnétique protecteur</span></p></div></div></div><div style="margin:10px 0;background:#fff;border:3px solid #3cb371;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(46,139,87,.15);transform:perspective(800px) rotateX(2deg);margin-left:20px"><div style="display:flex;align-items:center;gap:10px"><div style="min-width:50px;height:50px;background:linear-gradient(135deg,#3cb371,#5b9c77);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.3em,3.8vw,1.6em)">🛰️</div><div style="flex:1"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57;font-size:clamp(14px,3.5vw,16px)">Orbites satellites</strong><br><span style="font-size:clamp(12px,3vw,14px)">200-36 000 km - Zone d'activité spatiale</span></p></div></div></div><div style="margin:10px 0;background:#fff;border:3px solid #5b9c77;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(46,139,87,.15);transform:perspective(800px) rotateX(2deg);margin-left:40px"><div style="display:flex;align-items:center;gap:10px"><div style="min-width:50px;height:50px;background:linear-gradient(135deg,#5b9c77,#7eb896);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.3em,3.8vw,1.6em)">🌈</div><div style="flex:1"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57;font-size:clamp(14px,3.5vw,16px)">Ionosphère</strong><br><span style="font-size:clamp(12px,3vw,14px)">80-1000 km - Couche ionisée sensible</span></p></div></div></div><div style="margin:10px 0;background:#fff;border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(46,139,87,.15);transform:perspective(800px) rotateX(2deg);margin-left:60px"><div style="display:flex;align-items:center;gap:10px"><div style="min-width:50px;height:50px;background:linear-gradient(135deg,#7eb896,#9ecdb3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(1.3em,3.8vw,1.6em)">🌍</div><div style="flex:1"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57;font-size:clamp(14px,3.5vw,16px)">Surface terrestre</strong><br><span style="font-size:clamp(12px,3vw,14px)">0 km - Technologies et infrastructures</span></p></div></div></div></div></div></div>
+
+<!-- Slide 35: Bonus - Radar de prévision -->
+<div class="slide" style="background:#fff" data-slide="35"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:12px">📊 Échelle d'intensité des tempêtes</h2><div style="max-width:650px;margin:0 auto"><div style="background:linear-gradient(135deg,#f0fdf4,#e8f5e9);border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.15)"><div style="text-align:center;margin-bottom:12px"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;font-weight:600">Classification NOAA des tempêtes géomagnétiques</p></div><div style="display:grid;gap:8px"><div style="background:#fff;border-left:6px solid #9ecdb3;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center"><div><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">G1 - Mineure</strong></p><p style="margin:2px 0 0 0;font-size:clamp(12px,3vw,13px);color:#5b9c77">Aurores à hautes latitudes</p></div><div style="background:#9ecdb3;color:#fff;padding:4px 10px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,14px)">Faible</div></div><div style="background:#fff;border-left:6px solid #7eb896;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center"><div><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">G2 - Modérée</strong></p><p style="margin:2px 0 0 0;font-size:clamp(12px,3vw,13px);color:#5b9c77">Anomalies satellites possibles</p></div><div style="background:#7eb896;color:#fff;padding:4px 10px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,14px)">Moyen</div></div><div style="background:#fff;border-left:6px solid #f4a430;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center"><div><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">G3 - Forte</strong></p><p style="margin:2px 0 0 0;font-size:clamp(12px,3vw,13px);color:#5b9c77">Perturbations GPS et réseaux</p></div><div style="background:#f4a430;color:#fff;padding:4px 10px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,14px)">Élevé</div></div><div style="background:#fff;border-left:6px solid #e67e00;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center"><div><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">G4 - Sévère</strong></p><p style="margin:2px 0 0 0;font-size:clamp(12px,3vw,13px);color:#5b9c77">Pannes électriques régionales</p></div><div style="background:#e67e00;color:#fff;padding:4px 10px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,14px)">Critique</div></div><div style="background:#fff;border-left:6px solid #bf003d;padding:8px;border-radius:6px;display:flex;justify-content:space-between;align-items:center"><div><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a"><strong style="color:#2e8b57">G5 - Extrême</strong></p><p style="margin:2px 0 0 0;font-size:clamp(12px,3vw,13px);color:#5b9c77">Dégâts généralisés (Carrington)</p></div><div style="background:#bf003d;color:#fff;padding:4px 10px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,14px)">Max</div></div></div></div></div></div></div>
+
+<!-- Slide 36: Bonus - Réseau connecté -->
+<div class="slide" style="background:linear-gradient(135deg,#fafaf8,#f5f5f0)" data-slide="36"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:12px">🌐 Réseau mondial de surveillance</h2><div style="max-width:750px;margin:0 auto"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px"><div style="background:#fff;border:3px solid #2e8b57;border-radius:10px;padding:8px;text-align:center;box-shadow:0 4px 12px rgba(46,139,87,.12)"><div style="font-size:clamp(2em,5vw,2.5em);margin-bottom:6px">🇺🇸</div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">NOAA/SWPC</strong></p><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#5b9c77">Centre américain</p></div><div style="background:#fff;border:3px solid #3cb371;border-radius:10px;padding:8px;text-align:center;box-shadow:0 4px 12px rgba(46,139,87,.12)"><div style="font-size:clamp(2em,5vw,2.5em);margin-bottom:6px">🇪🇺</div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">ESA</strong></p><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#5b9c77">Agence européenne</p></div><div style="background:#fff;border:3px solid #5b9c77;border-radius:10px;padding:8px;text-align:center;box-shadow:0 4px 12px rgba(46,139,87,.12)"><div style="font-size:clamp(2em,5vw,2.5em);margin-bottom:6px">🇯🇵</div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">JAXA</strong></p><p style="margin:4px 0 0 0;font-size:clamp(11px,2.8vw,12px);color:#5b9c77">Agence japonaise</p></div></div><div style="background:linear-gradient(135deg,#2e8b57,#3cb371);border-radius:10px;padding:10px;color:#fff;text-align:center;margin-bottom:10px"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);font-weight:700;color:#ffffff">🔄 Partage de données en temps réel 24/7</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:#e8f5e9;border:2px solid #2e8b57;border-radius:8px;padding:8px"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;text-align:center">📡 <strong style="color:#2e8b57">15+</strong><br><span style="font-size:clamp(11px,2.8vw,12px)">Satellites d'observation</span></p></div><div style="background:#e8f5e9;border:2px solid #3cb371;border-radius:8px;padding:8px"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;text-align:center">🔬 <strong style="color:#2e8b57">100+</strong><br><span style="font-size:clamp(11px,2.8vw,12px)">Stations au sol</span></p></div><div style="background:#e8f5e9;border:2px solid #5b9c77;border-radius:8px;padding:8px"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;text-align:center">👥 <strong style="color:#2e8b57">1000+</strong><br><span style="font-size:clamp(11px,2.8vw,12px)">Scientifiques mobilisés</span></p></div><div style="background:#e8f5e9;border:2px solid #2e8b57;border-radius:8px;padding:8px"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;text-align:center">⚡ <strong style="color:#2e8b57">∞</strong><br><span style="font-size:clamp(11px,2.8vw,12px)">Surveillance continue</span></p></div></div></div></div></div>
+
+<!-- Slide 37: Bonus - Panneau d'affichage rétro -->
+<div class="slide" style="background:linear-gradient(to bottom,#2e8b57,#3cb371)" data-slide="37"><div class="content"><div style="max-width:700px;margin:0 auto;background:#fff;border-radius:12px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.3);border:6px solid #5b9c77"><div style="background:linear-gradient(135deg,#2e8b57,#3cb371);padding:10px;border-radius:6px;margin-bottom:12px;text-align:center"><h2 style="color:#fff;margin:0;font-size:clamp(1.4em,4vw,1.9em);text-transform:uppercase;letter-spacing:1px">⚠️ Bulletin météo spatiale</h2><p style="color:#baf990;margin:4px 0 0 0;font-size:clamp(12px,3vw,14px);font-weight:600">Prévisions pour les 72 prochaines heures</p></div><div style="display:grid;gap:10px"><div style="background:#f0fdf4;border:3px solid #2e8b57;border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;font-weight:700">🌅 Aujourd'hui</p><div style="background:#9ecdb3;color:#fff;padding:4px 12px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,13px)">CALME</div></div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#5b9c77">Activité solaire faible • Conditions nominales</p></div><div style="background:#fff9e6;border:3px solid #f4a430;border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;font-weight:700">🌤️ Demain</p><div style="background:#f4a430;color:#fff;padding:4px 12px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,13px)">VIGILANCE</div></div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#e67e00">CME détectée • Arrivée prévue 18h UTC</p></div><div style="background:#ffe6e6;border:3px solid #bf003d;border-radius:8px;padding:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><p style="margin:0;font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;font-weight:700">⚡ J+2</p><div style="background:#bf003d;color:#fff;padding:4px 12px;border-radius:15px;font-weight:700;font-size:clamp(12px,3vw,13px)">ALERTE</div></div><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#bf003d">Tempête G3 possible • Opérateurs en alerte</p></div></div><div style="background:#e8f5e9;border-radius:6px;padding:8px;margin-top:10px;text-align:center"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2e8b57;font-weight:600">📡 Mise à jour toutes les 15 minutes</p></div></div></div></div>
+
+
+<!-- Slide 41: Bonus - Menu accordéon -->
+<div class="slide" style="background:#fff" data-slide="41">
+  <div class="content">
+    <h2 style="color:#2e8b57;text-align:center;margin-bottom:12px">📋 Protocoles d'urgence par secteur</h2>
+    <div style="max-width:700px;margin:0 auto;display:grid;gap:8px">
+
+      <div style="border:3px solid #2e8b57;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(46,139,87,.1)">
+        <div style="background:linear-gradient(135deg,#2e8b57,#3cb371);padding:10px;display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.2em,3.5vw,1.5em)">🛰️</div>
+          <p style="margin:0;color:#fff;font-weight:700;font-size:clamp(14px,3.5vw,16px)">Opérateurs satellites</p>
+        </div>
+        <div style="background:#f0fdf4;padding:8px">
+          <p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a">
+            ✓ Activer mode sécurisé • ✓ Désactiver systèmes non-critiques • ✓ Orientation optimale
+          </p>
+        </div>
+      </div>
+
+      <div style="border:3px solid #3cb371;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(46,139,87,.1)">
+        <div style="background:linear-gradient(135deg,#3cb371,#5b9c77);padding:10px;display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.2em,3.5vw,1.5em)">⚡</div>
+          <p style="margin:0;color:#fff;font-weight:700;font-size:clamp(14px,3.5vw,16px)">Gestionnaires réseaux</p>
+        </div>
+        <div style="background:#f0fdf4;padding:8px">
+          <p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a">
+            ✓ Surveillance transformateurs • ✓ Réduction charge • ✓ Équipes d'intervention prêtes
+          </p>
+        </div>
+      </div>
+
+      <div style="border:3px solid #5b9c77;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(46,139,87,.1)">
+        <div style="background:linear-gradient(135deg,#5b9c77,#7eb896);padding:10px;display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.2em,3.5vw,1.5em)">✈️</div>
+          <p style="margin:0;color:#fff;font-weight:700;font-size:clamp(14px,3.5vw,16px)">Compagnies aériennes</p>
+        </div>
+        <div style="background:#f0fdf4;padding:8px">
+          <p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a">
+            ✓ Éviter routes polaires • ✓ Réduire altitude • ✓ Communication satellite backup
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Slide 31: Bonus - Comparaison puzzle -->
+<div class="slide" style="background:#fff" data-slide="31"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:16px">⚖️ Météo terrestre vs spatiale</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:800px;margin:0 auto"><div style="background:linear-gradient(135deg,#e8f5e9,#f0fdf4);border:3px solid #2e8b57;border-radius:12px;padding:10px;position:relative;overflow:hidden"><div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(46,139,87,.1);border-radius:50%"></div><div style="position:relative;z-index:1"><div style="text-align:center;font-size:clamp(2.5em,6vw,3em);margin-bottom:8px">🌦️</div><h3 style="color:#2e8b57;text-align:center;font-size:clamp(1.2em,3.5vw,1.5em);margin-bottom:10px">Météo Terrestre</h3><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">📍 <strong style="color:#2e8b57">Zone:</strong> Atmosphère (0-50 km)</p></div><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">⏱️ <strong style="color:#2e8b57">Prévision:</strong> 7-10 jours</p></div><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">🎯 <strong style="color:#2e8b57">Impact:</strong> Activités quotidiennes</p></div></div></div><div style="background:linear-gradient(135deg,#f0fdf4,#e8f5e9);border:3px solid #3cb371;border-radius:12px;padding:10px;position:relative;overflow:hidden"><div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:rgba(60,179,113,.1);border-radius:50%"></div><div style="position:relative;z-index:1"><div style="text-align:center;font-size:clamp(2.5em,6vw,3em);margin-bottom:8px">🌌</div><h3 style="color:#2e8b57;text-align:center;font-size:clamp(1.2em,3.5vw,1.5em);margin-bottom:10px">Météo Spatiale</h3><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">📍 <strong style="color:#2e8b57">Zone:</strong> Soleil-Terre (150M km)</p></div><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">⏱️ <strong style="color:#2e8b57">Prévision:</strong> Heures à jours</p></div><div style="background:#fff;padding:6px;border-radius:6px;margin:6px 0"><p style="margin:0;font-size:clamp(12px,3vw,14px);color:#2a2a2a">🎯 <strong style="color:#2e8b57">Impact:</strong> Technologies spatiales</p></div></div></div></div></div></div>
+
+<!-- Slide 28: Bonus - Spirale temporelle -->
+<div class="slide" style="background:linear-gradient(135deg,#e8f5e9 0%,#f0fdf4 50%,#fff 100%)" data-slide="28"><div class="content"><h2 style="color:#2e8b57;text-align:center;margin-bottom:18px">⏳ Chronologie des grandes tempêtes</h2><div style="position:relative;width:100%;max-width:700px;margin:0 auto"><div style="position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#2e8b57,#3cb371,#5b9c77);transform:translateX(-50%)"></div><div style="position:relative;padding:8px 0"><div style="display:flex;align-items:center;margin:14px 0;justify-content:flex-start"><div style="flex:1;text-align:right;padding-right:20px"><div style="background:#2e8b57;color:#fff;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:700;font-size:clamp(13px,3.2vw,15px)">1859</div></div><div style="width:16px;height:16px;background:#fff;border:4px solid #2e8b57;border-radius:50%;z-index:2"></div><div style="flex:1;padding-left:20px"><div style="background:#fff;padding:8px;border-radius:8px;border:2px solid #2e8b57;box-shadow:0 2px 8px rgba(46,139,87,.15)"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">Carrington:</strong> La plus puissante jamais observée</p></div></div></div><div style="display:flex;align-items:center;margin:14px 0;justify-content:flex-start"><div style="flex:1;text-align:right;padding-right:20px"><div style="background:#3cb371;color:#fff;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:700;font-size:clamp(13px,3.2vw,15px)">1989</div></div><div style="width:16px;height:16px;background:#fff;border:4px solid #3cb371;border-radius:50%;z-index:2"></div><div style="flex:1;padding-left:20px"><div style="background:#fff;padding:8px;border-radius:8px;border:2px solid #3cb371;box-shadow:0 2px 8px rgba(46,139,87,.15)"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">Québec:</strong> 6 millions sans électricité</p></div></div></div><div style="display:flex;align-items:center;margin:14px 0;justify-content:flex-start"><div style="flex:1;text-align:right;padding-right:20px"><div style="background:#5b9c77;color:#fff;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:700;font-size:clamp(13px,3.2vw,15px)">2003</div></div><div style="width:16px;height:16px;background:#fff;border:4px solid #5b9c77;border-radius:50%;z-index:2"></div><div style="flex:1;padding-left:20px"><div style="background:#fff;padding:8px;border-radius:8px;border:2px solid #5b9c77;box-shadow:0 2px 8px rgba(46,139,87,.15)"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">Halloween:</strong> Perturbations satellites mondiales</p></div></div></div><div style="display:flex;align-items:center;margin:14px 0;justify-content:flex-start"><div style="flex:1;text-align:right;padding-right:20px"><div style="background:#2e8b57;color:#fff;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:700;font-size:clamp(13px,3.2vw,15px)">2024</div></div><div style="width:16px;height:16px;background:#fff;border:4px solid #2e8b57;border-radius:50%;z-index:2"></div><div style="flex:1;padding-left:20px"><div style="background:#fff;padding:8px;border-radius:8px;border:2px solid #2e8b57;box-shadow:0 2px 8px rgba(46,139,87,.15)"><p style="margin:0;font-size:clamp(13px,3.2vw,15px);color:#2a2a2a"><strong style="color:#2e8b57">Maximum:</strong> Cycle 25 en pleine activité</p></div></div></div></div></div></div></div>
+
+<!-- Slide 29: Bonus - Tableau de bord métrique -->
+<div class="slide" style="background:#fafaf8" data-slide="29">
+  <div class="content">
+    <div style="background:linear-gradient(to bottom right,#2e8b57,#3cb371);padding:10px;border-radius:12px;box-shadow:0 12px 32px rgba(46,139,87,.25);width:100%">
+      <h2 style="color:#ffffff !important;text-align:center;margin-bottom:16px;font-size:clamp(1.4em,4vw,1.9em) ">📊 Météo spatiale en chiffres</h2>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+        <div style="background:rgba(255,255,255,.95);padding:10px;border-radius:10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:clamp(2em,6vw,3em);font-weight:800;color:#2e8b57;line-height:1">400</div>
+          <div style="font-size:clamp(12px,3vw,14px);color:#5b9c77;font-weight:600;margin-top:4px">km/s</div>
+          <div style="font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;margin-top:6px">Vitesse vent solaire</div>
+        </div>
+        <div style="background:rgba(255,255,255,.95);padding:10px;border-radius:10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:clamp(2em,6vw,3em);font-weight:800;color:#2e8b57;line-height:1">8</div>
+          <div style="font-size:clamp(12px,3vw,14px);color:#5b9c77;font-weight:600;margin-top:4px">minutes</div>
+          <div style="font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;margin-top:6px">Lumière Soleil→Terre</div>
+        </div>
+        <div style="background:rgba(255,255,255,.95);padding:10px;border-radius:10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:clamp(2em,6vw,3em);font-weight:800;color:#2e8b57;line-height:1">11</div>
+          <div style="font-size:clamp(12px,3vw,14px);color:#5b9c77;font-weight:600;margin-top:4px">ans</div>
+          <div style="font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;margin-top:6px">Cycle solaire</div>
+        </div>
+        <div style="background:rgba(255,255,255,.95);padding:10px;border-radius:10px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1)">
+          <div style="font-size:clamp(2em,6vw,3em);font-weight:800;color:#2e8b57;line-height:1">6M</div>
+          <div style="font-size:clamp(12px,3vw,14px);color:#5b9c77;font-weight:600;margin-top:4px">°C</div>
+          <div style="font-size:clamp(13px,3.2vw,15px);color:#2a2a2a;margin-top:6px">Couronne solaire</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.2);padding:8px;border-radius:8px;margin-top:10px;text-align:center">
+        <p style="color:#fff;margin:0;font-size:clamp(13px,3.2vw,15px);font-weight:600">🌟 Des ordres de grandeur fascinants</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 50 -->
+<div class="slide slide50" data-slide="50">
+  <div class="content">
+    <h2 style="margin-bottom: 0;">Échelle G des Tempêtes</h2>
+    <div style="width: 100%; max-width: 600px; height: 600px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; margin: 10px 0 20px 0; overflow: hidden; padding: 25px;">
+      <div style="width: 100%; height: 100%; display: flex; flex-direction: column;">
+        <div style="display: grid; grid-template-columns: 80px 1fr 1fr; gap: 8px; height: 100%;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: #2E8B57; color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; padding: 8px;">Niveau</div>
+            <div style="background: #90EE90; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1;">G1</div>
+            <div style="background: #FFD700; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1;">G2</div>
+            <div style="background: #FFA500; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1;">G3</div>
+            <div style="background: #FF6347; font-weight: 700; color: white; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1;">G4</div>
+            <div style="background: #DC143C; font-weight: 700; color: white; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1;">G5</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: #2E8B57; color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; padding: 8px;">Kp</div>
+            <div style="background: rgba(144,238,144,0.3); display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1; border: 2px solid #90EE90;">Kp = 5</div>
+            <div style="background: rgba(255,215,0,0.3); display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1; border: 2px solid #FFD700;">Kp = 6</div>
+            <div style="background: rgba(255,165,0,0.3); display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1; border: 2px solid #FFA500;">Kp = 7</div>
+            <div style="background: rgba(255,99,71,0.3); display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1; border: 2px solid #FF6347;">Kp = 8</div>
+            <div style="background: rgba(220,20,60,0.3); display: flex; align-items: center; justify-content: center; border-radius: 6px; flex: 1; border: 2px solid #DC143C;">Kp = 9</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: #2E8B57; color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 6px; padding: 8px;">Fréquence</div>
+            <div style="background: rgba(144,238,144,0.2); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 6px; flex: 1; border: 2px solid #90EE90; padding: 4px;">1700 par cycle</div>
+            <div style="background: rgba(255,215,0,0.2); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 6px; flex: 1; border: 2px solid #FFD700; padding: 4px;">600 par cycle</div>
+            <div style="background: rgba(255,165,0,0.2); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 6px; flex: 1; border: 2px solid #FFA500; padding: 4px;">200 par cycle</div>
+            <div style="background: rgba(255,99,71,0.2); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 6px; flex: 1; border: 2px solid #FF6347; padding: 4px;">100 par cycle</div>
+            <div style="background: rgba(220,20,60,0.2); display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 6px; flex: 1; border: 2px solid #DC143C; padding: 4px;">4 par cycle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 51 -->
+<div class="slide slide51" data-slide="51">
+  <div class="content">
+    <h2 style="margin-bottom: 0;">Propagation d'une Éruption Solaire</h2>
+    <div style="width: 100%; max-width: 600px; height: 600px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #2E8B57; font-weight: 600; margin: 10px 0 20px 0; overflow: hidden; padding: 30px;">
+      <div style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+        
+        <!-- Étape 1: Éruption -->
+        <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+          <div style="flex: 0 0 80px; height: 80px; background: radial-gradient(circle, #FFA500, #FF6347); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(255,99,71,0.4);">☀️</div>
+          <div style="flex: 1; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #FF6347;">
+            <div style="font-size: 15px; font-weight: 700; color: #DC143C;">T+0 : Éruption solaire</div>
+            <div style="font-size: 13px; color: #666; margin-top: 4px;">Libération d'énergie magnétique</div>
+          </div>
+        </div>
+
+        <div style="font-size: 25px; color: #3CB371;">↓</div>
+
+        <!-- Étape 2: Rayons X -->
+        <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+          <div style="flex: 0 0 80px; height: 80px; background: linear-gradient(135deg, #9370DB, #8A2BE2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(138,43,226,0.4);">⚡</div>
+          <div style="flex: 1; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #8A2BE2;">
+            <div style="font-size: 15px; font-weight: 700; color: #8A2BE2;">T+8 min : Rayons X arrivent</div>
+            <div style="font-size: 13px; color: #666; margin-top: 4px;">Vitesse de la lumière, perturbent ionosphère</div>
+          </div>
+        </div>
+
+        <div style="font-size: 25px; color: #3CB371;">↓</div>
+
+        <!-- Étape 3: Particules énergétiques -->
+        <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+          <div style="flex: 0 0 80px; height: 80px; background: linear-gradient(135deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(255,165,0,0.4);">⚛️</div>
+          <div style="flex: 1; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #FFA500;">
+            <div style="font-size: 15px; font-weight: 700; color: #FF8C00;">T+20-60 min : Particules rapides</div>
+            <div style="font-size: 13px; color: #666; margin-top: 4px;">Protons énergétiques, risque radiation</div>
+          </div>
+        </div>
+
+        <div style="font-size: 25px; color: #3CB371;">↓</div>
+
+        <!-- Étape 4: Nuage de plasma (CME) -->
+        <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+          <div style="flex: 0 0 80px; height: 80px; background: linear-gradient(135deg, #00CED1, #20B2AA); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(32,178,170,0.4);">🌌</div>
+          <div style="flex: 1; background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #20B2AA;">
+            <div style="font-size: 15px; font-weight: 700; color: #20B2AA;">T+1–3 jours : Nuage de plasma (CME)</div>
+            <div style="font-size: 13px; color: #666; margin-top: 4px;">Impact sur magnétosphère → orages géomagnétiques</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Slide 52 -->
+        <div class="slide slide52" data-slide="52">
+          <div class="content">
+            <h2 style="margin-bottom: 0;">Chronologie des Tempêtes Majeures</h2>
+            <div style="width: 100%; max-width: 600px; height: 600px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #2E8B57; font-weight: 600; margin: 10px 0 20px 0; overflow: hidden; padding: 35px;">
+              <div style="width: 100%; height: 100%; position: relative;">
+                
+                <!-- Ligne verticale centrale -->
+                <div style="position: absolute; left: 50%; top: 40px; bottom: 40px; width: 4px; background: linear-gradient(180deg, #3CB371, #2E8B57); transform: translateX(-50%);"></div>
+                
+                <!-- Événements -->
+                
+                <!-- 1859 -->
+                <div style="position: absolute; left: 0; top: 50px; width: 45%; text-align: right;">
+                  <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 4px solid #DC143C;">
+                    <div style="font-size: 16px; font-weight: 700; color: #DC143C;">1859</div>
+                    <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Événement Carrington</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 4px;">Plus grande tempête enregistrée</div>
+                  </div>
+                </div>
+                <div style="position: absolute; left: 50%; top: 65px; width: 16px; height: 16px; background: #DC143C; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 3px #DC143C;"></div>
+                
+                <!-- 1989 -->
+                <div style="position: absolute; right: 0; top: 160px; width: 45%; text-align: left;">
+                  <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #FF6347;">
+                    <div style="font-size: 16px; font-weight: 700; color: #FF6347;">1989</div>
+                    <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Panne du Québec</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 4px;">6 millions de personnes, 9h</div>
+                  </div>
+                </div>
+                <div style="position: absolute; left: 50%; top: 175px; width: 16px; height: 16px; background: #FF6347; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 3px #FF6347;"></div>
+                
+                <!-- 2003 -->
+                <div style="position: absolute; left: 0; top: 270px; width: 45%; text-align: right;">
+                  <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 4px solid #FFA500;">
+                    <div style="font-size: 16px; font-weight: 700; color: #FFA500;">2003</div>
+                    <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Tempêtes d'Halloween</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 4px;">Satellites et GPS perturbés</div>
+                  </div>
+                </div>
+                <div style="position: absolute; left: 50%; top: 285px; width: 16px; height: 16px; background: #FFA500; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 3px #FFA500;"></div>
+                
+                <!-- 2012 -->
+                <div style="position: absolute; right: 0; top: 380px; width: 45%; text-align: left;">
+                  <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #FFD700;">
+                    <div style="font-size: 16px; font-weight: 700; color: #FF8C00;">2012</div>
+                    <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">EMC manque la Terre</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 4px;">Intensité type Carrington</div>
+                  </div>
+                </div>
+                <div style="position: absolute; left: 50%; top: 395px; width: 16px; height: 16px; background: #FFD700; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 3px #FFD700;"></div>
+                
+                <!-- 2024 -->
+                <div style="position: absolute; left: 0; top: 490px; width: 45%; text-align: right;">
+                  <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-right: 4px solid #3CB371;">
+                    <div style="font-size: 16px; font-weight: 700; color: #3CB371;">2024</div>
+                    <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Maximum solaire actuel</div>
+                    <div style="font-size: 12px; color: #666; margin-top: 4px;">Cycle 25 en cours</div>
+                  </div>
+                </div>
+                <div style="position: absolute; left: 50%; top: 505px; width: 16px; height: 16px; background: #3CB371; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); z-index: 2; box-shadow: 0 0 0 3px #3CB371;"></div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+<!-- Slide 53 -->
+        <div class="slide slide53" data-slide="53>
+          <div class="content">
+            <h2 style="margin-bottom: 0;">Classification des Éruptions</h2>
+            <div style="width: 100%; max-width: 600px; height: 600px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #2E8B57; font-weight: 600; margin: 10px 0 20px 0; overflow: hidden; padding: 30px;">
+              <div style="width: 100%; height: 100%;">
+                <div style="font-size: 18px; color: #2E8B57; font-weight: 700; margin-bottom: 20px; text-align: center;">Échelle d'Intensité (flux de rayons X)</div>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; height: calc(100% - 50px);">
+                  <!-- Classe A -->
+                  <div style="background: #90EE90; border-radius: 8px; padding: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="flex: 1;">
+                      <div style="font-size: 18px; font-weight: 700; color: #2E8B57;">Classe A</div>
+                      <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Éruptions mineures</div>
+                    </div>
+                    <div style="font-size: 14px; color: #2a2a2a; background: rgba(255,255,255,0.7); padding: 6px 12px; border-radius: 6px;">10⁻⁸ W/m²</div>
+                  </div>
+        
+                  <!-- Classe B -->
+                  <div style="background: #98FB98; border-radius: 8px; padding: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="flex: 1;">
+                      <div style="font-size: 18px; font-weight: 700; color: #2E8B57;">Classe B</div>
+                      <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Faibles, peu d'impact</div>
+                    </div>
+                    <div style="font-size: 14px; color: #2a2a2a; background: rgba(255,255,255,0.7); padding: 6px 12px; border-radius: 6px;">10⁻⁷ W/m²</div>
+                  </div>
+        
+                  <!-- Classe C -->
+                  <div style="background: #FFD700; border-radius: 8px; padding: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div style="flex: 1;">
+                      <div style="font-size: 18px; font-weight: 700; color: #2a2a2a;">Classe C</div>
+                      <div style="font-size: 14px; color: #2a2a2a; margin-top: 4px;">Faibles à modérées</div>
+                    </div>
+                    <div style="font-size: 14px; color: #2a2a2a; background: rgba(255,255,255,0.7); padding: 6px 12px; border-radius: 6px;">10⁻⁶ W/m²</div>
+                  </div>
+        
+                  <!-- Classe M -->
+                  <div style="background: #FFA500; border-radius: 8px; padding: 12px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.15);">
+                    <div style="flex: 1;">
+                      <div style="font-size: 18px; font-weight: 700; color: #fff;">Classe M</div>
+                      <div style="font-size: 14px; color: #fff; margin-top: 4px;">Moyennes, perturbations radio</div>
+                    </div>
+                    <div style="font-size: 14px; color: #2a2a2a; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 6px;">10⁻⁵ W/m²</div>
+                  </div>
+        
+                  <!-- Classe X -->
+                  <div style="background: linear-gradient(135deg, #DC143C, #8B0000); border-radius: 8px; padding: 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 3px 8px rgba(139,0,0,0.3); border: 2px solid #8B0000;">
+                    <div style="flex: 1;">
+                      <div style="font-size: 20px; font-weight: 800; color: #fff;">Classe X</div>
+                      <div style="font-size: 14px; color: #fff; margin-top: 4px;">Majeures, risques importants</div>
+                    </div>
+                    <div style="font-size: 14px; color: #2a2a2a; background: rgba(255,255,255,0.95); padding: 6px 12px; border-radius: 6px; font-weight: 700;">≥ 10⁻⁴ W/m²</div>
+                  </div>
+        
+                  <!-- Note -->
+                  <div style="margin-top: 10px; padding: 10px; background: #fff; border-radius: 6px; border-left: 4px solid #2E8B57;">
+                    <div style="font-size: 13px; color: #666; line-height: 1.4;">⚡ Chaque classe est 10× plus intense que la précédente. Une X2 est 2× plus intense qu'une X1.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          </body>
+        </html>
