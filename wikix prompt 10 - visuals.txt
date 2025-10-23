@@ -1,0 +1,64 @@
+0) Fetch this course : https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/course.html
+Fetch these visuals : https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/visuals1.html
+
+Read this course, and you can use wikipedia article on the course topic as well.
+
+1)
+- Find 5 different non-interactive visuals you could add, that would improve this course. Exemple :
+
+Table, List, Comparison Chart, Timeline, Flowchart, Graph, Data Visualization, Layered Diagram, Infographic-style, pie chart, bar chart, circular/radial, line graph, color-coded scale, vertical map with color bands
+
+Do not use any of the visuals in visuals1.html
+
+2)
+- Create new slides with these visuals IN A NEW HTML ARTIFACT DOCUMENT
+- DO NOT ADD THEM TO THE EXISTING ARTIFACT, CREATE A NEW ARTIFACT WITH ONLY THE NEW VISUAL SLIDES.
+
+3)
+- For each new slide, specify its position using a decimal number (e.g. “Slide 3.5” goes between slides 3 and 4).
+- Every visual must be of a different type
+- They should all be useful and relevant to their position in the course, and add an information that wasn't there yet.
+- They should all be PRECISE and ACCURATE (no approximation)
+- MAKE THEM VERY PRETTY, WITH COLORS
+- NO ASCII, NO SVG
+
+4) 
+- use this local font src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype') 
+- MANDATORY : ALL THE FONTS HAVE TO BE 16PX. TITLE 24PX.
+
+5) Size and Layout Constraints:
+
+- MANDATORY : Each visual must fit entirely within a 600×600px box, width : 100%.
+- They should fill the box to the max without overflowing
+- Use coordinates or dimensions that stay inside this box 
+- YOU MUST wrap every visual in:
+ <div class="slide slideX.5" data-slide="X.5">
+  <div class="content">
+    <h2 style="margin-bottom: 0;">Visual title</h2>
+    <div style="width: 100%; max-width: 600px; height: 600px; border: 3px solid #3CB371; border-radius: 8px; background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%); display: flex; align-items: center; justify-content: center; font-size: clamp(18px, 4vw, 24px); color: #2E8B57; font-weight: 600; margin: 10px 0 20px 0; overflow: hidden;">
+      Visual
+    </div>
+  </div>
+</div>
+
+6)
+- If a visual would exceed these limits, summarize it without losing information or proper structure.
+- If it's already summarized : split it into multiple slides instead of resizing beyond them.
+
+7) MOST IMPORTANT OF ALL : THE VISUAL CANNOT EVER BE BIGGER THAN ITS CONTAINER. IF THE VISUAL IS BIGGER THAN THE CONTAINER, YOU HAVE 100% FAILED THIS TASK.
+
+
+- After sending the next HTML artifact : stop output.
+
+
+
+
+
+
+
+
+
+-----------
+Table, graph, visual, diagrams, charts, lists, case-studies, fun-fact boxes, attributed quotes, Timeline/Chronology, Flowchart
+Layered Diagram, Comparison Chart, Spectrum, Data Visualization, mermaid, html/CSS, heatmap, decision tree, etc.
+
