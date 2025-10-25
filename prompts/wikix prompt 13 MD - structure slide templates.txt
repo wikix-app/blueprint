@@ -1,0 +1,61 @@
+For this request : 
+- SS are the name of the template slides from the template.
+- Slides are the name of the slides from the .json
+
+0) Instructions:
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny6.html
+- This file is the **visual template**. 
+- You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
+- Fill only the placeholder text with the course .json I have provided
+
+1) Content
+
+- You MUST:
+  - Keep these slides in their position : 1 (title), 2 (introduction), and the last 3 (conclusion, summary, further readings), using the corresponding SS
+
+- You HAVE TO:
+  - REARRANGE THE SS TO FIT THE COURSE  
+  - MAKE SURE YOU USE SS FROM EVERY PART OF THE TEMPLATE, NOT JUST THE FIRST HALF OF THE TEMPLATE
+  - Make sure emphasis box SS are only used for the most important points/ key takeaways
+  - Make sure images are alone (with title and caption) 
+  - Make sure quote box is ONLY USED TO PUT AN ATTRIBUTED QUOTE, OTHERWISE DO NOT USE IT
+
+- You CANNOT :
+  - USE THE SAME SS TWICE 
+  - put 2 similar SS (emphasis box, or photo, or quote) next to each other 
+  - une another SS than 19 (photo) for images
+  - use a box quote when the slide does not contain a quote
+
+2) QUOTE BOX RULES - READ CAREFULLY:
+- Quote boxes can ONLY be used when the slide content contains:
+  * An ACTUAL QUOTE with quotation marks from a named person
+  * Example: "The sun is amazing" - Dr. Jane Smith
+- If the slide does NOT contain a direct quote with attribution, DO NOT USE quote box SS
+
+3) BEFORE WE START:
+
+3.1)IN A MARKDOWN ARTIFACT :
+- You will send me the list of planned slides/SS before starting so i can validate them. 
+Format : - Slide X - title (SS data-slide="Y") (Text/Photo) *return to line*
+
+CRITICAL FORMATTING RULES - CHECK BEFORE SENDING:
+- Emphasis box lines: wrap the ENTIRE line in **bold markdown** like **- Slide X - title (SS...) (Emphasis box)**
+- Quote box lines: wrap the ENTIRE line in _underline markdown_ like _- Slide X - title (SS...) (Quote box)_
+- Photo lines: wrap the ENTIRE line in *italic markdown* like *- Slide X - title (SS...) (Photo)*
+- Regular text: no formatting at all
+
+BEFORE YOU SEND: Visually verify that emphasis boxes are bold, quotes are underlined, photos are italic in the artifact.
+
+3.2)In conversation (NOT IN THE ARTIFACT) :
+- you will explain the rason for choosing these SS :
+* emphasis box (why is it important ?)
+* quote box (ONLY FOR QUOTES) 
+* photo : (only SS 19)
+
+- You will tell me how many SS you have used for each half of the template : both numbers should be the same. ONLY THE NUMBER.
+
+4)
+- After sending the completed list (in a markdown artifact) : stop output and await validation.
+
+
+

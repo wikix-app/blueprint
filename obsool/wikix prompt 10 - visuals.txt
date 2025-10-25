@@ -1,10 +1,14 @@
 0) Fetch this course : https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/course.html
+Fetch these visuals : https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/visuals1.html
+
 Read this course, and you can use wikipedia article on the course topic as well.
 
 1)
-- Find 7 different non-interactive visuals you could add, that would improve this course. Exemple :
+- Find 5 different non-interactive visuals you could add, that would improve this course. Exemple :
 
 Table, List, Comparison Chart, Timeline, Flowchart, Graph, Data Visualization, Layered Diagram, Infographic-style, pie chart, bar chart, circular/radial, line graph, color-coded scale, vertical map with color bands
+
+Do not use any of the visuals in visuals1.html
 
 2)
 - Create new slides with these visuals IN A NEW HTML ARTIFACT DOCUMENT
@@ -15,7 +19,7 @@ Table, List, Comparison Chart, Timeline, Flowchart, Graph, Data Visualization, L
 - Every visual must be of a different type
 - They should all be useful and relevant to their position in the course, and add an information that wasn't there yet.
 - They should all be PRECISE and ACCURATE (no approximation)
-- MAKE THEM PRETTY, WITH COLORS
+- MAKE THEM VERY PRETTY, WITH COLORS
 - NO ASCII, NO SVG
 
 4) 
