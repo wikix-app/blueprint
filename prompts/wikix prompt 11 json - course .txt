@@ -6,7 +6,7 @@ YOU WILL NEVER REWRITE A SLIDE THAT HAS ALREADY BEEN WRITTEN, EVER.
 TELL ME YOU UNDERSTAND AND START.
 
 0) First :
- Use this tool to perform a single HTTP GET request to: https://wkx-techno-scrxr.vercel.app/api/get-images?topic=magma&count=5&maxBytes=99997&allowTypes=jpg,jpeg,png
+ Use this tool to perform a single HTTP GET request to: https://wkx-techno-scrxr.vercel.app/api/get-images?topic=proxima%20centauri&count=5&maxBytes=99997&allowTypes=jpg,jpeg,png
 - if fetching fails : stop instructions and give me the closest wikipedia article name IN ENGLISH. Stop output.
 
 

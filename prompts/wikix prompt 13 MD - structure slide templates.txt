@@ -3,7 +3,7 @@ For this request :
 - Slides are the name of the slides from the .json
 
 0) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny6.html
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny7.html
 - This file is the **visual template**. 
 - You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
 - Fill only the placeholder text with the course .json I have provided

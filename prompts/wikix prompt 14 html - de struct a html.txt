@@ -3,7 +3,9 @@ DO NOT REWRITE ANY ALREADY EXISTING SLIDE UNLESS IT'S UNFINISHED.
 ORIGINAL PROMPT :
 
 
-================
+=========================================================================
+==========================
+=======
 
 0) BEFORE WE START:
 
@@ -14,7 +16,7 @@ ORIGINAL PROMPT :
 - Now read the instructions
 
 1) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny6.html
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny7.html
 - This file is the **visual template**. 
 - Fill the placeholders with the content from course .json I have provided
 
