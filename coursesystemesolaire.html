@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Système Solaire</title>
+<style>
+@font-face{font-family:Nunito;src:url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');font-weight:200 1000;font-display:block}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Nunito,sans-serif!important;background:#f5f5f0;color:#2a2a2a;overflow:hidden;touch-action:pan-y}.progress-bar{position:absolute;top:0;left:0;height:100%;background:#bf003d;transition:width .3s ease;width:0;border-radius:2px;opacity:1}.progress-track{position:fixed;top:0;left:0;right:0;height:8px;background:rgba(0,0,0,.08);border-radius:0;z-index:1000;cursor:pointer;max-width:100%;opacity:0;transition:opacity .2s ease}.progress-track.visible{opacity:1}.progress-track #progressBar{pointer-events:none}.slide{width:100vw;height:100vh;display:none;justify-content:center;align-items:flex-start;padding:0;opacity:0;transition:opacity .5s ease;border:4px solid #2e8b57;border-radius:12px;position:absolute;top:0;left:0}.slide.active{display:flex;opacity:1}.slide.fade-out{opacity:0}.content{width:100%;max-width:900px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:0}.title-slide{background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%)}.main-title{font-weight:800;font-size:clamp(1.8em, 6vw, 3em);color:#2a8f5a;letter-spacing:-1px;text-transform:uppercase;padding:20px 30px;border-radius:10px;background:linear-gradient(to bottom,#fff,#f0fdf4);box-shadow:0 2px 0 rgba(60,179,113,.3),0 4px 0 rgba(60,179,113,.25),0 6px 0 #3cb371,0 10px 20px rgba(60,179,113,.25);margin-bottom:20px;margin-top:0;font-display:block;display:inline-block;margin-left:auto;margin-right:auto}h2{font-size:clamp(1.5em, 5vw, 2.5em);color:#2e8b57;margin-bottom:10px;font-weight:700}h3{font-size:clamp(1.2em, 4vw, 1.8em);color:#3cb371;margin-bottom:20px;font-weight:600}p{font-size:clamp(16px, 4vw, 20px);line-height:1.7;color:#3a3a3a;margin-bottom:15px}.emphasis-box{background:#2e8b57;color:#fff;padding:30px;border-radius:12px;margin:20px 0;width:100%}.emphasis-box h2,.emphasis-box h3{color:#fff}.emphasis-box p{color:#fff}.emphasis-box strong{color:#baf990}.fun-fact{background:#e8f5e9;border-left:6px solid #3cb371;padding:25px;margin:20px 0;border-radius:8px;width:100%}.fun-fact h3{color:#2e8b57;margin-bottom:12px}.quote-box{background:#f9f9f7;border-left:5px solid #5b9c77;padding:25px;font-style:italic;margin:20px 0;position:relative;border-radius:8px;width:100%}.quote-box::before{content:'"';font-size:4em;color:#3cb371;position:absolute;top:-10px;left:15px;opacity:.3}.quote-author{text-align:right;margin-top:15px;font-weight:600;color:#2e8b57;font-style:normal}table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden}th{background:#2e8b57;color:#fff;padding:15px;text-align:left;font-size:clamp(14px, 3.5vw, 18px)}td{padding:12px 15px;border-bottom:1px solid #e0e0e0;color:#3a3a3a;font-size:clamp(13px, 3vw, 16px);background:#fafafa}ol,ul{text-align:left;margin:20px 0;padding-left:25px;width:100%}li{margin-bottom:12px;color:#3a3a3a;font-size:clamp(15px, 3.8vw, 19px);line-height:1.6}li strong{color:#2e8b57}.diagram{width:100%;max-width:500px;height:auto;margin:20px 0;border-radius:8px;border:2px solid #3cb371}.chart-container{width:100%;padding:25px;background:#fff;border-radius:12px;margin:20px 0}.case-study{background:linear-gradient(135deg,#e8f5e9 0,#f0fdf4 100%);padding:25px;border-radius:12px;border:2px solid #5b9c77;margin:20px 0;width:100%}.case-study h3{color:#2e8b57;margin-bottom:15px}.slide2{background:#fafaf8}.slide3{background:#f5f5f0}.slide4{background:#e8f5e9}.slide5{background:#f9f9f7}.slide6{background:#f0fdf4}.slide7{background:#f0fdf4}.slide8{background:#e8f5e9}.slide9{background:#f0fdf4}.slide10{background:#f0fdf4}.slide11{background:#f0fdf4}.slide12{background:#fafaf8}.slide13{background:#e8f5e9}.slide14{background:#f5f5f0}.slide15{background:#f9f9f7}.slide16{background:#f0fdf4}.slide17{background:#fafaf8}.slide18{background:#e8f5e9}.slide19{background:#f5f5f0}.slide20{background:#f0fdf4}.slide21{background:#f0fdf4}.slide22{background:#fafaf8}.slide23{background:#e8f5e9}.slide24{background:#f5f5f0}.slide25{background:#f0fdf4}.slide26{background:#f0fdf4}.slide27{background:#fafaf8}.slide28{background:#e8f5e9}.slide29{background:#bae0bf}.slide30{background:#bae0bf}.summary-slide{background:#235347}.summary-slide h2,.summary-slide h3,.summary-slide p{color:#fff}.summary-slide strong{color:#baf990}.further-reading{background:#235347;color:#fff}.further-reading h2{color:#fff}.further-reading ul{list-style:none;padding:0}.further-reading li{background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px, 3.5vw, 18px)}.icon{font-size:2em;margin-right:10px}a{color:#2e8b57;text-decoration:none;font-weight:600}a:hover{color:#3cb371}.photo-caption{font-family:Nunito,sans-serif!important;font-style:italic;font-size:clamp(13px, 3vw, 16px);color:#5a5a5a;margin-top:10px;text-align:center}.slide{padding-top:0}@media (max-width:768px){.slide{padding:15px}.content{padding:10px}.slide img{max-width:90vw!important;max-height:55vh!important;width:auto!important;height:auto!important;display:block;object-fit:contain;margin-left:auto;margin-right:auto}}.slide,.slide .content{overflow:clip!important;overscroll-behavior:contain;contain:layout paint size}.slide .content{transform-origin:center center;will-change:transform}.slide .case-study,.slide .chart-container,.slide .diagram,.slide .emphasis-box,.slide .fun-fact,.slide .quote-box,.slide img,.slide table,.slide video{max-height:90vh;height:auto}.further-reading ul,.summary-slide ul{max-height:none!important;overflow:visible!important}.slide *{scrollbar-width:none;-ms-overflow-style:none}.slide ::-webkit-scrollbar{display:none}.content,.slide,body,html{margin:2px!important;padding:2px!important}.content,.slide,body,html{padding-top:6px!important}.slide{border:none!important;border-radius:0!important}.title-slide .content{display:flex;justify-content:center;align-items:center;text-align:center;position:relative}.main-title{margin:0 auto;position:relative;top:-30px}.content,.emphasis-box,.fun-fact,.quote-box,.slide,body,h1,h2,h3,li,ol,p,table,ul{text-align:left!important}.title-slide .main-title{text-align:center!important;display:inline-block;margin:0 auto}.photo-caption,.slide h2{text-align:center!important}.photo-caption{display:block;margin-left:auto;margin-right:auto}.slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:0;opacity:0;pointer-events:none;transition:opacity .1s ease-in-out;z-index:0}.slide.active{opacity:1;pointer-events:auto;z-index:2}.slide.active.fade-out{opacity:0;z-index:1}:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6){font-size:16px!important}
+</style>
+</head>
+<body>
+<div class="progress-track" id="progressTrack">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- Slide 1: Le Système Solaire -->
+<div class="slide active title-slide" data-slide="1">
+<div class="content">
+<h1 class="main-title">Le Système Solaire</h1>
+</div>
+</div>
+
+<!-- Slide 2: Introduction -->
+<div class="slide slide2" data-slide="2">
+<div class="content">
+<div style="max-width:900px;margin:auto;background:#fff;padding:10px;border:4px solid #2e8b57;border-top-left-radius:80px;border-top-right-radius:8px;border-bottom-right-radius:80px;border-bottom-left-radius:8px;box-shadow:0 12px 32px rgba(46,139,87,.18)">
+<div style="padding:10px">
+<h2 style="color:#2e8b57;font-size:clamp(1.6em,4vw,1.9em);font-weight:800;margin-bottom:16px;text-align:center!important">Introduction</h2>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important">Le Système Solaire est l'ensemble gravitationnel composé du Soleil et de tous les objets célestes qui orbitent autour de lui. Né il y a environ <strong style="color:#2e8b57">4,6 milliards d'années</strong> d'un nuage de gaz et de poussière en rotation.</p>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important;margin-top:14px">Ce cours vous emmènera à la découverte de notre voisinage cosmique : nous explorerons la structure du Système Solaire, les huit planètes, les petits corps comme les astéroïdes et les comètes.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 3: Formation et âge du Système Solaire -->
+<div class="slide slide3" data-slide="3">
+<div class="content">
+<div class="fun-fact" style="padding:10px">
+<h3>🌟 Formation et âge du Système Solaire</h3>
+<p>Le Système Solaire s'est formé à partir d'un gigantesque nuage moléculaire appelé nébuleuse solaire. Sous l'effet de sa propre gravité, ce nuage s'est effondré et mis à tourner sur lui-même, formant un disque protoplanétaire.</p>
+<p><strong style="color:#2e8b57">Les datations radiométriques</strong> des météorites les plus anciennes nous indiquent que le Système Solaire a 4,568 milliards d'années. Les planètes telluriques se sont formées dans les régions chaudes proches du Soleil.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 4: Le Soleil : notre étoile -->
+<div class="slide slide6" data-slide="6">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>☀️ Le Soleil : notre étoile</h2>
+<p>Le Soleil concentre <strong>99,86% de la masse totale</strong> du Système Solaire. Cette boule de plasma d'environ 1,4 million de kilomètres de diamètre brûle principalement de l'hydrogène dans son cœur, où la température atteint 15 millions de degrés Celsius.</p>
+<p>Chaque seconde, le Soleil transforme environ 600 millions de tonnes d'hydrogène en hélium par fusion nucléaire. Cette énergie met environ <strong>100 000 ans</strong> pour voyager du cœur à la surface, puis seulement 8 minutes pour atteindre la Terre.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 5: Structure générale du Système Solaire -->
+<div class="slide slide24" data-slide="24">
+<div class="content">
+<h2>🪐 Structure générale du Système Solaire</h2>
+<p>Le Système Solaire s'organise en plusieurs régions distinctes. Au centre trône le Soleil, entouré par les planètes telluriques : Mercure, Vénus, la Terre et Mars. Ces quatre planètes rocheuses occupent la région intérieure, relativement compacte.</p>
+<p>Entre Mars et Jupiter s'étend la <strong style="color:#2e8b57">ceinture d'astéroïdes</strong>. Au-delà commence le domaine des géantes : Jupiter, Saturne, Uranus et Neptune. Encore plus loin se trouve la ceinture de Kuiper. Enfin, le nuage d'Oort marquerait les limites extrêmes.</p>
+</div>
+</div>
+
+<!-- Slide 6: Les planètes telluriques -->
+<div class="slide slide31" data-slide="31">
+<div class="content">
+<div style="background:#fff;color:#2a2a2a;border-radius:10px;padding:10px;margin-top:20px;width:100%;border:1px solid rgba(0,0,0,.08);box-shadow:0 6px 16px rgba(0,0,0,.08)">
+<div style="border-bottom:2px solid rgba(46,139,87,.25);padding-bottom:12px;margin-bottom:12px">
+<h3 style="color:#2e8b57;margin-bottom:0;font-size:clamp(1.15em,3.8vw,1.6em);letter-spacing:.5px;text-transform:none">🌍 Les planètes telluriques</h3>
+</div>
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.7">Les quatre planètes telluriques partagent une composition rocheuse similaire, avec un noyau métallique et une croûte solide. Mercure subit des variations de température extrêmes : 430°C le jour, -180°C la nuit.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.7">Vénus est la planète la plus chaude avec 465°C. La Terre est unique avec ses océans d'eau liquide. Mars possède les volcans les plus hauts du Système Solaire et des indices d'eau passée.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 7: Mercure et Vénus : les planètes intérieures -->
+<div class="slide slide35" data-slide="35">
+<div class="content">
+<h2>🔴 Mercure et Vénus : les planètes intérieures</h2>
+<p>Mercure file autour du Soleil en seulement <strong style="color:#2e8b57">88 jours terrestres</strong>, mais sa rotation est si lente qu'un jour mercurien dure 59 jours terrestres. Sans atmosphère pour distribuer la chaleur, ses pôles abritent paradoxalement de la glace d'eau dans des cratères perpétuellement à l'ombre.</p>
+<p>Vénus tourne dans le sens inverse des autres planètes, phénomène appelé <strong style="color:#2e8b57">rotation rétrograde</strong>. Ses nuages d'acide sulfurique cachent une surface volcanique où la pression atmosphérique équivaut à celle régnant à 900 mètres de profondeur dans les océans terrestres.</p>
+<div style="background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%);border:2px solid #3cb371;border-radius:8px;padding:20px;margin-top:20px;width:100%;box-shadow:0 2px 8px rgba(46,139,87,.12)">
+<h3 style="color:#2e8b57;margin-bottom:10px;font-size:clamp(1.1em, 3.8vw, 1.6em)">⚡ Fait remarquable</h3>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a">Vénus est si brillante qu'elle peut projeter des ombres depuis la Terre.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 8: La Terre : une planète vivante -->
+<div class="slide slide11" data-slide="11">
+<div class="content">
+<div style="background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.1);width:100%;padding:8px">
+<div style="background:#2e8b57;color:#fff;text-transform:uppercase;letter-spacing:.8px;font-weight:700;font-size:clamp(1.7em,3.6vw,1.5em);padding:4px">🌎 La Terre : une planète vivante</div>
+<div style="background:#fafaf8;padding:4px">
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify">La Terre se distingue par sa position dans la <strong style="color:#2e8b57">zone habitable</strong>, où l'eau peut exister sous forme liquide. Son atmosphère, composée de 78% d'azote et 21% d'oxygène, protège la vie des rayonnements nocifs.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify">Le champ magnétique terrestre dévie les particules chargées du vent solaire et crée les aurores polaires. La Lune, notre unique satellite naturel, stabilise l'axe de rotation terrestre et provoque les marées océaniques.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 9: Mars : la planète rouge -->
+<div class="slide slide37" data-slide="37">
+<div class="content">
+<div style="background:#fcfbf7;border:1px solid #d6d1c4;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08),inset 0 0 120px rgba(235,230,210,.4);width:100%;padding:10px">
+<h3 style="color:#2e8b57;font-family:Nunito,sans-serif;font-size:clamp(1.4em,4.2vw,2em);margin-bottom:18px;text-transform:uppercase;letter-spacing:1px">🔴 Mars : la planète rouge</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.85;text-align:justify">Mars doit sa couleur rouille à l'oxyde de fer présent en abondance. Avec un diamètre moitié moindre que celui de la Terre, Mars possède néanmoins des caractéristiques géologiques impressionnantes : <strong style="color:#2e8b57">Olympus Mons</strong> culmine à 22 km de hauteur, trois fois l'Everest.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.85;text-align:justify">Les rovers et orbiteurs ont révélé que Mars possédait autrefois une atmosphère plus dense et de l'eau liquide en surface. Aujourd'hui, son atmosphère ténue ne permet à l'eau d'exister qu'à l'état de glace ou de vapeur.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 10: La ceinture d'astéroïdes -->
+<div class="slide slide10" data-slide="10">
+<div class="content">
+<div style="background:linear-gradient(to right,#f0fdf4,#fff);border:3px solid #2e8b57;border-radius:10px;padding:10px;position:relative;overflow:hidden;width:100%">
+<div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(46,139,87,.08);border-radius:50%"></div>
+<div style="position:relative;z-index:1">
+<div style="display:inline-block;background:#2e8b57;color:#fff;padding:6px 14px;border-radius:20px;font-size:clamp(13px,3.2vw,15px);font-weight:700;margin-bottom:12px">☄️ LA CEINTURE D'ASTÉROÏDES</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">Entre Mars et Jupiter</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75">Des millions d'astéroïdes gravitent dans cette région. Contrairement à l'idée reçue, ces objets sont très espacés. La masse totale représente moins de 4% de celle de la Lune.</p>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75"><strong style="color:#2e8b57">Cérès</strong>, le plus gros objet avec 940 km de diamètre, est classé comme planète naine. Ces corps rocheux sont les restes de la formation du Système Solaire : Jupiter les a empêchés de s'agglomérer en une planète.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 11: Jupiter : le géant du Système Solaire -->
+<div class="slide slide17" data-slide="17">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>🪐 Jupiter : le géant du Système Solaire</h2>
+<p>Jupiter, avec une masse <strong>318 fois supérieure</strong> à celle de la Terre, pourrait contenir toutes les autres planètes à l'intérieur. Cette géante gazeuse tourne sur elle-même en seulement 10 heures. Sa Grande Tache Rouge, un anticyclone géant plus large que la Terre, fait rage depuis au moins 350 ans.</p>
+<p>Jupiter possède au moins 95 lunes connues. Les quatre lunes galiléennes sont des mondes fascinants : Io est l'objet le plus volcanique, Europe cache un océan sous sa croûte glacée, Ganymède est la plus grande lune du Système Solaire, et Callisto présente la surface la plus cratérisée.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 12: Saturne : le seigneur des anneaux -->
+<div class="slide slide25" data-slide="25">
+<div class="content">
+<div style="background:#fff;border:4px solid #49b402;border-radius:12px;box-shadow:0 6px 20px rgba(46,139,87,.15);width:100%;padding:8px">
+<h3 style="color:#2e8b57;font-size:clamp(1.4em,4.2vw,1.9em);margin-bottom:18px">🪐 Saturne : le seigneur des anneaux</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8">Saturne est célèbre pour son spectaculaire système d'anneaux, composé de milliards de particules de glace et de roche. Ces anneaux s'étendent sur <strong style="color:#2e8b57">282 000 km</strong> mais ne font que 10 mètres d'épaisseur en moyenne.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8">Avec 146 lunes confirmées, Saturne détient le record du nombre de satellites. Titan possède une atmosphère dense et des lacs d'hydrocarbures liquides. Encelade éjecte des geysers d'eau depuis son océan souterrain. Saturne est si peu dense qu'elle flotterait dans l'eau.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 13: Image Voie lactée -->
+<div class="slide slide19" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Notre place dans la galaxie</h2>
+<div style="width:100%;max-width:600px;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<img src="https://img.wikix-thegreatapp.workers.dev/solar-system-2025.10.10-a16e94f3e1d1685f71085f5bb3d6f3271fc92d0c091ce4c466608805607ca2b3.jpg?cb=1760118630628" style="width:100%;height:auto;display:block;border-radius:6px;">
+</div>
+<p style="margin-top:-10px;text-align:center!important"><i>Diagramme de la Voie lactée montrant les caractéristiques galactiques et la position relative du Système Solaire</i></p>
+</div>
+</div>
+
+<!-- Slide 14: Uranus et Neptune : les géantes de glace -->
+<div class="slide slide16" data-slide="16">
+<div class="content">
+<div style="background:#f8fdf9;border-left:6px solid #2e8b57;border-radius:0 10px 10px 0;box-shadow:0 4px 16px rgba(0,0,0,.08);width:100%;padding:8px">
+<h3 style="color:#2e8b57;font-weight:700;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:10px">❄️ Uranus et Neptune : les géantes de glace</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify">Uranus et Neptune sont classées comme géantes de glace car leur composition diffère de Jupiter et Saturne. Leur manteau contient de l'eau, du méthane et de l'ammoniac sous forme de glaces chaudes et comprimées entourant un noyau rocheux.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);line-height:1.8;color:#2a2a2a;text-align:justify">Uranus présente une particularité unique : son axe de rotation est <strong style="color:#2e8b57">incliné à 98°</strong>, ce qui signifie qu'elle roule pratiquement sur son orbite. Neptune possède les vents les plus rapides du Système Solaire, atteignant 2100 km/h.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 15: Le rôle protecteur de Jupiter -->
+<div class="slide slide50" data-slide="50">
+<div class="content">
+<div style="background:linear-gradient(145deg,#e8f5e9,#f0fdf4);border:2px dashed #2e8b57;border-radius:12px;width:100%;box-shadow:0 4px 12px rgba(0,0,0,.1);padding:8px">
+<h3 style="font-size:clamp(1.4em,4.5vw,2em);color:#2e8b57;margin-bottom:16px">🛡️ Le rôle protecteur de Jupiter</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8">Jupiter joue un rôle crucial dans l'architecture du Système Solaire. Sa masse colossale agit comme un aspirateur cosmique, déviant ou capturant de nombreuses comètes et astéroïdes qui pourraient autrement menacer les planètes intérieures. En 1994, la comète <strong style="color:#2e8b57">Shoemaker-Levy 9</strong> s'est écrasée spectaculairement sur Jupiter.</p>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8">Jupiter a également joué un rôle majeur dans la formation du Système Solaire : sa migration précoce aurait perturbé les orbites d'innombrables planétésimaux, sculpant la structure actuelle.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 16: Les comètes : voyageuses glacées -->
+<div class="slide slide33" data-slide="33">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>☄️ Les comètes : voyageuses glacées</h2>
+<p><strong>Composition :</strong> Les comètes sont des corps composés de glace, de poussière et de roches, souvent décrites comme des boules de neige sales. La plupart proviennent de deux réservoirs : la ceinture de Kuiper pour les comètes à courte période, et le nuage d'Oort pour celles à longue période.</p>
+<p><strong>Caractéristiques :</strong> Lorsqu'une comète s'approche du Soleil, la chaleur sublime les glaces de son noyau, créant une atmosphère lumineuse appelée coma et deux queues distinctes. Les comètes ont probablement apporté une partie de l'eau et des molécules organiques sur Terre.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 17: Image comète Hale-Bopp -->
+<div class="slide slide19" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Comète Hale-Bopp</h2>
+<div style="width:100%;max-width:600px;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<img src="https://img.wikix-thegreatapp.workers.dev/solar-system-2025.10.10-447cd74d82aeeffb95eeb42ded6ef94579a8d35119c1721df7305aa676af6ba4.jpg?cb=1760118629981" style="width:100%;height:auto;display:block;border-radius:6px;">
+</div>
+<p style="margin-top:-10px;text-align:center!important"><i>Le plasma dispersé (bleu) et la poussière (blanc) dans la queue de la comète Hale-Bopp sont façonnés par la pression du rayonnement solaire et du vent solaire</i></p>
+</div>
+</div>
+
+<!-- Slide 18: La ceinture de Kuiper et les objets transneptuniens -->
+<div class="slide slide41" data-slide="41">
+<div class="content">
+<div style="max-width:900px;margin:auto;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,rgba(245,255,245,.65),rgba(235,250,235,.7));backdrop-filter:blur(12px);border:1px solid rgba(60,179,113,.25);box-shadow:0 8px 26px rgba(0,0,0,.1);padding:8px">
+<div style="background:linear-gradient(90deg,#3cb371,#2e8b57);color:#fff;font-size:clamp(1.2em,3.6vw,1.6em);font-weight:700;text-transform:uppercase;padding:4px">🥶 CEINTURE DE KUIPER</div>
+<div style="font-family:Nunito,sans-serif;color:#222;font-size:clamp(15px,3.8vw,18px);line-height:1.8;padding:4px">
+<p style="text-align:justify">Au-delà de Neptune s'étend la ceinture de Kuiper, une région peuplée de milliers d'objets glacés orbitant entre 30 et 50 unités astronomiques du Soleil. C'est le domaine des <strong style="color:#2e8b57">planètes naines</strong> comme Pluton, Éris, Makémaké et Hauméa.</p>
+<p style="text-align:justify">Pluton, rétrogradée au rang de planète naine en 2006, possède cinq lunes dont Charon. La mission New Horizons a révélé en 2015 un monde étonnamment actif avec des montagnes de glace d'eau et des plaines d'azote gelé.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 19: Image orbites objets distants -->
+<div class="slide slide19" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Objets transneptuniens</h2>
+<div style="width:100%;max-width:600px;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<img src="https://img.wikix-thegreatapp.workers.dev/solar-system-2025.10.10-379d4f6722e6855e16b4fb3c62db1edd577c07b9e865a64f2481a27617a5405c.jpg?cb=1760118630175" style="width:100%;height:auto;display:block;border-radius:6px;">
+</div>
+<p style="margin-top:-10px;text-align:center!important"><i>Les orbites actuelles de Sedna, 2012 VP113, Leleākūhonua (rose) et d'autres objets très distants (rouge, marron et cyan) avec l'orbite prédite de l'hypothétique Planète Neuf (bleu foncé)</i></p>
+</div>
+</div>
+
+<!-- Slide 20: Le nuage d'Oort : frontière ultime -->
+<div class="slide slide26" data-slide="26">
+<div class="content">
+<div style="position:relative;max-width:880px;margin:auto;padding:10px">
+<svg style="position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:180px;height:180px;opacity:.12;z-index:0" viewBox="0 0 100 100"><polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="#2E8B57"/></svg>
+<svg style="position:absolute;bottom:-50px;right:-30px;width:140px;height:140px;opacity:.08;z-index:0" viewBox="0 0 100 100"><polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="#3CB371"/></svg>
+<div style="position:relative;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:3px solid rgba(46,139,87,.3);border-radius:16px;box-shadow:0 12px 40px rgba(46,139,87,.18);padding:10px">
+<h3 style="color:#2e8b57;font-size:clamp(1.4em,4vw,1.9em);margin-bottom:16px;text-align:center">🌌 Le nuage d'Oort : frontière ultime</h3>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify">Le nuage d'Oort est une sphère théorique de corps glacés entourant le Système Solaire à des distances vertigineuses, entre <strong style="color:#2e8b57">2000 et 100 000 unités astronomiques</strong>. À cette distance, le Soleil n'est plus qu'une étoile parmi d'autres dans le ciel.</p>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:justify;margin-top:14px">On estime que ce réservoir contient des billions de noyaux cométaires. Les comètes à longue période qui visitent le système solaire interne proviennent de cette région sur des orbites de millions d'années.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 21: Le vent solaire et l'héliosphère -->
+<div class="slide slide9" data-slide="9">
+<div class="content">
+<div style="background:#f9f9f7;border:5px groove rgba(136,172,152,.8);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.08);width:100%;padding:10px">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.9em);margin-bottom:14px">🌬️ Le vent solaire et l'héliosphère</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.8">Le Soleil émet continuellement un flux de particules chargées appelé vent solaire, composé principalement de protons et d'électrons voyageant à 400-750 km/s. Ce plasma s'écoule dans toutes les directions, créant une bulle protectrice autour du Système Solaire nommée <strong style="color:#2e8b57">héliosphère</strong>.</p>
+<div style="position:relative;background:#fff;border-radius:10px;margin-top:16px;padding:10px 12px;box-shadow:inset 0 0 0 1px rgba(46,139,87,.25),inset 0 0 8px rgba(46,139,87,.15)">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0">🛰️ <strong style="color:#2e8b57">Voyager 1 et 2</strong> ont franchi l'héliopause en 2012 et 2018, devenant les premiers objets humains à entrer dans l'espace interstellaire.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 22: Le Système Solaire dans la Voie lactée -->
+<div class="slide slide52" data-slide="52">
+<div class="content">
+<div style="background:linear-gradient(135deg,#f0fdf4,#e8f5e9);border-radius:12px;padding:10px;position:relative;overflow:hidden;border:3px solid #3cb371;width:100%">
+<div style="position:absolute;top:50%;left:50%;width:300px;height:300px;background:radial-gradient(circle,rgba(46,139,87,.15) 0,transparent 70%);transform:translate(-50%,-50%);pointer-events:none"></div>
+<div style="position:relative;z-index:1">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">🌀 Le Système Solaire dans la Voie lactée</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75;text-align:center;margin-bottom:12px">Le Système Solaire orbite autour du centre de la Voie lactée à environ 828 000 km/h, complétant une révolution en 225 à 250 millions d'années, période appelée <strong style="color:#2e8b57">année galactique</strong>.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+<div style="background:#fff;padding:8px;border-radius:6px;border:2px solid #2e8b57">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">Position :</strong> Bras d'Orion, 26 000 années-lumière du centre</p>
+</div>
+<div style="background:#fff;padding:8px;border-radius:6px;border:2px solid #3cb371">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">Stabilité :</strong> Zone calme, loin des supernovae fréquentes</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 23: Image milieu interstellaire -->
+<div class="slide slide19" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">L'héliosphère dans l'espace</h2>
+<div style="width:100%;max-width:600px;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<img src="https://img.wikix-thegreatapp.workers.dev/solar-system-2025.10.10-c150403d83eda330a4caa28bd60c866af81f19c74901b3e170cd834adc64390f.jpg?cb=1760118630084" style="width:100%;height:auto;display:block;border-radius:6px;">
+</div>
+<p style="margin-top:-10px;text-align:center!important"><i>Le Système Solaire (gauche) au sein du milieu interstellaire, avec les différentes régions et leurs distances sur une échelle logarithmique</i></p>
+</div>
+</div>
+
+<!-- Slide 24: L'exploration du Système Solaire -->
+<div class="slide slide8" data-slide="8">
+<div class="content">
+<div style="background:#fff;border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 10px 24px rgba(46,139,87,.15);position:relative;overflow:hidden;width:100%">
+<div style="position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(46,139,87,.1),transparent);border-radius:0 12px 0 0"></div>
+<div style="position:relative;z-index:1">
+<div style="background:linear-gradient(90deg,#2e8b57,#3cb371);color:#fff;padding:8px;border-radius:6px;display:inline-block;margin-bottom:12px;font-size:clamp(12px,3vw,14px);font-weight:700">🔭 EXPLORATION SPATIALE</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">L'exploration du Système Solaire</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75;margin-bottom:10px">L'exploration spatiale a révolutionné notre compréhension du Système Solaire. Les rovers martiens Curiosity et Perseverance analysent roches et sols. Cassini a étudié Saturne pendant 13 ans. New Horizons a révélé Pluton en 2015.</p>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.7">Les missions futures incluent Europa Clipper qui étudiera l'océan sous-glaciaire d'Europe, et des projets de retour d'échantillons martiens.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 25: Les météorites : messagères cosmiques -->
+<div class="slide slide13" data-slide="13">
+<div class="content">
+<div style="background:#fff;border:4px double #2e8b57;border-radius:10px;padding:10px;box-shadow:0 6px 16px rgba(46,139,87,.12);width:100%">
+<div style="text-align:center;margin-bottom:14px">
+<div style="display:inline-block;background:linear-gradient(135deg,#2e8b57,#3cb371);color:#fff;padding:8px 18px;border-radius:6px;font-weight:700;font-size:clamp(12px,3vw,14px);letter-spacing:.5px">💫 MESSAGÈRES COSMIQUES</div>
+</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);text-align:center;margin-bottom:14px">Les météorites</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75">Les météorites sont des fragments d'astéroïdes, de comètes ou parfois de planètes qui survivent à leur traversée de l'atmosphère terrestre. Environ <strong style="color:#2e8b57">48 tonnes</strong> de matériau météoritique tombent sur Terre chaque jour, principalement sous forme de poussière microscopique.</p>
+<div style="background:#f0fdf4;border-radius:6px;padding:8px;margin-top:12px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0">Les chondrites contiennent les matériaux les plus anciens du Système Solaire. Des acides aminés découverts dans certaines météorites suggèrent que les briques du vivant peuvent se former dans l'espace.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 26: Les zones habitables et la recherche de vie -->
+<div class="slide slide42" data-slide="42">
+<div class="content">
+<div class="case-study" style="padding:10px">
+<h3>🌍 Les zones habitables et la recherche de vie</h3>
+<p><strong>Zone habitable :</strong> La zone Boucle d'or désigne la région autour d'une étoile où l'eau liquide peut exister à la surface d'une planète. Dans notre Système Solaire, cette zone s'étend approximativement de Vénus à Mars.</p>
+<p><strong>Océans souterrains :</strong> La découverte d'océans souterrains sur Europe, Encelade et peut-être Ganymède et Titan élargit considérablement les environnements potentiellement habitables.</p>
+<p><strong>Futures missions :</strong> Les futures missions d'astrobiologie se concentreront sur ces mondes prometteurs, comme Europa Clipper qui étudiera l'océan sous-glaciaire d'Europe.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 27: Les lois de Kepler et la mécanique céleste -->
+<div class="slide slide7" data-slide="7">
+<div class="content">
+<div style="background:linear-gradient(to bottom,#f0fdf4,#fff);border:3px solid #2e8b57;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.12);width:100%">
+<div style="text-align:center;margin-bottom:14px">
+<div style="display:inline-block;background:#2e8b57;color:#fff;padding:8px 16px;border-radius:20px;font-weight:700;font-size:clamp(13px,3.2vw,15px)">⚖️ MÉCANIQUE CÉLESTE</div>
+</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">Les lois de Kepler</h3>
+<div style="display:grid;gap:8px">
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #2e8b57">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ <strong style="color:#2e8b57">Première loi :</strong> Les planètes suivent des orbites elliptiques avec le Soleil à l'un des foyers</p>
+</div>
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #3cb371">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ <strong style="color:#2e8b57">Deuxième loi :</strong> Une planète balaie des aires égales en temps égaux</p>
+</div>
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #5b9c77">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ <strong style="color:#2e8b57">Troisième loi :</strong> Le carré de la période est proportionnel au cube du demi-grand axe</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 28: Image nébuleuse du Crabe -->
+<div class="slide slide19" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Nébuleuse du Crabe</h2>
+<div style="width:100%;max-width:600px;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<img src="https://img.wikix-thegreatapp.workers.dev/space-weather-2025.10.10-1ef0e15134b3bc3b7d602c00573f2722dd7483c10be5309ee84139331ba89f99.jpg?cb=1760118630372" style="width:100%;height:auto;display:block;border-radius:6px;">
+</div>
+<p style="margin-top:-10px;text-align:center!important"><i>Image mosaïque de la nébuleuse du Crabe, reste d'une supernova enregistrée en 1054. L'étoile à neutrons en rotation rapide intégrée au centre alimente la lueur bleue intérieure de la nébuleuse</i></p>
+</div>
+</div>
+
+<!-- Slide 29: Conclusion -->
+<div class="slide slide55" data-slide="55">
+<div class="content" style="display:flex;justify-content:center;align-items:center;flex-direction:column">
+<div style="background:#fff;border-radius:12px;padding:30px;width:100%;max-width:800px;box-shadow:0 8px 24px rgba(0,0,0,.12);border:3px solid #2e8b57;text-align:center!important">
+<div style="border-bottom:4px double #2e8b57;padding-bottom:15px;margin-bottom:20px">
+<h3 style="font-family:Nunito,sans-serif;font-size:clamp(1.3em, 4.2vw, 1.9em);color:#2e8b57;margin:0;letter-spacing:2px;text-transform:uppercase;text-align:center!important">Conclusion</h3>
+</div>
+<p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin-bottom:15px;text-align:center!important">Le Système Solaire représente notre coin d'univers, un ensemble complexe et dynamique né il y a 4,6 milliards d'années. De la fournaise nucléaire du Soleil aux confins glacés du nuage d'Oort, chaque région révèle des processus physiques fascinants et des mondes aux caractéristiques uniques.</p>
+<p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin:0;text-align:center!important">Comprendre le Système Solaire, c'est aussi comprendre notre place dans l'univers. Nous sommes les habitants d'une planète bleue fragile, orbitant une étoile ordinaire dans un quartier tranquille de la galaxie.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 30: Points essentiels -->
+<div class="slide slide56 summary-slide" data-slide="56">
+<div class="content" style="box-shadow:0 4px 12px rgba(0,0,0,.08);transform:translateZ(0)">
+<h2 style="font-size:clamp(1.4em, 4.8vw, 2.2em);margin-bottom:0;color:#fff">📝 Points Essentiels</h2>
+<div style="background:rgba(255,255,255,.08);padding:20px;margin:20px 0;border-radius:8px;color:#fff;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.25)">
+<strong style="color:#baf990;font-size:1.1em">Le Système Solaire s'est formé il y a 4,568 milliards d'années</strong> à partir d'une nébuleuse en rotation<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style="color:#baf990;font-size:1.1em">Le Soleil contient 99,86% de la masse totale</strong> et génère son énergie par fusion nucléaire de l'hydrogène<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style="color:#baf990;font-size:1.1em">Huit planètes orbitent autour du Soleil :</strong> quatre telluriques rocheuses et quatre géantes<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style="color:#baf990;font-size:1.1em">Jupiter joue un rôle protecteur</strong> en déviant de nombreux objets potentiellement dangereux<br>
+<div style="height:2px;margin:10px 0;background:linear-gradient(to right,transparent,#baf990,transparent)"></div>
+<strong style="color:#baf990;font-size:1.1em">Le Système Solaire orbite autour du centre de la Voie lactée</strong> en 225-250 millions d'années</div>
+</div>
+</div>
+
+<!-- Slide 31: Pour aller plus loin -->
+<div class="slide slide57 further-reading" data-slide="57">
+<div class="content" style="background:0 0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important;border-radius:8px!important;padding:10px!important">
+<h2 style="margin-bottom:16px!important;color:#fff!important;text-align:center!important">📚 Pour Aller Plus Loin</h2>
+<div style="display:grid!important;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important;gap:12px!important">
+<div style="background:#baf9901a!important;padding:10px!important;border-radius:8px!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;border-left:4px solid #baf990!important">
+<strong style="color:#baf990!important">Les exoplanètes</strong>
+<p style="color:#fff!important;margin-top:4px!important;margin-bottom:0!important;line-height:1.4!important">Découvrez les milliers de planètes orbitant autour d'autres étoiles et les méthodes utilisées pour les détecter</p>
+</div>
+<div style="background:#baf9901a!important;padding:10px!important;border-radius:8px!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;border-left:4px solid #baf990!important">
+<strong style="color:#baf990!important">La formation des étoiles</strong>
+<p style="color:#fff!important;margin-top:4px!important;margin-bottom:0!important;line-height:1.4!important">Explorez comment naissent les étoiles dans les nébuleuses et leur évolution jusqu'à leur mort</p>
+</div>
+<div style="background:#baf9901a!important;padding:10px!important;border-radius:8px!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;border-left:4px solid #baf990!important">
+<strong style="color:#baf990!important">La Voie lactée</strong>
+<p style="color:#fff!important;margin-top:4px!important;margin-bottom:0!important;line-height:1.4!important">Plongez dans la structure et l'histoire de notre galaxie spirale contenant des centaines de milliards d'étoiles</p>
+</div>
+<div style="background:#baf9901a!important;padding:10px!important;border-radius:8px!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;border-left:4px solid #baf990!important">
+<strong style="color:#baf990!important">L'astrobiologie</strong>
+<p style="color:#fff!important;margin-top:4px!important;margin-bottom:0!important;line-height:1.4!important">Étudiez les conditions nécessaires à l'apparition de la vie et les environnements extraterrestres prometteurs</p>
+</div>
+<div style="background:#baf9901a!important;padding:10px!important;border-radius:8px!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;border-left:4px solid #baf990!important">
+<strong style="color:#baf990!important">Les missions spatiales</strong>
+<p style="color:#fff!important;margin-top:4px!important;margin-bottom:0!important;line-height:1.4!important">Suivez l'histoire de l'exploration spatiale et les projets futurs d'exploration robotique et humaine</p>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+let currentSlide=0;const slides=document.querySelectorAll(".slide"),totalSlides=slides.length,progressTrack=document.getElementById("progressTrack"),progressBar=document.getElementById("progressBar");let touchStartX=0,touchEndX=0;function computeScaleToFit(e,t){if(!e||!t)return 1;e.style.transform="none";const i=t.getBoundingClientRect(),r=getComputedStyle(t),n=parseFloat(r.paddingTop)||0,d=parseFloat(r.paddingBottom)||0,o=Math.max(0,i.height-n-d),s=Math.max(0,o-12),a=e.scrollHeight;return a<=0||s<=0?1:Math.min(1,s/a)}function fitActiveSlide(){const e=document.querySelector(".slide.active");if(!e)return;const t=e.querySelector(".content");if(!t)return;const i=computeScaleToFit(t,e);t.style.transform=`scale(${i})`}let _fitRaf=null;function requestFit(){_fitRaf||(_fitRaf=requestAnimationFrame(()=>{_fitRaf=null,fitActiveSlide()}))}function updateProgressBar(){const e=Math.min((currentSlide+1)/totalSlides*100,100);progressBar.style.width=e+"%",currentSlide>0?progressTrack.classList.add("visible"):progressTrack.classList.remove("visible")}function showSlide(e){const t=document.querySelector(".slide.active"),i=slides[e];t!==i&&(i.classList.add("active"),t&&(t.classList.add("fade-out"),setTimeout(()=>{t.classList.remove("fade-out","active")},120)),currentSlide=e,updateProgressBar(),fitActiveSlide(),console.log(`Slide: ${currentSlide+1} OR ${i.getAttribute("data-slide")} of ${totalSlides}`))}function nextSlide(){currentSlide<totalSlides-1?(currentSlide++,showSlide(currentSlide)):(currentSlide=0,showSlide(currentSlide))}function prevSlide(){currentSlide>0?(currentSlide--,showSlide(currentSlide)):(currentSlide=totalSlides-1,showSlide(currentSlide))}function handleSwipe(){touchEndX<touchStartX-50&&prevSlide(),touchEndX>touchStartX+50&&nextSlide()}window.addEventListener("resize",requestFit),window.addEventListener("message",e=>{try{const t="string"==typeof e.data?JSON.parse(e.data):e.data;if(!t||!t.type)return;"wikix:refit"!==t.type&&"wikix:show"!==t.type||requestFit()}catch(e){}}),progressTrack.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation();const t=progressTrack.getBoundingClientRect(),i=e.clientX-t.left,r=t.width,n=Math.max(0,Math.min(1,i/r))*(totalSlides-1),d=Math.round(n);currentSlide=Math.max(0,Math.min(d,totalSlides-1)),showSlide(currentSlide)}),document.addEventListener("click",e=>{if(e.target===progressTrack||progressTrack.contains(e.target))return;const t=window.innerWidth;e.clientX>t/2?nextSlide():prevSlide()}),document.addEventListener("keydown",e=>{"ArrowRight"===e.key?nextSlide():"ArrowLeft"===e.key&&prevSlide()}),document.addEventListener("touchstart",e=>{touchStartX=e.changedTouches[0].screenX}),document.addEventListener("touchend",e=>{touchEndX=e.changedTouches[0].screenX,handleSwipe()}),updateProgressBar(),fitActiveSlide(),console.log(`Starting presentation with ${totalSlides} slides`),console.log(`Current slide: 1 of ${totalSlides}`),window.addEventListener("load",fitActiveSlide),document.addEventListener("load",function(e){!e.target||"IMG"!==e.target.tagName&&"VIDEO"!==e.target.tagName||requestFit()},!0)
+</script>
+</body>
+</html>
