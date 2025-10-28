@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L'équation de Drake</title>
+<style>@font-face{font-family:Nunito;src:url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');font-weight:200 1000;font-display:block}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Nunito,sans-serif!important;background:#f5f5f0;color:#2a2a2a;overflow:hidden;touch-action:pan-y}.progress-bar{position:absolute;top:0;left:0;height:100%;background:#bf003d;transition:width .3s ease;width:0;border-radius:2px;opacity:1}.progress-track{position:fixed;top:0;left:0;right:0;height:8px;background:rgba(0,0,0,.08);border-radius:0;z-index:1000;cursor:pointer;max-width:100%;opacity:0;transition:opacity .2s ease}.progress-track.visible{opacity:1}.progress-track #progressBar{pointer-events:none}.slide{width:100vw;height:100vh;display:none;justify-content:center;align-items:flex-start;padding:0;opacity:0;transition:opacity .5s ease;border:4px solid #2e8b57;border-radius:12px;position:absolute;top:0;left:0}.slide.active{display:flex;opacity:1}.slide.fade-out{opacity:0}.content{width:100%;max-width:900px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:0}.title-slide{background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%)}.main-title{font-weight:800;font-size:clamp(1.8em, 6vw, 3em);color:#2a8f5a;letter-spacing:-1px;text-transform:uppercase;padding:20px 30px;border-radius:10px;background:linear-gradient(to bottom,#fff,#f0fdf4);box-shadow:0 2px 0 rgba(60,179,113,.3),0 4px 0 rgba(60,179,113,.25),0 6px 0 #3cb371,0 10px 20px rgba(60,179,113,.25);margin-bottom:20px;margin-top:0;font-display:block;display:inline-block;margin-left:auto;margin-right:auto}h2{font-size:clamp(1.5em, 5vw, 2.5em);color:#2e8b57;margin-bottom:10px;font-weight:700}h3{font-size:clamp(1.2em, 4vw, 1.8em);color:#3cb371;margin-bottom:20px;font-weight:600}p{font-size:clamp(16px, 4vw, 20px);line-height:1.7;color:#3a3a3a;margin-bottom:15px}.emphasis-box{background:#2e8b57;color:#fff;padding:30px;border-radius:12px;margin:20px 0;width:100%}.emphasis-box h2,.emphasis-box h3{color:#fff}.emphasis-box p{color:#fff}.emphasis-box strong{color:#baf990}.fun-fact{background:#e8f5e9;border-left:6px solid #3cb371;padding:25px;margin:20px 0;border-radius:8px;width:100%}.fun-fact h3{color:#2e8b57;margin-bottom:12px}.quote-box{background:#f9f9f7;border-left:5px solid #5b9c77;padding:25px;font-style:italic;margin:20px 0;position:relative;border-radius:8px;width:100%}.quote-box::before{content:'"';font-size:4em;color:#3cb371;position:absolute;top:-10px;left:15px;opacity:.3}.quote-author{text-align:right;margin-top:15px;font-weight:600;color:#2e8b57;font-style:normal}table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:8px;overflow:hidden}th{background:#2e8b57;color:#fff;padding:15px;text-align:left;font-size:clamp(14px, 3.5vw, 18px)}td{padding:12px 15px;border-bottom:1px solid #e0e0e0;color:#3a3a3a;font-size:clamp(13px, 3vw, 16px);background:#fafafa}ol,ul{text-align:left;margin:20px 0;padding-left:25px;width:100%}li{margin-bottom:12px;color:#3a3a3a;font-size:clamp(15px, 3.8vw, 19px);line-height:1.6}li strong{color:#2e8b57}.diagram{width:100%;max-width:500px;height:auto;margin:20px 0;border-radius:8px;border:2px solid #3cb371}.chart-container{width:100%;padding:25px;background:#fff;border-radius:12px;margin:20px 0}.case-study{background:linear-gradient(135deg,#e8f5e9 0,#f0fdf4 100%);padding:25px;border-radius:12px;border:2px solid #5b9c77;margin:20px 0;width:100%}.case-study h3{color:#2e8b57;margin-bottom:15px}.slide2{background:#fafaf8}.slide3{background:#f5f5f0}.slide4{background:#e8f5e9}.slide5{background:#f9f9f7}.slide6{background:#f0fdf4}.slide7{background:#f0fdf4}.slide8{background:#e8f5e9}.slide9{background:#f0fdf4}.slide10{background:#f0fdf4}.slide11{background:#f0fdf4}.slide12{background:#fafaf8}.slide13{background:#e8f5e9}.slide14{background:#f5f5f0}.slide15{background:#f9f9f7}.slide16{background:#f0fdf4}.slide17{background:#fafaf8}.slide18{background:#e8f5e9}.slide19{background:#f5f5f0}.slide20{background:#f0fdf4}.slide21{background:#f0fdf4}.slide22{background:#fafaf8}.slide23{background:#e8f5e9}.slide24{background:#f5f5f0}.slide25{background:#f0fdf4}.slide26{background:#f0fdf4}.slide27{background:#fafaf8}.slide28{background:#e8f5e9}.slide29{background:#bae0bf}.slide30{background:#bae0bf}.summary-slide{background:#235347}.summary-slide h2,.summary-slide h3,.summary-slide p{color:#fff}.summary-slide strong{color:#baf990!important}.further-reading{background:#235347;color:#fff}.further-reading strong{color:#baf990}.further-reading h2{color:#fff}.further-reading ul{list-style:none;padding:0}.further-reading li{background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px, 3.5vw, 18px)}.icon{font-size:2em;margin-right:10px}a{color:#2e8b57;text-decoration:none;font-weight:600}a:hover{color:#3cb371}.photo-caption{font-family:Nunito,sans-serif!important;font-style:italic;font-size:clamp(13px, 3vw, 16px);color:#5a5a5a;margin-top:10px;text-align:center}.slide{padding-top:0}@media (max-width:768px){.slide{padding:15px}.content{padding:10px}.slide img{max-width:90vw!important;max-height:55vh!important;width:auto!important;height:auto!important;display:block;object-fit:contain;margin-left:auto;margin-right:auto}}.slide,.slide .content{overflow:clip!important;overscroll-behavior:contain;contain:layout paint size}.slide .content{transform-origin:center center;will-change:transform}.slide .case-study,.slide .chart-container,.slide .diagram,.slide .emphasis-box,.slide .fun-fact,.slide .quote-box,.slide img,.slide table,.slide video{max-height:90vh;height:auto}.further-reading ul,.summary-slide ul{max-height:none!important;overflow:visible!important}.slide *{scrollbar-width:none;-ms-overflow-style:none}.slide ::-webkit-scrollbar{display:none}.content,.slide,body,html{margin:2px!important;padding:2px!important}.content,.slide,body,html{padding-top:6px!important}.slide{border:none!important;border-radius:0!important}.title-slide .content{display:flex;justify-content:center;align-items:center;text-align:center;position:relative}.main-title{margin:0 auto;position:relative;top:-30px}.content,.emphasis-box,.fun-fact,.quote-box,.slide,body,h1,h2,h3,li,ol,p,table,ul{text-align:left!important}.title-slide .main-title{text-align:center!important;display:inline-block;margin:0 auto}.photo-caption,.slide h2{text-align:center!important}.photo-caption{display:block;margin-left:auto;margin-right:auto}.slide{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:0;opacity:0;pointer-events:none;transition:opacity .1s ease-in-out;z-index:0}.slide.active{opacity:1;pointer-events:auto;z-index:2}.slide.active.fade-out{opacity:0;z-index:1}:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6){font-size:16px!important}</style>
+</head>
+<body>
+<div class="progress-track" id="progressTrack">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- Slide 1: L'équation de Drake -->
+<div class="slide active title-slide" data-slide="1">
+<div class="content">
+<h1 class="main-title">L'équation de Drake</h1>
+</div>
+</div>
+
+<!-- Slide 2: Introduction -->
+<div class="slide slide2" data-slide="2">
+<div class="content">
+<div style="max-width:900px;margin:auto;background:#fff;padding:10px;border:4px solid #2e8b57;border-top-left-radius:80px;border-top-right-radius:8px;border-bottom-right-radius:80px;border-bottom-left-radius:8px;box-shadow:0 12px 32px rgba(46,139,87,.18)">
+<div style="padding:10px">
+<h2 style="color:#2e8b57;font-size:clamp(1.6em,4vw,1.9em);font-weight:800;margin-bottom:16px;text-align:center!important">Introduction</h2>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important">L'équation de Drake est une formule mathématique développée en 1961 par l'astronome Frank Drake pour estimer le nombre de civilisations extraterrestres capables de communiquer dans notre galaxie, la Voie lactée.</p>
+<p style="color:#2a2a2a;font-size:clamp(15px,3.8vw,18px);line-height:1.85;text-align:center!important;margin-top:14px">Cette équation n'est pas conçue pour donner une réponse définitive, mais plutôt pour structurer notre réflexion sur la vie intelligente dans l'univers. Elle prend en compte plusieurs facteurs fascinants.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 3: 🎯 Le contexte historique -->
+<div class="slide slide3" data-slide="3">
+<div class="content">
+<div class="fun-fact" style="padding:10px">
+<h3>🎯 Le contexte historique</h3>
+<p>En 1960, Frank Drake était un jeune astronome qui travaillait à l'observatoire de Green Bank, en Virginie-Occidentale. Il venait de mener le projet Ozma, la toute première tentative d'écouter des signaux radio provenant d'éventuelles civilisations extraterrestres.</p>
+<p><strong style="color:#2e8b57">L'année suivante:</strong> Drake organisa une conférence réunissant des scientifiques pour discuter de la recherche de vie intelligente extraterrestre. Pour préparer cette rencontre, il développa une équation servant d'agenda de discussion.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 4: 🔬 Frank Drake : l'homme derrière l'équation -->
+<div class="slide slide4" data-slide="5">
+<div class="content">
+<h2>🔬 Frank Drake : l'homme derrière l'équation</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%">
+<div style="background:#e8f5e9;padding:20px;border-radius:8px;box-shadow:0 8px 20px rgba(46,139,87,.25),0 0 0 3px #3cb371;border:2px solid #3cb371">
+<h3 style="color:#2e8b57">L'homme</h3>
+<ul style="text-align:left;padding-left:20px">
+<li>Né en 1930 à Chicago</li>
+<li>Ingénierie puis astronomie</li>
+</ul>
+</div>
+<div style="background:#f9f9f7;padding:20px;border-radius:8px;box-shadow:0 8px 20px rgba(91,156,119,.25),0 0 0 3px #5b9c77;border:2px solid #5b9c77">
+<h3 style="color:#5b9c77">L'approche</h3>
+<ul style="text-align:left;padding-left:20px">
+<li>Scientifique rigoureux</li>
+<li>Question philosophique quantifiable</li>
+</ul>
+</div>
+</div>
+<div style="margin-top:22px;padding:10px;background:#f9f9f7;border:3px dashed #3cb371;border-radius:10px;width:100%">
+<h3 style="color:#2e8b57;margin:0 0 10px 0;font-size:clamp(1.2em, 4vw, 1.7em)">🌟 Vision</h3>
+<p style="font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.6;margin:0">Transformer "Sommes-nous seuls ?" en science légitime</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 5: Frank Drake dans les années 1960 -->
+<div class="slide slide5" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Frank Drake dans les années 1960</h2>
+<img src="https://img.wikix-thegreatapp.workers.dev/drake-equation-2025.10.10-f604ad8afb8a09a119ed2f274f790890ee77d83aa53d037104bc0baaf09e265d.jpg?cb=1760120102460" alt="Frank Drake dans les années 1960" style="width:100%;max-width:600px;height:auto;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<p class="photo-caption">Frank Drake dans les années 1960</p>
+</div>
+</div>
+
+<!-- Slide 6: 🔍 La formule de Drake -->
+<div class="slide slide6" data-slide="6">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>🔍 La formule de Drake</h2>
+<p>L'équation de Drake s'écrit : <strong>N = R* × fp × ne × fl × fi × fc × L</strong></p>
+<p>Chaque lettre représente un facteur spécifique. N est le nombre de civilisations capables de communiquer dans notre galaxie. Cette valeur dépend de sept paramètres différents que nous allons décortiquer.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 7: ⭐ R* : Le taux de formation stellaire -->
+<div class="slide slide7" data-slide="7">
+<div class="content">
+<div style="background:linear-gradient(to bottom,#f0fdf4,#fff);border:3px solid #2e8b57;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.12);width:100%">
+<div style="text-align:center;margin-bottom:14px">
+<div style="display:inline-block;background:#2e8b57;color:#fff;padding:8px 16px;border-radius:20px;font-weight:700;font-size:clamp(13px,3.2vw,15px)">⭐ R* : TAUX DE FORMATION</div>
+</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">Le taux de formation stellaire</h3>
+<div style="display:grid;gap:8px">
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #2e8b57">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ R* représente le nombre moyen d'étoiles qui se forment chaque année dans la Voie lactée</p>
+</div>
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #3cb371">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ Les astronomes estiment actuellement que notre galaxie forme entre 1,5 et 3 étoiles par an</p>
+</div>
+<div style="background:#fff;padding:8px;border-radius:6px;border-left:4px solid #5b9c77">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">✓ Ce paramètre est l'un des plus fiables de l'équation car nous pouvons l'observer directement</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 8: 🪐 fp : La fraction d'étoiles avec des planètes -->
+<div class="slide slide8" data-slide="9">
+<div class="content">
+<div style="background:#f9f9f7;border:5px groove rgba(136,172,152,.8);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.08);width:100%;padding:10px">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.9em);margin-bottom:14px">🪐 fp : La fraction d'étoiles avec des planètes</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#3a3a3a;line-height:1.8">Le paramètre fp indique quelle proportion d'étoiles possède des systèmes planétaires. Avant les années 1990, nous ne connaissions aucune planète en dehors de notre système solaire.</p>
+<div style="position:relative;background:#fff;border-radius:10px;margin-top:16px;padding:10px 12px;box-shadow:inset 0 0 0 1px rgba(46,139,87,.25),inset 0 0 8px rgba(46,139,87,.15)">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0">💡 <strong style="color:#2e8b57">Découverte majeure:</strong> Aujourd'hui, nous savons que pratiquement toutes les étoiles possèdent au moins une planète. La valeur de fp est donc proche de <strong style="color:#2e8b57">1</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 9: Montage d'images planétaires -->
+<div class="slide slide9" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Montage d'images planétaires</h2>
+<img src="https://img.wikix-thegreatapp.workers.dev/space-weather-2025.10.10-ae28f47755cfbe335508696de3f3c44b63afba5d6e368231a9bde3481914dd69.jpg?cb=1760120102419" alt="Montage d'images planétaires" style="width:100%;max-width:600px;height:auto;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<p class="photo-caption">Montage d'images planétaires prises par diverses sondes spatiales : Mercure (Mariner 10), Vénus (Magellan), Terre et Lune (Galileo), Mars (Mars Global Surveyor), Jupiter (Cassini), Saturne, Uranus et Neptune (Voyager)</p>
+</div>
+</div>
+
+<!-- Slide 10: 🌍 ne : Le nombre de planètes habitables -->
+<div class="slide slide10" data-slide="21">
+<div class="content">
+<div style="background:linear-gradient(135deg,#fff 0,#f0fdf4 100%);border-radius:10px;padding:10px;border:3px solid #3cb371;box-shadow:0 8px 20px rgba(46,139,87,.15);width:100%">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">🌍 ne : Le nombre de planètes habitables</h3>
+<div style="display:grid;gap:10px">
+<div style="background:#fff;padding:8px;border-left:4px solid #2e8b57;border-radius:4px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0">Le facteur ne représente le nombre moyen de planètes, par système stellaire, qui se trouvent dans la zone habitable - la « zone Boucle d'or ».</p>
+</div>
+<div style="background:#fff;padding:8px;border-left:4px solid #3cb371;border-radius:4px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0">Dans notre système solaire, seule la Terre se trouve clairement dans cette zone, bien que Mars en soit à la limite.</p>
+</div>
+<div style="background:#e8f5e9;padding:8px;border-radius:4px;margin-top:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0;text-align:center">⚠️ Être dans la zone habitable ne garantit pas la vie</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 11: 🧬 fl : La fraction de planètes où la vie apparaît -->
+<div class="slide slide11" data-slide="25">
+<div class="content">
+<div class="case-study">
+<h3>🧬 fl : La fraction de planètes où la vie apparaît</h3>
+<p>Le paramètre fl mesure la proportion de planètes habitables où la vie apparaît effectivement. C'est ici que l'équation devient beaucoup plus spéculative.</p>
+<p>Sur Terre, la vie est apparue remarquablement vite : les premières formes de vie microbienne datent d'environ 3,8 milliards d'années, soit quelques centaines de millions d'années seulement après la formation de la planète.</p>
+<p>Cette apparition rapide suggère que la vie pourrait émerger facilement dès que les conditions sont favorables. Mais nous n'avons qu'un seul exemple : la Terre.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 12: 🧠 fi : La fraction où la vie devient intelligente -->
+<div class="slide slide12" data-slide="8">
+<div class="content">
+<div style="background:#fff;border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 10px 24px rgba(46,139,87,.15);position:relative;overflow:hidden;width:100%">
+<div style="position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(46,139,87,.1),transparent);border-radius:0 12px 0 0"></div>
+<div style="position:relative;z-index:1">
+<div style="background:linear-gradient(90deg,#2e8b57,#3cb371);color:#fff;padding:8px;border-radius:6px;display:inline-block;margin-bottom:12px;font-size:clamp(12px,3vw,14px);font-weight:700">🧠 INTELLIGENCE</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">fi : La fraction où la vie devient intelligente</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75;margin-bottom:10px">Le facteur fi représente la proportion de planètes avec de la vie où celle-ci développe une intelligence. Cette question est particulièrement délicate.</p>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.7">Sur Terre, la vie existe depuis près de 4 milliards d'années, mais l'intelligence humaine n'est apparue que très récemment, il y a environ 200 000 ans. L'intelligence pourrait être un accident évolutif rare.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 13: 📡 fc : La fraction capable de communiquer -->
+<div class="slide slide13" data-slide="10">
+<div class="content">
+<div style="background:linear-gradient(to right,#f0fdf4,#fff);border:3px solid #2e8b57;border-radius:10px;padding:10px;position:relative;overflow:hidden;width:100%">
+<div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(46,139,87,.08);border-radius:50%"></div>
+<div style="position:relative;z-index:1">
+<div style="display:inline-block;background:#2e8b57;color:#fff;padding:6px 14px;border-radius:20px;font-size:clamp(13px,3.2vw,15px);font-weight:700;margin-bottom:12px">📡 COMMUNICATION</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">fc : La fraction capable de communiquer</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.75">Le paramètre fc indique combien de civilisations intelligentes développent une technologie permettant de communiquer à travers l'espace interstellaire.</p>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75"><strong style="color:#2e8b57">Question clé:</strong> L'humanité possède cette capacité depuis moins d'un siècle. Mais toutes les civilisations intelligentes développent-elles forcément la technologie radio ?</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 14: Le télescope de 300 pieds achevé -->
+<div class="slide slide14" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Le télescope de 300 pieds achevé</h2>
+<img src="https://img.wikix-thegreatapp.workers.dev/drake-equation-2025.10.10-aea1a318d01fe1d336aa0182380c81f1831563d7481bd00d86c97a0b1626291e.jpg?cb=1760120101862" alt="Le télescope de 300 pieds achevé" style="width:100%;max-width:600px;height:auto;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<p class="photo-caption">Le télescope de 300 pieds achevé. Frank Drake est le deuxième en partant de la gauche</p>
+</div>
+</div>
+
+<!-- Slide 15: ⏳ L : La durée de vie des civilisations -->
+<div class="slide slide15" data-slide="17">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>⏳ L : La durée de vie des civilisations</h2>
+<p>Le paramètre L représente la durée moyenne pendant laquelle une civilisation technologique peut émettre des signaux détectables. C'est sans doute le facteur le plus incertain et le plus troublant de l'équation.</p>
+<p>Notre propre civilisation technologique n'a que 100 ans environ. Combien de temps durera-t-elle ? Les menaces sont nombreuses : guerre nucléaire, changement climatique, épuisement des ressources, pandémies. Si L est de seulement quelques centaines d'années, alors même dans une galaxie riche en civilisations, il serait rare qu'elles coexistent au même moment.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 16: 🔢 Les estimations de N -->
+<div class="slide slide16" data-slide="31">
+<div class="content">
+<div style="background:#fff;border:3px solid #2e8b57;border-radius:12px;padding:10px;box-shadow:0 10px 24px rgba(46,139,87,.15);width:100%">
+<h2 style="color:#2e8b57;font-size:clamp(1.6em,4vw,2.2em);margin-bottom:14px">🔢 Les estimations de N</h2>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:12px">Alors, combien de civilisations extraterrestres existe-t-il dans notre galaxie ? La réponse dépend totalement des valeurs qu'on attribue aux paramètres de l'équation.</p>
+<div style="display:grid;gap:10px;margin-top:14px">
+<div style="background:#e8f5e9;padding:10px;border-left:4px solid #2e8b57;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">Frank Drake (1961):</strong> entre 1 000 et 100 millions de civilisations</p>
+</div>
+<div style="background:#f9f9f7;padding:10px;border-left:4px solid #3cb371;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#3cb371">Pessimistes:</strong> valeurs proches de 1 (nous serions seuls)</p>
+</div>
+<div style="background:#e8f5e9;padding:10px;border-left:4px solid #5b9c77;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#5b9c77">Optimistes:</strong> jusqu'à des millions</p>
+</div>
+</div>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75;margin-top:12px">Cette énorme variation montre bien que l'équation n'est pas une réponse définitive, mais un cadre de réflexion.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 17: 🌌 Le paradoxe de Fermi -->
+<div class="slide slide17" data-slide="26">
+<div class="content">
+<div style="background:linear-gradient(135deg,#f0fdf4 0,#e8f5e9 100%);border:3px solid #2e8b57;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.15);width:100%">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">🌌 Le paradoxe de Fermi</h3>
+<div style="background:#fff;padding:10px;border-radius:8px;margin-bottom:12px;border:2px solid #3cb371">
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin:0;text-align:center"><em>"Où sont-ils tous ?"</em></p>
+</div>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:10px">L'équation de Drake soulève une question troublante formulée par le physicien Enrico Fermi : si les civilisations sont nombreuses, pourquoi n'avons-nous aucune preuve de leur existence ?</p>
+<div style="display:grid;gap:8px">
+<div style="background:#fff;padding:8px;border-left:4px solid #2e8b57;border-radius:4px">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">Peut-être qu'elles ne s'intéressent pas à communiquer</p>
+</div>
+<div style="background:#fff;padding:8px;border-left:4px solid #3cb371;border-radius:4px">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">Peut-être qu'elles utilisent des technologies inconnues</p>
+</div>
+<div style="background:#fff;padding:8px;border-left:4px solid #5b9c77;border-radius:4px">
+<p style="font-size:clamp(14px,3.5vw,16px);color:#2a2a2a;margin:0">Peut-être que nous sommes effectivement seuls</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 18: Vue de la Terre depuis la Lune -->
+<div class="slide slide18" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">Vue de la Terre depuis la Lune</h2>
+<img src="https://img.wikix-thegreatapp.workers.dev/space-weather-2025.10.10-21a95829a6099398379546023c40d00826d6f2ef5e64ef3a3a8eca88d7033772.jpg?cb=1760120100989" alt="Vue de la Terre depuis la Lune" style="width:100%;max-width:600px;height:auto;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<p class="photo-caption">Vue de la Terre se levant au-dessus de l'horizon lunaire, photographiée par les astronautes d'Apollo 8. La Terre se trouve à environ 380 000 kilomètres, avec le terminateur du coucher de soleil traversant l'Afrique</p>
+</div>
+</div>
+
+<!-- Slide 19: 🔭 Le programme SETI -->
+<div class="slide slide19" data-slide="11">
+<div class="content">
+<div style="background:#f9f9f7;border:3px solid #2e8b57;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.12);width:100%">
+<div style="background:#2e8b57;color:#fff;padding:8px;border-radius:6px;display:inline-block;margin-bottom:12px;font-size:clamp(12px,3vw,14px);font-weight:700">🔭 RECHERCHE</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">Le programme SETI</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:10px">L'équation de Drake a inspiré la création du programme SETI, qui utilise des radiotélescopes pour écouter d'éventuels signaux extraterrestres. Depuis les années 1960, des milliers d'heures d'observation ont été accumulées.</p>
+<div style="background:#e8f5e9;padding:10px;border-radius:6px;margin:10px 0">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">SETI@home (1999):</strong> millions de personnes participant à l'analyse des données radio</p>
+</div>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75">Malgré des décennies de recherche, aucun signal extraterrestre confirmé n'a été détecté. La recherche continue avec des instruments toujours plus puissants.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 20: 🚀 Les missions d'exploration -->
+<div class="slide slide20" data-slide="13">
+<div class="content">
+<div style="background:#fff;border:3px solid #3cb371;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(60,179,113,.15);width:100%">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:12px">🚀 Les missions d'exploration</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:10px">Au-delà de l'écoute passive, l'humanité a aussi tenté d'envoyer des messages.</p>
+<div style="display:grid;gap:10px">
+<div style="background:#e8f5e9;padding:10px;border-left:4px solid #2e8b57;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">Pioneer 10 et 11 (années 1970):</strong> plaques gravées montrant notre position dans la galaxie</p>
+</div>
+<div style="background:#f9f9f7;padding:10px;border-left:4px solid #3cb371;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#3cb371">Voyager 1 et 2:</strong> disques d'or avec sons et images de la Terre</p>
+</div>
+<div style="background:#e8f5e9;padding:10px;border-left:4px solid #5b9c77;border-radius:6px">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#5b9c77">Message d'Arecibo (1974):</strong> vers l'amas M13 à 25 000 années-lumière</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 21: 🔬 Les découvertes récentes sur les exoplanètes -->
+<div class="slide slide21" data-slide="33">
+<div class="content">
+<div class="emphasis-box" style="padding:10px">
+<h2>🔬 Les découvertes récentes sur les exoplanètes</h2>
+<p>Les dernières décennies ont bouleversé notre compréhension des systèmes planétaires. Le télescope Kepler a identifié plus de 2 700 exoplanètes confirmées, et des milliers d'autres candidates attendent confirmation.</p>
+<p>Parmi ces découvertes, certaines planètes ressemblent étonnamment à la Terre. Proxima Centauri b, à seulement 4,2 années-lumière, orbite dans la zone habitable de l'étoile la plus proche de notre Soleil. <strong>Ces découvertes rendent les paramètres fp et ne de l'équation de Drake beaucoup plus concrets.</strong></p>
+</div>
+</div>
+</div>
+
+<!-- Slide 22: 🧪 La recherche de biosignatures -->
+<div class="slide slide22" data-slide="37">
+<div class="content">
+<div style="background:linear-gradient(to bottom,#f0fdf4,#fff);border:3px solid #2e8b57;border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(46,139,87,.12);width:100%">
+<div style="text-align:center;margin-bottom:14px">
+<div style="display:inline-block;background:#2e8b57;color:#fff;padding:8px 16px;border-radius:20px;font-weight:700;font-size:clamp(13px,3.2vw,15px)">🧪 BIOSIGNATURES</div>
+</div>
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">La recherche de biosignatures</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:10px">Les astronomes ne cherchent plus seulement des signaux radio. Ils analysent désormais l'atmosphère des exoplanètes pour y détecter des biosignatures, c'est-à-dire des traces chimiques qui trahiraient la présence de vie.</p>
+<div style="background:#e8f5e9;padding:10px;border-radius:8px;margin:10px 0;border:2px solid #3cb371">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0;text-align:center"><strong style="color:#2e8b57">Sur Terre:</strong> l'oxygène atmosphérique est produit massivement par la photosynthèse</p>
+</div>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75">Le télescope spatial James Webb possède les instruments nécessaires pour ces analyses.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 23: 💭 Les critiques de l'équation -->
+<div class="slide slide23" data-slide="4">
+<div class="content">
+<div class="case-study">
+<h3>💭 Les critiques de l'équation</h3>
+<p>L'équation de Drake a été critiquée pour son côté hautement spéculatif. Certains scientifiques estiment qu'elle donne une fausse impression de rigueur mathématique alors que la plupart de ses paramètres sont impossibles à mesurer avec précision.</p>
+<p>Le problème principal est que nous n'avons qu'un seul exemple de vie : la Terre. Extrapoler à partir d'un unique échantillon est scientifiquement très risqué.</p>
+<p>Malgré ces limites, l'équation reste un outil précieux. Elle ne prétend pas donner une réponse exacte, mais structure le débat et identifie les questions clés auxquelles la science doit répondre.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 24: La nébuleuse du Crabe -->
+<div class="slide slide24" data-slide="19">
+<div class="content">
+<h2 style="margin-bottom:0">La nébuleuse du Crabe</h2>
+<img src="https://img.wikix-thegreatapp.workers.dev/space-weather-2025.10.10-1ef0e15134b3bc3b7d602c00573f2722dd7483c10be5309ee84139331ba89f99.jpg?cb=1760120102570" alt="La nébuleuse du Crabe" style="width:100%;max-width:600px;height:auto;border:3px solid #3cb371;border-radius:8px;margin:10px 0 20px 0">
+<p class="photo-caption">La nébuleuse du Crabe, reste d'une explosion de supernova observée en 1054. Cette image mosaïque du télescope Hubble montre les filaments oranges composés d'hydrogène et la lueur bleue produite par les électrons tournant autour du champ magnétique d'une étoile à neutrons</p>
+</div>
+</div>
+
+<!-- Slide 25: 🌟 L'héritage de Drake -->
+<div class="slide slide25" data-slide="41">
+<div class="content">
+<div style="background:linear-gradient(135deg,#fff 0,#f0fdf4 100%);border-radius:10px;padding:10px;border:3px solid #3cb371;box-shadow:0 8px 20px rgba(46,139,87,.15);width:100%">
+<h3 style="color:#2e8b57;font-size:clamp(1.3em,4vw,1.8em);margin-bottom:14px;text-align:center">🌟 L'héritage de Drake</h3>
+<p style="font-size:clamp(15px,3.8vw,18px);color:#2a2a2a;line-height:1.8;margin-bottom:10px">L'équation de Drake a transformé la question de la vie extraterrestre d'une spéculation philosophique en un domaine de recherche scientifique légitime. Elle a inspiré des générations d'astronomes et d'astrobiologistes.</p>
+<div style="background:#e8f5e9;padding:10px;border-radius:6px;margin:10px 0">
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;margin:0"><strong style="color:#2e8b57">Frank Drake (1930-2022):</strong> 92 ans consacrés à la recherche de vie extraterrestre</p>
+</div>
+<p style="font-size:clamp(14px,3.5vw,17px);color:#2a2a2a;line-height:1.75">Son approche méthodique continue d'influencer la recherche actuelle. Chaque nouvelle exoplanète découverte affine notre réponse à la question qu'il a posée il y a plus de 60 ans.</p>
+</div>
+</div>
+</div>
+
+<!-- Slide 26: Conclusion -->
+<div class="slide slide26" data-slide="55">
+<div class="content" style="display:flex;justify-content:center;align-items:center;flex-direction:column"><div style="background:#fff;border-radius:12px;padding:30px;width:100%;max-width:800px;box-shadow:0 8px 24px rgba(0,0,0,.12);border:3px solid #2e8b57;text-align:center!important"><div style="border-bottom:4px double #2e8b57;padding-bottom:15px;margin-bottom:20px"><h3 style="font-family:Nunito,sans-serif;font-size:clamp(1.3em, 4.2vw, 1.9em);color:#2e8b57;margin:0;letter-spacing:2px;text-transform:uppercase;text-align:center!important">Conclusion</h3></div><p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin-bottom:15px;text-align:center!important">L'équation de Drake demeure l'une des formules les plus fascinantes de la science moderne. Elle ne nous donne pas de réponse définitive sur l'existence de civilisations extraterrestres, mais elle nous offre quelque chose de plus précieux : un cadre rationnel pour penser l'impensable.</p><p style="font-family:Nunito,sans-serif;font-size:clamp(14px, 3.5vw, 17px);color:#2a2a2a;line-height:1.8;margin:0;text-align:center!important">Que nous soyons seuls ou entourés de milliers de civilisations, l'équation de Drake nous rappelle l'immensité du cosmos et la fragilité de notre propre existence.</p></div></div>
+</div>
+
+<!-- Slide 27: 📝 Points essentiels -->
+<div class="slide slide27" data-slide="56">
+<div class="content">
+<div class="summary-slide" style="padding:10px;border-radius:12px">
+<h2>📝 Points essentiels</h2>
+<ul style="list-style:none;padding:0;max-height:none!important;overflow:visible!important">
+<li style="background:#2e8b57;padding:12px;margin:10px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,17px)">L'équation de Drake estime le nombre de civilisations communicantes dans la Voie lactée en multipliant sept paramètres : formation stellaire, planètes, zones habitables, émergence de vie, intelligence, communication et durée</li>
+<li style="background:#2e8b57;padding:12px;margin:10px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,17px)">Développée en 1961 par Frank Drake, elle a transformé la recherche extraterrestre en discipline scientifique et fondé le programme SETI</li>
+<li style="background:#2e8b57;padding:12px;margin:10px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,17px)">Les paramètres astronomiques (R*, fp, ne) sont désormais bien documentés grâce aux découvertes d'exoplanètes, mais les paramètres biologiques (fl, fi, fc, L) restent hautement spéculatifs</li>
+<li style="background:#2e8b57;padding:12px;margin:10px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,17px)">Le paradoxe de Fermi soulève la question troublante : si les civilisations sont nombreuses, pourquoi n'avons-nous aucune preuve de leur existence ?</li>
+<li style="background:#2e8b57;padding:12px;margin:10px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,17px)">L'équation n'est pas une réponse définitive mais un outil de réflexion qui structure le débat scientifique sur la vie dans l'univers</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Slide 28: 📚 Pour aller plus loin -->
+<div class="slide slide28" data-slide="57">
+<div class="content">
+<div class="further-reading" style="padding:10px;border-radius:12px">
+<h2>📚 Pour aller plus loin</h2>
+<ul style="list-style:none;padding:0;max-height:none!important;overflow:visible!important">
+<li style="background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,18px)"><strong>Le paradoxe de Fermi</strong> : Explorez les différentes explications à l'absence apparente de civilisations extraterrestres</li>
+<li style="background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,18px)"><strong>Les exoplanètes</strong> : Découvrez les méthodes de détection et les planètes potentiellement habitables identifiées</li>
+<li style="background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,18px)"><strong>Le programme SETI</strong> : Approfondissez les techniques d'écoute et de recherche de signaux extraterrestres</li>
+<li style="background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,18px)"><strong>L'astrobiologie</strong> : Étudiez les conditions nécessaires à l'émergence et au développement de la vie</li>
+<li style="background:#2e8b57;padding:15px;margin:12px 0;border-radius:8px;color:#fff;font-size:clamp(14px,3.5vw,18px)"><strong>Les biosignatures atmosphériques</strong> : Comprenez comment détecter des traces de vie sur des planètes lointaines</li>
+</ul>
+</div>
+</div>
+</div>
+
+<script>let currentSlide=0;const slides=document.querySelectorAll(".slide"),totalSlides=slides.length,progressTrack=document.getElementById("progressTrack"),progressBar=document.getElementById("progressBar");let touchStartX=0,touchEndX=0;function computeScaleToFit(e,t){if(!e||!t)return 1;e.style.transform="none";const i=t.getBoundingClientRect(),r=getComputedStyle(t),n=parseFloat(r.paddingTop)||0,d=parseFloat(r.paddingBottom)||0,o=Math.max(0,i.height-n-d),s=Math.max(0,o-12),a=e.scrollHeight;return a<=0||s<=0?1:Math.min(1,s/a)}function fitActiveSlide(){const e=document.querySelector(".slide.active");if(!e)return;const t=e.querySelector(".content");if(!t)return;const i=computeScaleToFit(t,e);t.style.transform=`scale(${i})`}let _fitRaf=null;function requestFit(){_fitRaf||(_fitRaf=requestAnimationFrame(()=>{_fitRaf=null,fitActiveSlide()}))}function updateProgressBar(){const e=Math.min((currentSlide+1)/totalSlides*100,100);progressBar.style.width=e+"%",currentSlide>0?progressTrack.classList.add("visible"):progressTrack.classList.remove("visible")}function showSlide(e){const t=document.querySelector(".slide.active"),i=slides[e];t!==i&&(i.classList.add("active"),t&&(t.classList.add("fade-out"),setTimeout(()=>{t.classList.remove("fade-out","active")},120)),currentSlide=e,updateProgressBar(),fitActiveSlide(),console.log(`Slide: ${currentSlide+1} OR ${i.getAttribute("data-slide")} of ${totalSlides}`))}function nextSlide(){currentSlide<totalSlides-1?(currentSlide++,showSlide(currentSlide)):(currentSlide=0,showSlide(currentSlide))}function prevSlide(){currentSlide>0?(currentSlide--,showSlide(currentSlide)):(currentSlide=totalSlides-1,showSlide(currentSlide))}function handleSwipe(){touchEndX<touchStartX-50&&prevSlide(),touchEndX>touchStartX+50&&nextSlide()}window.addEventListener("resize",requestFit),window.addEventListener("message",e=>{try{const t="string"==typeof e.data?JSON.parse(e.data):e.data;if(!t||!t.type)return;"wikix:refit"!==t.type&&"wikix:show"!==t.type||requestFit()}catch(e){}}),progressTrack.addEventListener("click",e=>{e.preventDefault(),e.stopPropagation();const t=progressTrack.getBoundingClientRect(),i=e.clientX-t.left,r=t.width,n=Math.max(0,Math.min(1,i/r))*(totalSlides-1),d=Math.round(n);currentSlide=Math.max(0,Math.min(d,totalSlides-1)),showSlide(currentSlide)}),document.addEventListener("click",e=>{if(e.target===progressTrack||progressTrack.contains(e.target))return;const t=window.innerWidth;e.clientX>t/2?nextSlide():prevSlide()}),document.addEventListener("keydown",e=>{"ArrowRight"===e.key?nextSlide():"ArrowLeft"===e.key&&prevSlide()}),document.addEventListener("touchstart",e=>{touchStartX=e.changedTouches[0].screenX}),document.addEventListener("touchend",e=>{touchEndX=e.changedTouches[0].screenX,handleSwipe()}),updateProgressBar(),fitActiveSlide(),console.log(`Starting presentation with ${totalSlides} slides`),console.log(`Current slide: 1 of ${totalSlides}`),window.addEventListener("load",fitActiveSlide),document.addEventListener("load",function(e){!e.target||"IMG"!==e.target.tagName&&"VIDEO"!==e.target.tagName||requestFit()},!0)</script>
+</body>
+</html>
