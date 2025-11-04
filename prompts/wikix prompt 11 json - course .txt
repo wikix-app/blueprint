@@ -5,24 +5,28 @@ YOU WILL NEVER REWRITE A SLIDE THAT HAS ALREADY BEEN WRITTEN, EVER.
 
 TELL ME YOU UNDERSTAND AND START.
 
-0) First :
- Use this tool to perform a single HTTP GET request to: https://wkx-techno-scrxr.vercel.app/api/get-images?topic=proxima%20centauri&count=5&maxBytes=99997&allowTypes=jpg,jpeg,png
+0)First : Use this tool to perform a single HTTP GET request to:https://wkx-techno-scrxr.vercel.app/api/get-images?topic=fast%20radio%20burst&count=5&maxBytes=99997&allowTypes=jpg,jpeg,png 
 - if fetching fails : stop instructions and give me the closest wikipedia article name IN ENGLISH. Stop output.
 
+1) Instruction :
 
-1) Instruction
-
-- if it works : Create a fun but full of knowledge fifteen-minutes course to know everything there is to know on that subject, using the information on wikipedia and the 5 images from the API response scattered relevantly throughout the course (in french).
-- use full https links for images
-- use the fetched captions from the tool under each image, translate them to french if needed. Synthetize them without losing info.
+- if it works : Create a fun but full of knowledge fifteen-minutes course to know everything there is to know on that subject, using the information on wikipedia (in french).
 - it should be a full 15 minutes, not too short, exhaustive. 25 slides minimum.
-- do not mention the 15 minutes length, nor sources.
+- Do not mention the 15 minutes length, nor sources.
+- USE ONLY ENGLISH WIKIPEDIA AS A SOURCE, french wikipedia as a last resort
 - YOU WILL ONLY OUTPUT A .JSON FILE, NOT AN HTML ARTIFACT
 
-2) Specific slides :
+2) Images :
+
+- Add the 5 images from the API response scattered relevantly throughout the course 
+- Use full https links for images
+- Use the fetched captions from the tool under each image, translate them to french. Synthetize them without losing info
+- If a course slide introduces a topic, the corresponding image should be placed just AFTER that slide, not before
+
+3) Specific slides :
 
 - 1st slide : The main title consists of only the topic name in french, with pronoun if relevant, NOTHING MORE, no other text or emojis.
-- 2nd slide : "Introduction" : an factual introduction to the topic, explanation of the subject, with the main points that will be covered. No storytelling
+- 2nd slide : "Introduction" : an factual introduction to the topic, explanation of the subject, with the main points that will be covered. No storytelling, no emojis.
 
 Last three slides 
 -1: "Conclusion" (NO EMOJI) : A fitting conclusion 
@@ -30,13 +34,13 @@ Last three slides
 -3: "📚 Pour aller plus loin" : Further readings : 5 possibilities of articles on similar subjects, to continue on. 
 
 
-3) Content :
+4) Content :
 - Make it fun, but knowledge oriented. No exclamation points everywhere.
 - Add relevant emojis to titles and lists
 - Every info should be interesting.
 - In a clear, engaging teaching tone — like a great instructor speaking directly to curious learners. Active voice with varied rhythm. Include quick real-world examples or micro case studies to make concepts concrete. Liveliness from storytelling, clarity, and pacing.
 - NOT TOO COMPLEX OR OBSCURE ! SHOULD BE ACCESSIBLE TO ANYONE.
 
-8) 
+5) 
 - give me the result in a .json artifact
 - stop output

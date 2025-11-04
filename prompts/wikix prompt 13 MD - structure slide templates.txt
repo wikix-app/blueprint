@@ -3,10 +3,10 @@ For this request :
 - Slides are the name of the slides from the .json
 
 0) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny7.html
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny16.html
 - This file is the **visual template**. 
 - You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
-- Fill only the placeholder text with the course .json I have provided
+- Fill only the placeholder text with the course .json 
 
 1) Content
 
@@ -31,7 +31,7 @@ For this request :
   * An ACTUAL QUOTE with quotation marks from a named person
   * Example: "The sun is amazing" - Dr. Jane Smith
 - If the slide does NOT contain a direct quote with attribution, DO NOT USE quote box SS
-
+   
 3) BEFORE WE START:
 
 3.1)IN A MARKDOWN ARTIFACT :
@@ -53,6 +53,7 @@ BEFORE YOU SEND: Visually verify that emphasis boxes are bold, quotes are underl
 * photo : (only SS 19)
 
 - You will tell me how many SS you have used for each half of the template : both numbers should be the same. ONLY THE NUMBER.
+- you will tell me if other images could have been useful to add to this artifact ? or not.
 
 4)
 - After sending the completed list (in a markdown artifact) : stop output and await validation.

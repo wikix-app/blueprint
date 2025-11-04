@@ -1,0 +1,114 @@
+  <script>
+    let currentSlide=0;
+    const slides=document.querySelectorAll(".slide"),
+    totalSlides=slides.length,
+    progressTrack=document.getElementById("progressTrack"),
+    progressBar=document.getElementById("progressBar");
+    let touchStartX=0,touchEndX=0;
+    
+    function computeScaleToFit(e,t){
+      if(!e||!t)return 1;
+      e.style.transform="none";
+      const r=t.getBoundingClientRect(),
+            i=getComputedStyle(t),
+            n=parseFloat(i.paddingTop)||0,
+            d=parseFloat(i.paddingBottom)||0,
+            o=Math.max(0,r.height-n-d),
+            s=Math.max(0,o-12),
+            a=e.scrollHeight;
+      if(a<=0||s<=0)return 1;
+      return Math.min(1,s/a)
+    }
+    
+    function fitActiveSlide(){
+      const e=document.querySelector(".slide.active");
+      if(!e)return;
+      const t=e.querySelector(".content");
+      if(!t)return;
+      const r=computeScaleToFit(t,e);
+      t.style.transform=`scale(${r})`
+    }
+    
+    let _fitRaf=null;
+    function requestFit(){
+      _fitRaf||(_fitRaf=requestAnimationFrame(()=>{
+        _fitRaf=null,fitActiveSlide()
+      }))
+    }
+    
+    function updateProgressBar(){
+      const e=Math.min((currentSlide+1)/totalSlides*100,100);
+      progressBar.style.width=e+"%",
+      currentSlide>0?progressTrack.classList.add("visible"):progressTrack.classList.remove("visible")
+    }
+    
+    function showSlide(e){
+      const t=document.querySelector(".slide.active"),
+            r=slides[e];
+      if(t!==r){
+        r.classList.add("active"),
+        t&&(t.classList.add("fade-out"),
+        setTimeout(()=>{t.classList.remove("fade-out","active")},120)),
+        currentSlide=e,
+        updateProgressBar(),
+        fitActiveSlide(),
+        console.log(`Slide: ${currentSlide+1} OR ${r.getAttribute("data-slide")} of ${totalSlides}`)
+      }
+    }
+    
+    function nextSlide(){
+      currentSlide<totalSlides-1?(currentSlide++,showSlide(currentSlide)):(currentSlide=0,showSlide(currentSlide))
+    }
+    
+    function prevSlide(){
+      currentSlide>0?(currentSlide--,showSlide(currentSlide)):(currentSlide=totalSlides-1,showSlide(currentSlide))
+    }
+    
+    /* ✅ Modified swipe directions here */
+    function handleSwipe(){
+      touchEndX<touchStartX-10 &&   nextSlide(); // swipe left → next
+      touchEndX>touchStartX+10 && prevSlide();   // swipe right → previous
+    }
+    
+    window.addEventListener("resize",requestFit),
+    window.addEventListener("message",e=>{
+      try{
+        const t="string"==typeof e.data?JSON.parse(e.data):e.data;
+        if(!t||!t.type)return;
+        "wikix:refit"!==t.type&&"wikix:show"!==t.type||requestFit()
+      }catch(e){}
+    }),
+    progressTrack.addEventListener("click",e=>{
+      e.preventDefault(),e.stopPropagation();
+      const t=progressTrack.getBoundingClientRect(),
+            r=e.clientX-t.left,
+            i=t.width,
+            n=Math.max(0,Math.min(1,r/i))*(totalSlides-1),
+            d=Math.round(n);
+      currentSlide=Math.max(0,Math.min(d,totalSlides-1)),
+      showSlide(currentSlide)
+    }),
+    document.addEventListener("click",e=>{
+      if(e.target===progressTrack||progressTrack.contains(e.target))return;
+      const t=window.innerWidth;
+      e.clientX>t/2?nextSlide():prevSlide()
+    }),
+    document.addEventListener("keydown",e=>{
+      "ArrowRight"===e.key?nextSlide():"ArrowLeft"===e.key&&prevSlide()
+    }),
+    document.addEventListener("touchstart",e=>{
+      touchStartX=e.changedTouches[0].screenX
+    }),
+    document.addEventListener("touchend",e=>{
+      touchEndX=e.changedTouches[0].screenX,
+      handleSwipe()
+    }),
+    updateProgressBar(),
+    fitActiveSlide(),
+    console.log(`Starting presentation with ${totalSlides} slides`),
+    console.log(`Current slide: 1 of ${totalSlides}`),
+    window.addEventListener("load",fitActiveSlide),
+    document.addEventListener("load",function(e){
+      !e.target||"IMG"!==e.target.tagName&&"VIDEO"!==e.target.tagName||requestFit()
+    },!0);
+    </script>

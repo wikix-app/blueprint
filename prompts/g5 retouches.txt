@@ -1,0 +1,35 @@
+After every slide is done : rename each slide to be in order of their appearance in the new html:
+
+<!-- Slide 1 -->
+<div class="slide slide1" data-slide="1">
+
+<!-- Slide 2 -->
+<div class="slide slide2" data-slide="2">
+
+...etc. DO NOT REWRITE ANYTHING ELSE, JUST THE SLIDES NUMBERS.
+- give me the updated downloadable html 
+
+---
+Most slides are missing 1/2 more bold green emphasized words, check the template
+----------------------
+
+slides 5 13 17 : 
+- the slide is too long, divide into 2
+- name them : 5.1 and 5.2 for example (in comment, and <div class="slide slidex" data-slide="x">
+- if the slide contains 2 type of containers for the text, divide them by container
+- if not, keep the 1st slide as it is, but create a new container style for the 2nd one, keeping the same color theme though
+- give me the corrected slide snippets only
+
+------------------
+
+Vis 2 - How to prompt for compact timelines:
+To get this compact spacing in future timelines, you can say:
+
+"Create a compact timeline with minimal vertical spacing between events"
+"Make a timeline where the date markers on the central axis are close together (about 150-200px apart)"
+"Timeline with tight spacing - events should be vertically close but not overlapping"
+"Create a timeline with fixed item height of 150-190px per event"
+
+The key is specifying either the exact height per item or requesting "compact/tight vertical spacing" explicitly.
+---
+    <div style="height: 500px;"></div>

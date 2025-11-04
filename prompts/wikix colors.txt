@@ -1,0 +1,6 @@
+#3CB371 #5b9c77 
+
+#2E8B57
+#baf990 light green
+
+html force #F5F5F0 bg color for conclusion slide (override CSS)
