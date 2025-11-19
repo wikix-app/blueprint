@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide5-3" data-slide="5.3">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap"
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. TECHNICAL GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* 3. GRADIENT AXIS LINE */
+        .timeline-line {
+            position: absolute;
+            left: 140px;
+            top: 300px;
+            bottom: 480px; 
+            width: 8px;
+            background: linear-gradient(to bottom, 
+                #60a5fa 0%, 
+                #a78bfa 35%, 
+                #fb923c 65%, 
+                #2dd4bf 100%);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        /* Step Wrapper */
+        .step-wrapper {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 280px; 
+            display: flex;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .step-1 { top: 300px; }
+        .step-2 { top: 590px; }
+        .step-3 { top: 880px; }
+        .step-4 { top: 1170px; }
+
+        /* AXIS ICONS */
+        .step-icon {
+            position: absolute;
+            left: 84px; 
+            width: 120px;
+            height: 120px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            z-index: 10;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.1); 
+            border-width: 8px; 
+            border-style: solid;
+        }
+
+        .icon-blue   { border-color: #3b82f6; color: #3b82f6; }
+        .icon-purple { border-color: #8b5cf6; color: #8b5cf6; }
+        .icon-orange { border-color: #f97316; color: #f97316; }
+        .icon-teal   { border-color: #14b8a6; color: #14b8a6; }
+
+        /* GLASS CARDS */
+        .glass-card {
+            position: absolute;
+            left: 240px;
+            width: 780px;
+            height: 260px;
+            border-radius: 25px;
+            padding: 18px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 3px;
+            border-style: solid;
+        }
+
+        /* Theme Styles */
+        .theme-blue {
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.8) 100%);
+            border-color: #60a5fa;
+            box-shadow: 12px 12px 0px rgba(59, 130, 246, 0.3);
+        }
+        .theme-purple {
+            background: linear-gradient(135deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.8) 100%);
+            border-color: #a78bfa;
+            box-shadow: 12px 12px 0px rgba(139, 92, 246, 0.3);
+        }
+        .theme-orange {
+            background: linear-gradient(135deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.8) 100%);
+            border-color: #fb923c;
+            box-shadow: 12px 12px 0px rgba(249, 115, 22, 0.3);
+        }
+        .theme-teal {
+            background: linear-gradient(135deg, rgba(204, 251, 241, 0.9) 0%, rgba(240, 253, 250, 0.8) 100%);
+            border-color: #2dd4bf;
+            box-shadow: 12px 12px 0px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Title Style */
+        .card-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            width: fit-content;
+            align-self: flex-start; 
+            padding: 4px 12px;
+            border-radius: 10px;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+        }
+        
+        .theme-blue .card-title { color: #1e40af; background-color: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .theme-purple .card-title { color: #5b21b6; background-color: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background-color: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .theme-teal .card-title { color: #115e59; background-color: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.2); }
+
+        /* 
+           MAIN TEXT: SOLID & CLEAN
+           - Removed text-shadow
+           - Set 100% Opacity solid colors
+           - High Contrast Dark shades of the theme color
+        */
+        .card-text-main {
+            font-size: 26px;
+            line-height: 1.2;
+            font-weight: 800; 
+            margin-bottom: 8px;
+            padding-left: 4px;
+            text-shadow: none; /* Clean look */
+        }
+
+        /* Solid Dark Colors for Readability */
+        .theme-blue .card-text-main   { color: #1e3a8a; } /* Deep Navy */
+        .theme-purple .card-text-main { color: #581c87; } /* Deep Purple */
+        .theme-orange .card-text-main { color: #9a3412; } /* Deep Rust */
+        .theme-teal .card-text-main   { color: #115e59; } /* Deep Green */
+
+        /* Sub-Text Container */
+        .sub-text-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 15px;
+            padding: 10px 15px;
+            width: 100%;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        /* Sub-Text */
+        .card-text-sub {
+            font-size: 24px;
+            color: #374151; 
+            line-height: 1.25;
+            font-weight: 600; 
+            font-style: normal;
+        }
+
+        /* Bottom Explanation */
+        .explanation-box {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+        .card-text-main {
+    /* ... existing settings ... */
+    
+    opacity: 1;   /* <--- ADD THIS LINE */
+}
+    </style>
+      <!-- Grid Background -->
+      <div class="grid-bg"></div>
+      <!-- Main Title -->
+      <div class="main-title"> Cycle de Vie d'un Article </div>
+      <!-- Gradient Axis Line -->
+      <div class="timeline-line"></div>
+      <!-- Step 1: Draft -->
+      <div class="step-wrapper step-1">
+        <div class="step-icon icon-blue">📝</div>
+        <div class="glass-card theme-blue">
+          <div class="card-title">1. Brouillon &amp; Sources</div>
+          <div class="card-text-main">Rédaction en espace personnel. Collecte
+            des sources secondaires fiables.</div>
+          <div class="sub-text-box">
+            <div class="card-text-sub">Prenez le temps de structurer votre plan
+              et de vérifier vos références avant de publier.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2: Publish -->
+      <div class="step-wrapper step-2">
+        <div class="step-icon icon-purple">🚀</div>
+        <div class="glass-card theme-purple">
+          <div class="card-title">2. Publication</div>
+          <div class="card-text-main">Transfert vers l'espace principal (Main).
+            L'article devient visible et indexable.</div>
+          <div class="sub-text-box">
+            <div class="card-text-sub">Il est désormais accessible sur Google,
+              modifiable par tous, et soumis aux règles.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3: Review -->
+      <div class="step-wrapper step-3">
+        <div class="step-icon icon-orange">🔍</div>
+        <div class="glass-card theme-orange">
+          <div class="card-title">3. Patrouille (RC)</div>
+          <div class="card-text-main">Vérification immédiate par la communauté.
+            Correction de forme ou suppression.</div>
+          <div class="sub-text-box">
+            <div class="card-text-sub">Les patrouilleurs scannent les
+              modifications en temps réel pour éliminer le vandalisme.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 4: Evolution -->
+      <div class="step-wrapper step-4">
+        <div class="step-icon icon-teal">🌱</div>
+        <div class="glass-card theme-teal">
+          <div class="card-title">4. Enrichissement</div>
+          <div class="card-text-main">L'article évolue sans fin : ajout de
+            sections, débats et mises à jour.</div>
+          <div class="sub-text-box">
+            <div class="card-text-sub">Utilisez la page de discussion pour
+              résoudre les désaccords et proposer des améliorations.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box">
+        <p class="explanation-text"> Un article Wikipédia n'est jamais "fini".
+          C'est un document <span class="highlight">vivant et collaboratif</span>.
+          Dès sa publication, il entre dans un cycle perpétuel de surveillance
+          et d'amélioration. La maintenance n'est pas faite par des employés,
+          mais par des <span class="highlight">bénévoles</span>. </p>
+      </div>
+    </div>
+  </body>
+</html>
