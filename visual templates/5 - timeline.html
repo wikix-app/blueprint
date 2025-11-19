@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide9-1" data-slide="9.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* 3. GRADIENT SPINE (Extended) */
+        .spine {
+            position: absolute;
+            top: 380px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 1080px; /* Longer to fit new spacing */
+            border-radius: 6px;
+            z-index: 1;
+            background: linear-gradient(to bottom, 
+                #60a5fa 0%,   
+                #a78bfa 20%,  
+                #fb923c 40%,  
+                #2dd4bf 60%,  
+                #f87171 80%,
+                #facc15 100%
+            );
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        /* 4. JEWEL NODES */
+        .node {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 34px;
+            background: #ffffff;
+            border-radius: 50%;
+            z-index: 3;
+            border: 6px solid; 
+        }
+
+        /* 
+           POSITIONS (Step increased to 210px)
+           380 -> 590 -> 800 -> 1010 -> 1220 -> 1430
+        */
+        .node-blue   { top: 380px; border-color: #60a5fa; box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.3); }
+        .node-purple { top: 590px; border-color: #a78bfa; box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.3); }
+        .node-orange { top: 800px; border-color: #fb923c; box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.3); }
+        .node-teal   { top: 1010px; border-color: #2dd4bf; box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.3); }
+        .node-red    { top: 1220px; border-color: #f87171; box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.3); }
+        .node-yellow { top: 1430px; border-color: #facc15; box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.3); }
+
+        /* 5. BIGGER GLASS CARDS */
+        .glass-card {
+            position: absolute;
+            width: 500px; 
+            height: 320px; 
+            border-radius: 30px;
+            padding: 25px 30px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 3px;
+            border-style: solid;
+            z-index: 2;
+        }
+
+        /* CONNECTORS */
+        .connector {
+            position: absolute;
+            height: 6px;
+            width: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border-radius: 3px;
+        }
+
+        /* EVENT POSITIONS (Recalculated for 210px gap) */
+
+        /* Event 1 (Right) */
+        .pos-1 { top: 380px; }
+        .card-1 { top: 380px; left: 50%; margin-left: 25px; transform: translateY(-50%); }
+        .conn-1 { top: 380px; left: 50%; margin-left: 0px; background: #60a5fa; }
+        
+        /* Event 2 (Left) */
+        .pos-2 { top: 590px; }
+        .card-2 { top: 590px; right: 50%; margin-right: 25px; transform: translateY(-50%); }
+        .conn-2 { top: 590px; right: 50%; margin-right: 0px; background: #a78bfa; }
+
+        /* Event 3 (Right) */
+        .pos-3 { top: 800px; }
+        .card-3 { top: 800px; left: 50%; margin-left: 25px; transform: translateY(-50%); }
+        .conn-3 { top: 800px; left: 50%; margin-left: 0px; background: #fb923c; }
+
+        /* Event 4 (Left) */
+        .pos-4 { top: 1010px; }
+        .card-4 { top: 1010px; right: 50%; margin-right: 25px; transform: translateY(-50%); }
+        .conn-4 { top: 1010px; right: 50%; margin-right: 0px; background: #2dd4bf; }
+
+        /* Event 5 (Right) */
+        .pos-5 { top: 1220px; }
+        .card-5 { top: 1220px; left: 50%; margin-left: 25px; transform: translateY(-50%); }
+        .conn-5 { top: 1220px; left: 50%; margin-left: 0px; background: #f87171; }
+
+        /* Event 6 (Left) */
+        .pos-6 { top: 1430px; }
+        .card-6 { top: 1430px; right: 50%; margin-right: 25px; transform: translateY(-50%); }
+        .conn-6 { top: 1430px; right: 50%; margin-right: 0px; background: #facc15; }
+
+
+        /* THEMES */
+        .theme-blue {
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.8) 100%);
+            border-color: #60a5fa;
+            box-shadow: 8px 8px 0px rgba(59, 130, 246, 0.3);
+        }
+        .theme-purple {
+            background: linear-gradient(135deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.8) 100%);
+            border-color: #a78bfa;
+            box-shadow: -8px 8px 0px rgba(139, 92, 246, 0.3);
+        }
+        .theme-orange {
+            background: linear-gradient(135deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.8) 100%);
+            border-color: #fb923c;
+            box-shadow: 8px 8px 0px rgba(249, 115, 22, 0.3);
+        }
+        .theme-teal {
+            background: linear-gradient(135deg, rgba(204, 251, 241, 0.9) 0%, rgba(240, 253, 250, 0.8) 100%);
+            border-color: #2dd4bf;
+            box-shadow: -8px 8px 0px rgba(20, 184, 166, 0.3);
+        }
+        .theme-red {
+            background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(255, 241, 242, 0.8) 100%);
+            border-color: #f87171;
+            box-shadow: 8px 8px 0px rgba(220, 38, 38, 0.3);
+        }
+        .theme-yellow {
+            background: linear-gradient(135deg, rgba(254, 240, 137, 0.9) 0%, rgba(254, 252, 232, 0.8) 100%);
+            border-color: #facc15;
+            box-shadow: -8px 8px 0px rgba(234, 179, 8, 0.3);
+        }
+
+        /* TYPOGRAPHY */
+        .card-title {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            width: fit-content;
+            padding: 4px 12px;
+            border-radius: 10px;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+        }
+
+        .theme-blue .card-title { color: #1e40af; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .theme-purple .card-title { color: #5b21b6; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .theme-teal .card-title { color: #115e59; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.2); }
+        .theme-red .card-title { color: #991b1b; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.2); }
+        .theme-yellow .card-title { color: #854d0e; background: rgba(250, 204, 21, 0.15); border: 1px solid rgba(250, 204, 21, 0.2); }
+
+        .card-text-main {
+            font-size: 24px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 12px;
+            padding-left: 2px;
+        }
+
+        .theme-blue .card-text-main   { color: #1e3a8a; }
+        .theme-purple .card-text-main { color: #581c87; }
+        .theme-orange .card-text-main { color: #9a3412; }
+        .theme-teal .card-text-main   { color: #115e59; }
+        .theme-red .card-text-main    { color: #991b1b; }
+        .theme-yellow .card-text-main { color: #854d0e; }
+
+        /* Sub-Text Box */
+        .sub-text-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 15px;
+            padding: 15px 20px;
+            width: 100%;
+            flex-grow: 1;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-text-sub {
+            font-size: 20px;
+            color: #374151; 
+            line-height: 1.4;
+            font-weight: 600; 
+        }
+
+        .card-key-fact {
+            font-size: 19px;
+            color: #111;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-top: 2px solid rgba(0,0,0,0.05);
+            padding-top: 10px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* EMOJIS */
+        .card-emoji {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 50px;
+            filter: drop-shadow(0 4px 2px rgba(0,0,0,0.1));
+        }
+
+        /* BOTTOM EXPLANATION */
+        /* Last Node: 1430px. Card Half Height: 160px. Bottom: 1590px. 
+           Gap 15px -> 1605px */
+        .explanation-box {
+            position: absolute;
+            top: 1605px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Background -->
+      <div class="grid-bg"></div>
+      <!-- Title -->
+      <div class="main-title"> Histoire &amp; Évolution </div>
+      <!-- Gradient Spine -->
+      <div class="spine"></div>
+      <!-- EVENT 1 (Right) -->
+      <div class="node node-blue"></div>
+      <div class="connector conn-1"></div>
+      <div class="glass-card theme-blue card-1">
+        <div class="card-emoji">👶</div>
+        <div class="card-title">2001</div>
+        <div class="card-text-main">Lancement de Wikipédia</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Fondée par Jimmy Wales et Larry Sanger. Au
+            départ simple projet complémentaire à Nupedia, elle explose grâce à
+            son ouverture totale.</div>
+          <span class="card-key-fact">📌 15 Janvier : "Hello World!"</span> </div>
+      </div>
+      <!-- EVENT 2 (Left) -->
+      <div class="node node-purple"></div>
+      <div class="connector conn-2"></div>
+      <div class="glass-card theme-purple card-2">
+        <div class="card-emoji">🏛️</div>
+        <div class="card-title">2003</div>
+        <div class="card-text-main">Fondation Wikimedia</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Création de la structure à but non lucratif
+            (NPO). Elle garantit l'hébergement technique, l'absence de publicité
+            et l'indépendance financière.</div>
+          <span class="card-key-fact">📍 Siège : San Francisco, USA</span> </div>
+      </div>
+      <!-- EVENT 3 (Right) -->
+      <div class="node node-orange"></div>
+      <div class="connector conn-3"></div>
+      <div class="glass-card theme-orange card-3">
+        <div class="card-emoji">📈</div>
+        <div class="card-title">2007</div>
+        <div class="card-text-main">Top 10 Mondial</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">L'encyclopédie franchit les 2 millions
+            d'articles en anglais et devient l'un des 10 sites les plus visités
+            au monde. La référence universelle.</div>
+          <span class="card-key-fact">🚀 Croissance exponentielle</span> </div>
+      </div>
+      <!-- EVENT 4 (Left) -->
+      <div class="node node-teal"></div>
+      <div class="connector conn-4"></div>
+      <div class="glass-card theme-teal card-4">
+        <div class="card-emoji">💾</div>
+        <div class="card-title">2012</div>
+        <div class="card-text-main">Lancement de Wikidata</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Une base de données structurée et
+            collaborative qui alimente automatiquement les infoboxes de toutes
+            les versions linguistiques.</div>
+          <span class="card-key-fact">🔗 Web Sémantique</span> </div>
+      </div>
+      <!-- EVENT 5 (Right) -->
+      <div class="node node-red"></div>
+      <div class="connector conn-5"></div>
+      <div class="glass-card theme-red card-5">
+        <div class="card-emoji">🤖</div>
+        <div class="card-title">Aujourd'hui</div>
+        <div class="card-text-main">L'Ère de l'IA</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Wikipédia devient la source de vérité pour
+            entraîner les IA. La communauté lutte contre la désinformation
+            synthétique.</div>
+          <span class="card-key-fact">🌍 330+ Langues Actives</span> </div>
+      </div>
+      <!-- EVENT 6 (Left - NEW) -->
+      <div class="node node-yellow"></div>
+      <div class="connector conn-6"></div>
+      <div class="glass-card theme-yellow card-6">
+        <div class="card-emoji">🎯</div>
+        <div class="card-title">2030</div>
+        <div class="card-text-main">Stratégie du Mouvement</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Devenir l'infrastructure essentielle de
+            l'écosystème de la connaissance libre, accessible à tous les
+            humains, partout.</div>
+          <span class="card-key-fact">🔮 Objectif : Équité de Savoir</span> </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1618px; left: 539px; width: 981px; height: 255px;">
+        <p class="explanation-text"> Wikipédia n'est pas statique. Elle a évolué
+          d'une expérience utopique à une infrastructure <span class="highlight">essentielle
+            du web</span>. Elle fait face aujourd'hui à de nouveaux défis
+          technologiques tout en gardant son modèle bénévole unique. </p>
+      </div>
+    </div>
+  </body>
+</html>

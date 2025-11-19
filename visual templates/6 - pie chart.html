@@ -1,0 +1,409 @@
+<!-- Slide 10.1 -->
+<div class="slide slide10-1" data-slide="10.1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* 3. CHART CONTAINER */
+        .chart-container {
+            position: absolute;
+            top: 180px; /* Moved up slightly */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 460px; /* 460px size */
+            height: 460px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* DECORATIVE OUTER RING */
+        .chart-ring {
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            border: 3px dashed #166534;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: spin 60s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* PRETTIER CONIC DONUT CHART */
+        .donut-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* 
+               Clean segments with white separators (0.4% gap)
+               Blue (Tech): 45%
+               Purple (Community): 32%
+               Teal (Admin): 13%
+               Orange (Fundraising): 10%
+            */
+            background: conic-gradient(
+                #60a5fa 0% 44.8%,    /* Blue end */
+                #ffffff 44.8% 45.2%, /* White separator */
+                #a78bfa 45.2% 76.8%, /* Purple end */
+                #ffffff 76.8% 77.2%, /* White separator */
+                #2dd4bf 77.2% 89.8%, /* Teal end */
+                #ffffff 89.8% 90.2%, /* White separator */
+                #fb923c 90.2% 100%   /* Orange end */
+            );
+            box-shadow: 12px 12px 0px rgba(22, 101, 52, 0.2);
+            position: relative;
+            border: 8px solid #ffffff; /* Thicker white rim */
+        }
+
+        /* The Hole with Depth */
+        .donut-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 240px;
+            height: 240px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Inner shadow for depth */
+            box-shadow: inset 0px 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .center-icon { font-size: 60px; margin-bottom: 5px; }
+        .center-text { font-size: 26px; font-weight: 900; color: #166534; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* 4. LIST CONTAINER */
+        .list-container {
+            position: absolute;
+            top: 680px; /* Starts lower */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 960px; 
+            display: flex;
+            flex-direction: column;
+            gap: 35px; /* More breathing room */
+        }
+
+        /* 5. BIGGER GLASS CARDS */
+        .legend-card {
+            width: 100%;
+            height: 210px; /* Increased Height */
+            border-radius: 30px;
+            padding: 0; 
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 3px;
+            border-style: solid;
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Themes */
+        .theme-blue {
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.8) 100%);
+            border-color: #60a5fa;
+            box-shadow: 8px 8px 0px rgba(59, 130, 246, 0.3);
+        }
+        .theme-purple {
+            background: linear-gradient(135deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.8) 100%);
+            border-color: #a78bfa;
+            box-shadow: 8px 8px 0px rgba(139, 92, 246, 0.3);
+        }
+        .theme-teal {
+            background: linear-gradient(135deg, rgba(204, 251, 241, 0.9) 0%, rgba(240, 253, 250, 0.8) 100%);
+            border-color: #2dd4bf;
+            box-shadow: 8px 8px 0px rgba(20, 184, 166, 0.3);
+        }
+        .theme-orange {
+            background: linear-gradient(135deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.8) 100%);
+            border-color: #fb923c;
+            box-shadow: 8px 8px 0px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Left Stripe */
+        .card-stripe {
+            width: 150px; /* Wider stripe */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+        }
+        .stripe-label { font-size: 18px; font-weight: 700; opacity: 0.9; text-transform: uppercase; margin-top: 5px; }
+
+        .theme-blue .card-stripe   { background: #60a5fa; }
+        .theme-purple .card-stripe { background: #a78bfa; }
+        .theme-teal .card-stripe   { background: #2dd4bf; }
+        .theme-orange .card-stripe { background: #fb923c; }
+
+        /* Content Area */
+        .card-content {
+            flex-grow: 1;
+            padding: 20px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* Typography */
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 5px 15px;
+            border-radius: 10px;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+        }
+        
+        .theme-blue .card-title { color: #1e40af; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .theme-purple .card-title { color: #5b21b6; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .theme-teal .card-title { color: #115e59; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+
+        .card-stat {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        .theme-blue .card-stat   { color: #1e3a8a; }
+        .theme-purple .card-stat { color: #5b21b6; }
+        .theme-teal .card-stat   { color: #115e59; }
+        .theme-orange .card-stat { color: #9a3412; }
+
+        .card-text-main {
+            font-size: 26px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .theme-blue .card-text-main   { color: #1e3a8a; }
+        .theme-purple .card-text-main { color: #581c87; }
+        .theme-teal .card-text-main   { color: #115e59; }
+        .theme-orange .card-text-main { color: #9a3412; }
+
+        /* Sub Text Box */
+        .sub-text-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 15px;
+            padding: 12px 20px;
+            width: 100%;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .card-text-sub {
+            font-size: 22px;
+            color: #374151; 
+            line-height: 1.3;
+            font-weight: 600; 
+        }
+
+        /* BOTTOM EXPLANATION */
+        /* Chart (180+460=640) -> List Start (680).
+           List: 4 * 210 + 3 * 35 = 840 + 105 = 945.
+           List End: 680 + 945 = 1625px.
+           Bottom Container: 1625 + 25px gap = 1650px.
+        */
+        .explanation-box {
+            position: absolute;
+            top: 1650px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+
+    <!-- Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Title -->
+    <div class="main-title">
+        Utilisation des Dons
+    </div>
+
+    <!-- Decorative Ring -->
+    <div class="chart-container">
+        <div class="chart-ring"></div>
+        <div class="donut-chart">
+            <div class="donut-hole">
+                <div class="center-icon">❤️</div>
+                <div class="center-text">Budget</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed List Stack -->
+    <div class="list-container">
+        
+        <!-- Item 1: Tech (Blue) -->
+        <div class="legend-card theme-blue">
+            <div class="card-stripe">
+                45%
+                <span class="stripe-label">Support</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header-row">
+                    <div class="card-title">Technologie</div>
+                    <div class="card-stat">⚡ Uptime 99.9%</div>
+                </div>
+                <div class="card-text-main">Hébergement, Bande Passante & Développement</div>
+                <div class="sub-text-box">
+                    <div class="card-text-sub">Maintenance des serveurs mondiaux et amélioration constante du logiciel MediaWiki pour gérer le trafic massif.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Community (Purple) -->
+        <div class="legend-card theme-purple">
+            <div class="card-stripe">
+                32%
+                <span class="stripe-label">Grants</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header-row">
+                    <div class="card-title">Communauté</div>
+                    <div class="card-stat">🌍 100+ Pays</div>
+                </div>
+                <div class="card-text-main">Soutien aux Bénévoles & Projets Locaux</div>
+                <div class="sub-text-box">
+                    <div class="card-text-sub">Bourses pour les chapitres locaux, organisation de Wikimania, formations et programmes de sensibilisation.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3: Admin (Teal) -->
+        <div class="legend-card theme-teal">
+            <div class="card-stripe">
+                13%
+                <span class="stripe-label">Legal</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header-row">
+                    <div class="card-title">Gouvernance</div>
+                    <div class="card-stat">⚖️ Protection</div>
+                </div>
+                <div class="card-text-main">Administration & Protection Juridique</div>
+                <div class="sub-text-box">
+                    <div class="card-text-sub">Gestion de la Fondation et frais légaux pour défendre le contenu libre, les éditeurs et le personnel.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4: Fundraising (Orange) -->
+        <div class="legend-card theme-orange">
+            <div class="card-stripe">
+                10%
+                <span class="stripe-label">Cost</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header-row">
+                    <div class="card-title">Collecte</div>
+                    <div class="card-stat">💸 Efficacité</div>
+                </div>
+                <div class="card-text-main">Frais de Levée de Fonds</div>
+                <div class="sub-text-box">
+                    <div class="card-text-sub">Coûts liés aux campagnes de dons, traitement des paiements bancaires et communication mondiale.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Explanation -->
+    <div class="explanation-box">
+        <p class="explanation-text">
+            La Wikimedia Foundation est une organisation à <span class="highlight">but non lucratif</span>. La grande majorité du budget est réinvestie directement dans l'infrastructure technique pour garder le site rapide, sécurisé et sans publicité, ainsi que dans le soutien aux communautés locales.
+        </p>
+    </div>
+</div>

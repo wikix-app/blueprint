@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide8-2" data-slide="8.2">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* 3. TABLE CONTAINER */
+        .table-wrapper {
+            position: absolute;
+            top: 240px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: auto; 
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 5px solid #166534; 
+            border-radius: 25px;
+            box-shadow: 15px 15px 0px rgba(22, 101, 52, 0.2);
+            overflow: hidden;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TABLE HEADER ROW */
+        .table-header {
+            display: flex;
+            background-color: #166534;
+            color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 5px solid #0f391e; 
+        }
+
+        .th-cell {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+            border-right: 2px solid rgba(255,255,255,0.2);
+        }
+        .th-cell:last-child { border-right: none; }
+
+        /* TABLE BODY ROWS */
+        .table-row {
+            display: flex;
+            min-height: 185px; 
+            position: relative;
+            border-bottom: 3px solid rgba(22, 101, 52, 0.25); 
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        /* CELLS & SEPARATORS */
+        .td-cell {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+            border-right: 3px solid rgba(22, 101, 52, 0.25);
+        }
+        
+        .td-cell:last-child {
+            border-right: none;
+        }
+
+        /* COLUMN 1: Darker BG */
+        .col-icon { 
+            width: 15%; 
+            align-items: center; 
+            border-right: 6px solid rgba(22, 101, 52, 0.5); 
+        }
+
+        .col-role { width: 25%; padding-left: 25px; justify-content: center; }
+        .col-desc { width: 35%; padding: 20px; text-align: left; justify-content: center; }
+        .col-power { width: 25%; align-items: center; justify-content: center; }
+
+
+        /* ROW THEMES */
+        
+        /* Pink */
+        .row-pink { background: rgba(255, 235, 238, 0.9); } 
+        .row-pink .col-icon { background: rgba(253, 164, 175, 0.8); } 
+
+        /* Blue */
+        .row-blue { background: rgba(239, 246, 255, 0.85); }
+        .row-blue .col-icon { background: rgba(147, 197, 253, 0.8); } 
+
+        /* Orange */
+        .row-orange { background: rgba(255, 247, 237, 0.85); }
+        .row-orange .col-icon { background: rgba(253, 186, 116, 0.8); } 
+
+        /* Purple */
+        .row-purple { background: rgba(250, 245, 255, 0.85); }
+        .row-purple .col-icon { background: rgba(216, 180, 254, 0.8); } 
+
+        /* Teal */
+        .row-teal { background: rgba(240, 253, 250, 0.85); }
+        .row-teal .col-icon { background: rgba(94, 234, 212, 0.8); } 
+
+        /* Red */
+        .row-red { background: rgba(254, 215, 215, 0.9); } 
+        .row-red .col-icon { background: rgba(252, 165, 165, 0.9); } 
+
+        /* Emojis */
+        .row-emoji {
+            font-size: 60px;
+            filter: drop-shadow(0 4px 2px rgba(0,0,0,0.1));
+        }
+
+        /* TYPOGRAPHY */
+        .role-name {
+            font-size: 20px; 
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .row-blue   .role-name { color: #1e3a8a; }
+        .row-pink   .role-name { color: #9d174d; }
+        .row-orange .role-name { color: #9a3412; }
+        .row-red    .role-name { color: #7f1d1d; }
+        .row-purple .role-name { color: #581c87; }
+        .row-teal   .role-name { color: #115e59; }
+
+        .role-badge {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 10px;
+            width: fit-content;
+            box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+        }
+        .row-blue   .role-badge { background: #bfdbfe; color: #1e3a8a; }
+        .row-pink   .role-badge { background: #fbcfe8; color: #831843; }
+        .row-orange .role-badge { background: #fed7aa; color: #7c2d12; }
+        .row-red    .role-badge { background: #fca5a5; color: #450a0a; }
+        .row-purple .role-badge { background: #e9d5ff; color: #581c87; }
+        .row-teal   .role-badge { background: #99f6e4; color: #115e59; }
+
+        .desc-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #374151;
+            line-height: 1.3;
+        }
+
+        /* POWER BOX */
+        .power-box {
+            background: #ffffff;
+            border: 3px solid rgba(0,0,0,0.1); 
+            border-radius: 15px;
+            padding: 15px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.05);
+        }
+
+        .power-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1f2937;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        /* Bottom Explanation - MOVED DOWN TO 1465px */
+        /* 240 (Top) + 80 (Header) + (6 * 185 Rows) = 1430px Table Bottom */
+        /* 1430 + 35px Margin = 1465px */
+        .explanation-box {
+            position: absolute;
+            top: 1465px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Background -->
+      <div class="grid-bg"></div>
+      <!-- Title -->
+      <div class="main-title"> Rôles &amp; Permissions </div>
+      <!-- THE TABLE -->
+      <div class="table-wrapper">
+        <!-- Header -->
+        <div class="table-header">
+          <div class="th-cell col-icon">#</div>
+          <div class="th-cell col-role">Rôle</div>
+          <div class="th-cell col-desc">Description</div>
+          <div class="th-cell col-power">Pouvoir Clé</div>
+        </div>
+        <!-- Row 1: Contributor (Pink - Moved to Top) -->
+        <div class="table-row row-pink">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">✏️</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Contributeur</div>
+            <div class="role-badge">Inscrit &gt; 4j</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">La base de la communauté. Peut modifier,
+              renommer et importer des images.</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Édition Complète</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 2: Reader (Blue - Moved to 2nd) -->
+        <div class="table-row row-blue">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">👀</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Lecteur</div>
+            <div class="role-badge">Public</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">Simple visiteur ou utilisateur non-inscrit.
+              Peut consulter l'historique.</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Lecture Seule</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 3: Patroller (Orange) -->
+        <div class="table-row row-orange">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">🛡️</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Patrouilleur</div>
+            <div class="role-badge">Expérimenté</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">Surveille les modifications récentes (RC)
+              pour annuler le vandalisme rapidement.</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Révocation (Rollback)</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 4: Bureaucrat (Purple) -->
+        <div class="table-row row-purple">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">🎩</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Bureaucrate</div>
+            <div class="role-badge">Rare</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">Fonction administrative haute. Gère les
+              droits utilisateurs avancés et les bots.</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Nommer Admin &amp; Bot</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 5: Arbitrator (Teal - Moved Up) -->
+        <div class="table-row row-teal">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">⚖️</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Arbitre</div>
+            <div class="role-badge">Dernier Recours</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">Comité élu pour trancher les conflits graves
+              insolubles par la communauté.</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Bannissement Final</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 6: Admin (Red - Moved to Bottom) -->
+        <div class="table-row row-red">
+          <div class="td-cell col-icon">
+            <div class="row-emoji">🧹</div>
+          </div>
+          <div class="td-cell col-role">
+            <div class="role-name">Admin</div>
+            <div class="role-badge">Élu</div>
+          </div>
+          <div class="td-cell col-desc">
+            <div class="desc-text">Maintenance technique. Applique les décisions
+              de la communauté (blocages).</div>
+          </div>
+          <div class="td-cell col-power">
+            <div class="power-box">
+              <div class="power-text">Supprimer &amp; Bloquer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1518px; left: 540px; width: 980px; height: 251px;">
+        <p class="explanation-text"> Wikipédia n'a pas de "chef". C'est une
+          hiérarchie <span class="highlight">technique</span>, pas éditoriale.
+          Un administrateur n'a pas plus de poids dans un débat qu'un simple
+          contributeur. Ses outils servent uniquement à appliquer
+          les décisions communautaires. </p>
+      </div>
+    </div>
+  </body>
+</html>

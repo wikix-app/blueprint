@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3 - list</title>
+  </head>
+  <body>
+    <div class="slide slide8-2" data-slide="8.2">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. TECHNICAL GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* TABLE CONTAINER */
+        .table-container {
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 1400px;
+        }
+
+        /* TABLE HEADERS */
+        .table-headers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            padding: 0 40px;
+        }
+
+        .header-item {
+            font-size: 28px;
+            font-weight: 900;
+            color: #166534;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Column Widths */
+        .col-1 { width: 20%; justify-content: center; } /* Icon */
+        .col-2 { width: 45%; padding-left: 20px; } /* Role/Desc */
+        .col-3 { width: 35%; padding-left: 20px; } /* Permission */
+
+
+        /* TABLE ROW (Glass Card Style) */
+        .table-row {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 960px;
+            height: 210px; /* Fixed height for table rows */
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 3px;
+            border-style: solid;
+            z-index: 2;
+        }
+
+        /* Row Positioning */
+        .row-1 { top: 80px; }
+        .row-2 { top: 310px; }
+        .row-3 { top: 540px; }
+        .row-4 { top: 770px; }
+        .row-5 { top: 1000px; }
+
+        /* THEMES (Background + Shadow) */
+        .theme-blue {
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.8) 100%);
+            border-color: #60a5fa;
+            box-shadow: 8px 8px 0px rgba(59, 130, 246, 0.3);
+        }
+        .theme-green {
+            background: linear-gradient(135deg, rgba(220, 252, 231, 0.9) 0%, rgba(240, 253, 244, 0.8) 100%);
+            border-color: #4ade80;
+            box-shadow: 8px 8px 0px rgba(34, 197, 94, 0.3);
+        }
+        .theme-orange {
+            background: linear-gradient(135deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.8) 100%);
+            border-color: #fb923c;
+            box-shadow: 8px 8px 0px rgba(249, 115, 22, 0.3);
+        }
+        .theme-red {
+            background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(255, 241, 242, 0.8) 100%);
+            border-color: #f87171;
+            box-shadow: 8px 8px 0px rgba(220, 38, 38, 0.3);
+        }
+        .theme-purple {
+            background: linear-gradient(135deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.8) 100%);
+            border-color: #a78bfa;
+            box-shadow: 8px 8px 0px rgba(139, 92, 246, 0.3);
+        }
+
+
+        /* COLUMN 1: ICON */
+        .row-icon {
+            width: 120px;
+            height: 120px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+            border-width: 6px;
+            border-style: solid;
+        }
+        /* Icon Border Colors */
+        .icon-blue   { border-color: #3b82f6; color: #3b82f6; }
+        .icon-green  { border-color: #22c55e; color: #22c55e; }
+        .icon-orange { border-color: #f97316; color: #f97316; }
+        .icon-red    { border-color: #ef4444; color: #ef4444; }
+        .icon-purple { border-color: #8b5cf6; color: #8b5cf6; }
+
+
+        /* COLUMN 2: MAIN TEXT */
+        .row-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            width: fit-content;
+            padding: 4px 10px;
+            border-radius: 8px;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+        }
+
+        /* Embed Title Colors */
+        .theme-blue .card-title { color: #1e40af; background-color: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .theme-green .card-title { color: #15803d; background-color: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background-color: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .theme-red .card-title { color: #991b1b; background-color: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.2); }
+        .theme-purple .card-title { color: #5b21b6; background-color: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+
+        .card-text-main {
+            font-size: 22px; /* Smaller for table density */
+            line-height: 1.2;
+            font-weight: 800;
+            padding-left: 2px;
+        }
+
+        .theme-blue .card-text-main   { color: #1e3a8a; } 
+        .theme-green .card-text-main  { color: #14532d; }
+        .theme-orange .card-text-main { color: #9a3412; } 
+        .theme-red .card-text-main    { color: #991b1b; }
+        .theme-purple .card-text-main { color: #581c87; } 
+
+        /* COLUMN 3: DATA BOX (White Box) */
+        .data-box {
+            background: rgba(255, 255, 255, 0.8); /* High Opacity for Data */
+            border-radius: 15px;
+            padding: 15px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .card-text-sub {
+            font-size: 22px;
+            color: #374151; 
+            line-height: 1.25;
+            font-weight: 700; 
+        }
+
+        /* Emojis forced settings */
+        .row-emoji {
+            font-size: 60px;
+            color: initial;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+        }
+
+        /* Bottom Explanation */
+        .explanation-box {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Grid Background -->
+      <div class="grid-bg"></div>
+      <!-- Main Title -->
+      <div class="main-title"> Rôles &amp; Permissions </div>
+      <!-- Table Container -->
+      <div class="table-container">
+        <!-- Table Headers -->
+        <div class="table-headers">
+          <div class="header-item col-1">Niveau</div>
+          <div class="header-item col-2">Description</div>
+          <div class="header-item col-3">Pouvoir Spécial</div>
+        </div>
+        <!-- Row 1: Reader -->
+        <div class="table-row theme-blue row-1">
+          <div class="col-1">
+            <div class="row-icon icon-blue"><span class="row-emoji">👀</span></div>
+          </div>
+          <div class="col-2 row-content">
+            <div class="card-title">1. Lecteur</div>
+            <div class="card-text-main">Utilisateur non inscrit ou simple
+              visiteur.</div>
+          </div>
+          <div class="col-3">
+            <div class="data-box">
+              <div class="card-text-sub">Lecture &amp; Historique</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 2: Contributor -->
+        <div class="table-row theme-green row-2">
+          <div class="col-1">
+            <div class="row-icon icon-green"><span class="row-emoji">✏️</span></div>
+          </div>
+          <div class="col-2 row-content">
+            <div class="card-title">2. Contributeur</div>
+            <div class="card-text-main">Compte créé (+ de 4 jours). Base de la
+              communauté.</div>
+          </div>
+          <div class="col-3">
+            <div class="data-box">
+              <div class="card-text-sub">Éditer, Renommer, Importer</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 3: Patroller -->
+        <div class="table-row theme-orange row-3">
+          <div class="col-1">
+            <div class="row-icon icon-orange"><span class="row-emoji">🛡️</span></div>
+          </div>
+          <div class="col-2 row-content">
+            <div class="card-title">3. Patrouilleur</div>
+            <div class="card-text-main">Utilisateur expérimenté qui surveille
+              les "RC".</div>
+          </div>
+          <div class="col-3">
+            <div class="data-box">
+              <div class="card-text-sub">Révoquer (Rollback)</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 4: Admin -->
+        <div class="table-row theme-red row-4">
+          <div class="col-1">
+            <div class="row-icon icon-red"><span class="row-emoji">🧹</span></div>
+          </div>
+          <div class="col-2 row-content">
+            <div class="card-title">4. Administrateur</div>
+            <div class="card-text-main">Élu par la communauté pour la
+              maintenance technique.</div>
+          </div>
+          <div class="col-3">
+            <div class="data-box">
+              <div class="card-text-sub">Supprimer, Bloquer, Protéger</div>
+            </div>
+          </div>
+        </div>
+        <!-- Row 5: Bureaucrat -->
+        <div class="table-row theme-purple row-5">
+          <div class="col-1">
+            <div class="row-icon icon-purple"><span class="row-emoji">🎩</span></div>
+          </div>
+          <div class="col-2 row-content">
+            <div class="card-title">5. Bureaucrate</div>
+            <div class="card-text-main">Rôle administratif rare et hautement
+              technique.</div>
+          </div>
+          <div class="col-3">
+            <div class="data-box">
+              <div class="card-text-sub">Nommer les Admins &amp; Bots</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1489px; left: 545px; width: 975px; height: 263px;">
+        <p class="explanation-text"> Wikipédia n'a pas de "chef". C'est une
+          hiérarchie <span class="highlight">technique</span>, pas éditoriale.
+          Un administrateur n'a pas plus de poids dans un débat qu'un simple
+          contributeur. Ses outils servent uniquement à appliquer les décisions
+          communautaires. </p>
+      </div>
+    </div>
+  </body>
+</html>
