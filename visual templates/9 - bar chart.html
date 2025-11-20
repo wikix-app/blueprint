@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>8 - bar chart</title>
+  </head>
+  <body>
+    <div class="slide slide13-1" data-slide="13.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 
+           2. NEWSPAPER ANALYSIS CONTAINER (EXPANDED)
+           Top: 180px (Was 340px) -> Starts much higher
+           Height: 580px (Was 420px) -> Ends at same spot (760px)
+        */
+        .newspaper-card {
+            position: absolute;
+            top: 180px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            height: 580px; 
+            
+            background: #ffffff; 
+            border: 3px solid #2E8B57; 
+            border-radius: 15px;
+            box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1); 
+            z-index: 5;
+        }
+
+        /* Header */
+        .news-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #2E8B57; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* Left Column: Main Article */
+        .news-headline {
+            position: absolute;
+            top: 70px;
+            left: 30px;
+            width: 600px;
+            font-size: 42px; /* Bigger */
+            font-weight: 900;
+            line-height: 1.1;
+            color: #111;
+        }
+
+        .news-body {
+            position: absolute;
+            top: 180px;
+            left: 30px;
+            width: 600px;
+            font-size: 24px;
+            line-height: 1.5;
+            color: #4b5563;
+            text-align: justify;
+        }
+
+        /* 
+           NEW: INNER GLASS CONTAINER (Inside Newspaper)
+           Positioned at the bottom left of the newspaper
+        */
+        .news-inner-glass {
+            position: absolute;
+            top: 410px;
+            left: 30px;
+            width: 600px;
+            height: 140px;
+            
+            /* Red/Pinkish Glass Theme to highlight "Bias" */
+            background: rgba(254, 226, 226, 0.4); 
+            backdrop-filter: blur(5px);
+            border: 2px solid #f87171;
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: inset 0 0 10px rgba(248, 113, 113, 0.1);
+        }
+
+        .inner-title {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #991b1b;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inner-separator {
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            width: 560px; /* Full width minus padding */
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #f87171 50%, transparent 100%);
+        }
+
+        .inner-text {
+            position: absolute;
+            top: 60px;
+            left: 20px;
+            width: 560px;
+            font-size: 20px;
+            color: #7f1d1d;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+
+        /* Vertical Separator (Extended) */
+        .news-separator {
+            position: absolute;
+            top: 70px;
+            left: 660px;
+            width: 2px;
+            height: 480px; /* Extended */
+            background: linear-gradient(180deg, transparent 0%, #e5e7eb 20%, #e5e7eb 80%, transparent 100%);
+        }
+
+        /* Right Column: Key Stats (Added 3rd Box) */
+        .stats-title {
+            position: absolute;
+            top: 70px;
+            left: 690px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #166534;
+            text-transform: uppercase;
+        }
+
+        .stat-box-1 {
+            position: absolute;
+            top: 120px;
+            left: 690px;
+            width: 260px;
+            padding: 15px;
+            background: #f0fdf4; 
+            border-radius: 10px;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .stat-box-2 {
+            position: absolute;
+            top: 270px;
+            left: 690px;
+            width: 260px;
+            padding: 15px;
+            background: #eff6ff; 
+            border-radius: 10px;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* NEW 3rd Stat Box */
+        .stat-box-3 {
+            position: absolute;
+            top: 420px;
+            left: 690px;
+            width: 260px;
+            padding: 15px;
+            background: #fff1f2; /* Light Red */
+            border-radius: 10px;
+            border: 1px solid #fecdd3;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            display: block;
+        }
+        .stat-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #555;
+            text-transform: uppercase;
+        }
+        .stat-green { color: #166534; }
+        .stat-blue { color: #1e40af; }
+        .stat-red { color: #be123c; }
+
+
+        /* 3. SVG GRID LINES */
+        .svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .grid-line {
+            stroke: #166534;
+            stroke-width: 2;
+            stroke-dasharray: 10, 10;
+            opacity: 0.2;
+        }
+
+        .axis-line {
+            stroke: #166534;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        /* Grid Labels */
+        .grid-label {
+            position: absolute;
+            left: 20px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #166534;
+            opacity: 0.5;
+        }
+
+        /* 4. BAR CONTAINERS */
+        .glass-bar {
+            position: absolute;
+            bottom: 320px;
+            width: 170px;
+            border-radius: 20px 20px 0 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            padding-top: 30px;
+            
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 4px;
+            border-style: solid;
+            border-bottom: none; 
+            
+            z-index: 6;
+            box-shadow: 15px 0px 0px rgba(0,0,0,0.05); 
+        }
+
+        /* BAR HEIGHTS */
+        .bar-1 { height: 800px; left: 60px; }
+        .bar-2 { height: 650px; left: 265px; }
+        .bar-3 { height: 550px; left: 470px; }
+        .bar-4 { height: 500px; left: 675px; }
+        .bar-5 { height: 500px; left: 880px; }
+
+
+        /* THEMES */
+        .theme-blue {
+            background: linear-gradient(180deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.6) 100%);
+            border-color: #60a5fa;
+        }
+        .theme-purple {
+            background: linear-gradient(180deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.6) 100%);
+            border-color: #a78bfa;
+        }
+        .theme-teal {
+            background: linear-gradient(180deg, rgba(204, 251, 241, 0.9) 0%, rgba(240, 253, 250, 0.6) 100%);
+            border-color: #2dd4bf;
+        }
+        .theme-orange {
+            background: linear-gradient(180deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.6) 100%);
+            border-color: #fb923c;
+        }
+        .theme-red {
+            background: linear-gradient(180deg, rgba(254, 226, 226, 0.9) 0%, rgba(255, 241, 242, 0.6) 100%);
+            border-color: #f87171;
+        }
+
+        /* 5. CONTENT INSIDE BARS */
+        .bar-emoji {
+            position: absolute;
+            top: -80px; 
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 70px;
+            filter: drop-shadow(0 4px 2px rgba(0,0,0,0.1));
+            z-index: 10;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .theme-blue .bar-value   { color: #1e3a8a; }
+        .theme-purple .bar-value { color: #581c87; }
+        .theme-teal .bar-value   { color: #115e59; }
+        .theme-orange .bar-value { color: #9a3412; }
+        .theme-red .bar-value    { color: #991b1b; }
+
+        .bar-label {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 36px; 
+            font-weight: 900;
+            text-transform: uppercase;
+            writing-mode: vertical-rl; 
+            transform: rotate(180deg); 
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        
+        .theme-blue .bar-label   { color: #1e3a8a; }
+        .theme-purple .bar-label { color: #581c87; }
+        .theme-teal .bar-label   { color: #115e59; }
+        .theme-orange .bar-label { color: #9a3412; }
+        .theme-red .bar-label    { color: #991b1b; }
+
+
+        /* 6. BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1640px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title" style="top: 19px; left: 541px;"> Répartition
+        Thématique </div>
+      <!-- Newspaper Analysis Container -->
+      <div class="newspaper-card">
+        <div class="news-header">Analyse du Corpus (2024)</div>
+        <div class="news-headline"> Un Biais Culturel Marqué ? </div>
+        <div class="news-body"> Sur plus de 6 millions d'articles, on observe
+          une prédominance nette des sujets de culture populaire et de
+          géographie. Les sujets académiques "durs" (Maths, Physique) sont
+          proportionnellement moins représentés, reflétant les passions des
+          contributeurs bénévoles. </div>
+        <!-- New Inner Glass Container -->
+        <div class="news-inner-glass">
+          <div class="inner-title">⚠️ Point de Vigilance</div>
+          <div class="inner-separator"></div>
+          <div class="inner-text"> Le fossé des genres (Gender Gap) reste
+            critique : moins de 20% des biographies sur Wikipédia sont
+            consacrées à des femmes. </div>
+        </div>
+        <div class="news-separator"></div>
+        <div class="stats-title">En Chiffres</div>
+        <div class="stat-box-1"> <span class="stat-number stat-green">2.6 M</span>
+          <span class="stat-label">Art &amp; Culture</span> </div>
+        <div class="stat-box-2"> <span class="stat-number stat-blue">+12%</span>
+          <span class="stat-label">Croissance 2023</span> </div>
+        <div class="stat-box-3"> <span class="stat-number stat-red">19%</span>
+          <span class="stat-label">Bio Femmes</span> </div>
+      </div>
+      <!-- SVG Grid & Axis -->
+      <svg class="svg-layer">
+        <!-- Axis Y: 1600 -->
+        <line x1="60" y1="800" x2="1020" y2="800" class="grid-line"></line>
+        <line x1="60" y1="1100" x2="1020" y2="1100" class="grid-line"></line>
+        <line x1="60" y1="1350" x2="1020" y2="1350" class="grid-line"></line>
+        <line x1="40" y1="1600" x2="1040" y2="1600" class="axis-line"></line> </svg>
+      <!-- Grid Labels -->
+      <div class="grid-label" style="top: 780px;">30%</div>
+      <div class="grid-label" style="top: 1080px;">20%</div>
+      <div class="grid-label" style="top: 1330px;">10%</div>
+      <!-- BAR 1: Geography (Blue) -->
+      <div class="glass-bar theme-blue bar-1">
+        <div class="bar-emoji">🌍</div>
+        <div class="bar-value">28%</div>
+        <div class="bar-label">Géographie</div>
+      </div>
+      <!-- BAR 2: Biographies (Purple) -->
+      <div class="glass-bar theme-purple bar-2">
+        <div class="bar-emoji">👤</div>
+        <div class="bar-value">22%</div>
+        <div class="bar-label">Biographies</div>
+      </div>
+      <!-- BAR 3: Culture (Teal) -->
+      <div class="glass-bar theme-teal bar-3">
+        <div class="bar-emoji">🎭</div>
+        <div class="bar-value">18%</div>
+        <div class="bar-label">Culture</div>
+      </div>
+      <!-- BAR 4: Sciences (Orange) -->
+      <div class="glass-bar theme-orange bar-4">
+        <div class="bar-emoji">🧪</div>
+        <div class="bar-value">16%</div>
+        <div class="bar-label">Sciences</div>
+      </div>
+      <!-- BAR 5: History (Red) -->
+      <div class="glass-bar theme-red bar-5">
+        <div class="bar-emoji">📜</div>
+        <div class="bar-value">16%</div>
+        <div class="bar-label">Histoire</div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box">
+        <p class="explanation-text"> Contrairement à une encyclopédie classique,
+          Wikipédia accorde une place prépondérante à la <span class="highlight">Géographie</span>
+          et à la <span class="highlight">Culture Populaire</span>.</p>
+      </div>
+    </div>
+  </body>
+</html>

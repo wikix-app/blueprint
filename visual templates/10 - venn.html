@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide14-1" data-slide="14.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 2. VENN CONTAINER */
+        .venn-container {
+            position: absolute;
+            top: 280px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 1000px;
+            z-index: 2;
+        }
+
+        /* 3. CIRCULAR GLASS CARDS */
+        .venn-circle {
+            position: absolute;
+            width: 640px;
+            height: 640px;
+            border-radius: 50%;
+            
+            /* Blend mode for overlap effect */
+            mix-blend-mode: multiply; 
+            
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-width: 4px;
+            border-style: solid;
+            
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+        }
+
+        /* POSITIONS */
+        .circle-1 { top: 0; left: -20px; z-index: 3; } 
+        .circle-2 { top: 0; right: -20px; z-index: 3; } 
+        .circle-3 { bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 3; }
+
+
+        /* THEMES */
+        .theme-blue { 
+            background: radial-gradient(circle at 30% 30%, rgba(219, 234, 254, 0.8) 0%, rgba(59, 130, 246, 0.3) 100%);
+            border-color: #60a5fa;
+        }
+        .theme-orange { 
+            background: radial-gradient(circle at 70% 30%, rgba(255, 237, 213, 0.8) 0%, rgba(251, 146, 60, 0.3) 100%);
+            border-color: #fb923c;
+        }
+        .theme-purple { 
+            background: radial-gradient(circle at 50% 70%, rgba(243, 232, 255, 0.8) 0%, rgba(147, 51, 234, 0.3) 100%);
+            border-color: #a78bfa;
+        }
+
+
+        /* 4. ABSOLUTE CONTENT ELEMENTS */
+        
+        /* Titles */
+        .card-title {
+            position: absolute;
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            border-radius: 15px;
+            white-space: nowrap;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 15; 
+        }
+
+        .title-blue   { top: 80px; left: 80px; color: #1e40af; background: #dbeafe; border: 2px solid #60a5fa; }
+        .title-orange { top: 80px; right: 80px; color: #9a3412; background: #ffedd5; border: 2px solid #fb923c; }
+        .title-purple { bottom: 320px; left: 50%; transform: translateX(-50%); color: #581c87; background: #f3e8ff; border: 2px solid #a78bfa; }
+
+
+        /* Inner Containers */
+        .sub-text-box {
+            position: absolute;
+            width: 440px;
+            height: 240px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            z-index: 10;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .box-1 { top: 140px; left: 50px; background: rgba(239, 246, 255, 0.95); border: 3px solid #bfdbfe; } 
+        .box-2 { top: 140px; right: 50px; background: rgba(255, 247, 237, 0.95); border: 3px solid #fed7aa; } 
+        .box-3 { top: 700px; left: 50%; transform: translateX(-50%); background: rgba(250, 245, 255, 0.95); border: 3px solid #e9d5ff; } 
+
+
+        /* Emojis */
+        .card-emoji {
+            position: absolute;
+            font-size: 70px;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+            z-index: 20;
+        }
+        .emoji-1 { top: 418px; left: 85px; } 
+        .emoji-2 { top: 410px; left: 807px; } 
+        .emoji-3 { top: 520px; left: 697px; } 
+
+
+        /* Main Text */
+        .card-text-main {
+            position: absolute;
+            width: 400px;
+            font-size: 26px;
+            line-height: 1.2;
+            font-weight: 900;
+            z-index: 11;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        .txt-main-1 { top: 165px; left: 75px; color: #1e40af; }
+        .txt-main-2 { top: 165px; right: 75px; color: #9a3412; text-align: right; }
+        .txt-main-3 { top: 725px; left: 50%; transform: translateX(-50%); color: #581c87; text-align: center; } 
+
+
+        /* Separators */
+        .card-separator {
+            position: absolute;
+            width: 380px;
+            height: 3px;
+            z-index: 11;
+        }
+        .sep-1 { top: 205px; left: 75px; background: linear-gradient(90deg, #60a5fa, transparent); }
+        .sep-2 { top: 205px; right: 75px; background: linear-gradient(-90deg, #fb923c, transparent); }
+        .sep-3 { top: 760px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, transparent, #a78bfa, transparent); }
+
+
+        /* Description Text */
+        .card-text-sub {
+            position: absolute;
+            width: 400px;
+            font-size: 22px;
+            color: #374151; 
+            line-height: 1.4;
+            font-weight: 600; 
+            z-index: 11;
+        }
+        .txt-sub-1 { top: 225px; left: 75px; text-align: left; }
+        .txt-sub-2 { top: 225px; right: 75px; text-align: right; }
+        .txt-sub-3 { top: 784px; left: 50%; transform: translateX(-50%); text-align: center; width: 399px; }
+
+
+        /* 
+           5. CENTER INTERSECTION (The Core) 
+           Z-Index increased to 100 to stay IN FRONT and unaffected by multiply blend
+        */
+        .venn-core {
+            position: absolute;
+            top: 380px; /* Visual Center */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 150px;
+            z-index: 100; /* Highest Priority */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .core-badge {
+            background: #166534;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 4px solid #ffffff;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+
+        /* 6. BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1286px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title"> Principes de Contenu </div>
+      <!-- VENN DIAGRAM CONTAINER -->
+      <div class="venn-container">
+        <!-- CIRCLE 1: NPOV (Top Left - Blue) -->
+        <div class="venn-circle theme-blue circle-1"></div>
+        <!-- Content 1 -->
+        <div class="card-title title-blue">Neutralité</div>
+        <div class="sub-text-box box-1"></div>
+        <div class="card-emoji emoji-1">⚖️</div>
+        <div class="card-text-main txt-main-1">Tous les Points de Vue</div>
+        <div class="card-separator sep-1"></div>
+        <div class="card-text-sub txt-sub-1"> Présenter tous les avis
+          significatifs publiés par des sources fiables, proportionnellement,
+          sans jugement. </div>
+        <!-- CIRCLE 2: VERIFIABILITY (Top Right - Orange) -->
+        <div class="venn-circle theme-orange circle-2"></div>
+        <!-- Content 2 -->
+        <div class="card-title title-orange">Vérifiabilité</div>
+        <div class="sub-text-box box-2"></div>
+        <div class="card-emoji emoji-2">🔍</div>
+        <div class="card-text-main txt-main-2">Sources de Qualité</div>
+        <div class="card-separator sep-2"></div>
+        <div class="card-text-sub txt-sub-2"> Toute information doit être
+          rattachée à une source externe fiable. On ne cherche pas la vérité,
+          mais la preuve. </div>
+        <!-- CIRCLE 3: NO ORIGINAL RESEARCH (Bottom - Purple) -->
+        <div class="venn-circle theme-purple circle-3"></div>
+        <!-- Content 3 -->
+        <div class="card-title title-purple">Pas de Travail Inédit</div>
+        <div class="sub-text-box box-3" style="top: 772px; height: 114px; left: 495px; width: 431px;"></div>
+        <div class="card-emoji emoji-3" style="top: 879px; left: 449px; width: 311px; height: 84px;">🚫</div>
+        <div class="card-text-main txt-main-3">Synthèse de l'Existant</div>
+        <div class="card-separator sep-3"></div>
+        <div class="card-text-sub txt-sub-3" style="top: 778px; left: 501px; width: 398px; height: 108px;">
+          Wikipédia ne publie pas d'idées nouvelles. Elle ne fait que compiler
+          et synthétiser des savoirs connus.</div>
+        <!-- CENTER INTERSECTION (Now in Front) -->
+        <div class="venn-core">
+          <div class="core-badge">Parfait <br>
+            <span style="font-size: 30px;">🌟</span></div>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box">
+        <p class="explanation-text"> Ces trois règles sont <span class="highlight">inséparables</span>.
+          Elles ne peuvent être comprises isolément. Un article de qualité naît
+          de l'équilibre parfait entre neutralité, sources et synthèse. </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide15-1" data-slide="15.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 2. SVG CONNECTOR LAYER */
+        .svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hive-line {
+            stroke: #166534;
+            stroke-width: 5;
+            stroke-dasharray: 12, 12;
+            opacity: 0.3;
+            stroke-linecap: round;
+        }
+
+        /* 
+           3. HEXAGON WRAPPER 
+        */
+        .hex-wrapper {
+            position: absolute;
+            width: 440px;  
+            height: 500px; 
+            left: 50%;
+            z-index: 5;
+            filter: drop-shadow(0px 15px 15px rgba(0,0,0,0.2));
+        }
+
+        /* Layer B: The Border Shape */
+        .hex-border-shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: 1;
+        }
+
+        /* Layer C: The Glass Effect */
+        .hex-glass {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 424px; 
+            height: 484px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.8), inset 0 0 5px rgba(0,0,0,0.05);
+            z-index: 2;
+        }
+
+        /* CONTENT LAYERS */
+
+        /* Launch Date Badge */
+        .card-year {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            padding: 4px 15px;
+            border-radius: 15px;
+            font-weight: 900;
+            font-size: 18px;
+            color: #166534;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 20;
+        }
+
+        /* Emoji */
+        .card-emoji {
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+            z-index: 20;
+        }
+
+        /* Title */
+        .card-title {
+            position: absolute;
+            top: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 20;
+            text-shadow: 0 1px 0 rgba(255,255,255,1), 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* White Box Background */
+        .sub-text-bg {
+            position: absolute;
+            top: 210px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 340px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+            z-index: 15;
+        }
+
+        /* Main Description Text */
+        .card-text-main {
+            position: absolute;
+            top: 215px; /* Slightly Adjusted */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            text-align: center;
+            font-size: 21px;
+            color: #374151; 
+            line-height: 1.2;
+            font-weight: 800; 
+            z-index: 20;
+        }
+
+        /* Separator - MOVED UP */
+        .card-separator {
+            position: absolute;
+            top: 265px; /* Moved up from 300px */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #166534, transparent);
+            opacity: 0.2;
+            z-index: 20;
+        }
+
+        /* Scope Text - MOVED UP */
+        .card-text-scope {
+            position: absolute;
+            top: 275px; /* Moved up from 310px */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            text-align: center;
+            font-size: 18px;
+            color: #4b5563;
+            font-style: italic;
+            z-index: 20;
+        }
+
+        /* Key Stat / Footer */
+        .card-key-fact {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            text-align: center;
+            font-size: 22px;
+            color: #1f2937;
+            font-weight: 900;
+            text-transform: uppercase;
+            z-index: 20;
+        }
+
+
+        /* THEMES */
+        .theme-red .hex-border-shape { background: linear-gradient(135deg, #ef4444 0%, #f87171 50%, #b91c1c 100%); }
+        .theme-red .hex-glass { background: linear-gradient(180deg, rgba(254, 242, 242, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-red .card-title { color: #991b1b; }
+
+        .theme-purple .hex-border-shape { background: linear-gradient(135deg, #8b5cf6 0%, #c4b5fd 50%, #6d28d9 100%); }
+        .theme-purple .hex-glass { background: linear-gradient(180deg, rgba(250, 245, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-purple .card-title { color: #5b21b6; }
+
+        .theme-blue .hex-border-shape { background: linear-gradient(135deg, #3b82f6 0%, #93c5fd 50%, #1e40af 100%); }
+        .theme-blue .hex-glass { background: linear-gradient(180deg, rgba(239, 246, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-blue .card-title { color: #1e40af; }
+
+        .theme-teal .hex-border-shape { background: linear-gradient(135deg, #14b8a6 0%, #5eead4 50%, #0f766e 100%); }
+        .theme-teal .hex-glass { background: linear-gradient(180deg, rgba(240, 253, 250, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-teal .card-title { color: #115e59; }
+
+        .theme-orange .hex-border-shape { background: linear-gradient(135deg, #f97316 0%, #fdba74 50%, #c2410c 100%); }
+        .theme-orange .hex-glass { background: linear-gradient(180deg, rgba(255, 247, 237, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-orange .card-title { color: #9a3412; }
+
+        .theme-pink .hex-border-shape { background: linear-gradient(135deg, #ec4899 0%, #fbcfe8 50%, #be185d 100%); }
+        .theme-pink .hex-glass { background: linear-gradient(180deg, rgba(253, 242, 248, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%); }
+        .theme-pink .card-title { color: #be185d; }
+
+        /* POSITIONS */
+        .pos-1 { top: 180px; margin-left: -230px; transform: translateX(-50%); } 
+        .pos-2 { top: 180px; margin-left: 230px; transform: translateX(-50%); }  
+        .pos-3 { top: 550px; transform: translateX(-50%); z-index: 6; }          
+        .pos-4 { top: 920px; margin-left: -230px; transform: translateX(-50%); } 
+        .pos-5 { top: 920px; margin-left: 230px; transform: translateX(-50%); }  
+        .pos-6 { top: 1290px; transform: translateX(-50%); }                     
+
+        /* BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1720px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title" style="top: 24px; left: 540px;"> La Galaxie
+        Wikimedia </div>
+      <!-- SVG Connections -->
+      <svg class="svg-layer">
+          <!-- Central Vertical Line (Between Wikidata & Commons) -->
+<line x1="540" y1="310" x2="540" y2="550" class="hive-line" />
+
+     
+        <line x1="540" y1="790" x2="310" y2="430" class="hive-line"></line>
+        <line x1="540" y1="790" x2="770" y2="430" class="hive-line"></line>
+        <line x1="540" y1="790" x2="310" y2="1150" class="hive-line"></line>
+        <line x1="540" y1="790" x2="770" y2="1150" class="hive-line"></line>
+        <!-- Vertical Side Lines (Fixed Visibility) -->
+        <line x1="310" y1="430" x2="310" y2="1150" class="hive-line"></line>
+        <line x1="770" y1="430" x2="770" y2="1150" class="hive-line"></line>
+        <line x1="310" y1="1150" x2="540" y2="1520" class="hive-line"></line>
+        <line x1="770" y1="1150" x2="540" y2="1520" class="hive-line"></line>
+        <line x1="540" y1="790" x2="540" y2="1520" class="hive-line"></line> </svg>
+      <!-- HEX 1: WIKIDATA (Red) -->
+      <div class="hex-wrapper theme-red pos-1">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2012</div>
+        <div class="card-emoji">📊</div>
+        <div class="card-title">Wikidata</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">Base de connaissances libre.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">Données structurées pour l'IA et le Web.
+          Données structurées pour l'IA et le Web. Données structurées pour l'IA
+          et le Web.</div>
+        <div class="card-key-fact" style="top: 400px; left: 223px; width: 297px; height: 55px;">100M+
+          Éléments</div>
+      </div>
+      <!-- HEX 2: COMMONS (Purple) -->
+      <div class="hex-wrapper theme-purple pos-2">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2004</div>
+        <div class="card-emoji">📸</div>
+        <div class="card-title">Commons</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">Médiathèque universelle.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">Photos, Audio &amp; Vidéo sous licence
+          libre. Photos, Audio &amp; Vidéo sous licence libre. Photos, Audio
+          &amp; Vidéo sous licence libre.</div>
+        <div class="card-key-fact" style="top: 400px; height: 55px;">90M+
+          Fichiers</div>
+      </div>
+      <!-- HEX 3: WIKIPEDIA (Blue) -->
+      <div class="hex-wrapper theme-blue pos-3">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2001</div>
+        <div class="card-emoji">🌍</div>
+        <div class="card-title">Wikipédia</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">L'encyclopédie collaborative.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">Synthèse du savoir humain en 300 langues.
+          Synthèse du savoir humain en 300 langues. Synthèse du savoir humain en
+          300 langues.</div>
+        <div class="card-key-fact" style="top: 397px; left: 219px; width: 301px; height: 58px;">6M+
+          Articles</div>
+      </div>
+      <!-- HEX 4: WIKTIONARY (Teal) -->
+      <div class="hex-wrapper theme-teal pos-4">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2002</div>
+        <div class="card-emoji">📖</div>
+        <div class="card-title">Wiktionnaire</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">Dictionnaire &amp; Thésaurus.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">Définitions, étymologies et prononciations.
+          Définitions, étymologies et prononciations. Définitions, et
+          prononciations.</div>
+        <div class="card-key-fact" style="top: 400px; left: 222px; width: 298px; height: 55px;">4.5M+
+          Entrées</div>
+      </div>
+      <!-- HEX 5: MEDIAWIKI (Orange) -->
+      <div class="hex-wrapper theme-orange pos-5">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2002</div>
+        <div class="card-emoji">⚙️</div>
+        <div class="card-title">MediaWiki</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">Moteur Logiciel Libre.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">L'infrastructure technique de tous les
+          wikis. L'infrastructure technique de tous les wikis. L'infrastructure
+          technique de tous les wikis.</div>
+        <div class="card-key-fact" style="top: 403px; height: 52px;">Licence GPL</div>
+      </div>
+      <!-- HEX 6: WIKISOURCE (Pink) -->
+      <div class="hex-wrapper theme-pink pos-6">
+        <div class="hex-border-shape"></div>
+        <div class="hex-glass"></div>
+        <div class="card-year">2003</div>
+        <div class="card-emoji">📜</div>
+        <div class="card-title">Wikisource</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-main">Bibliothèque Numérique.</div>
+        <div class="card-separator"></div>
+        <div class="card-text-scope">Textes juridiques, romans et manuscrits.
+          Textes juridiques, romans et manuscrits. Textes juridiques, romans et
+          manuscrits.</div>
+        <div class="card-key-fact" style="top: 399px; left: 220px; width: 300px; height: 56px;">Domaine
+          Public</div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1806px; height: 84px; left: 543px; width: 977px;">
+        <p class="explanation-text" style="margin-top: -19px;"> Wikipédia est au
+          cœur d'un <span class="highlight">écosystème interconnecté</span>.</p>
+      </div>
+    </div>
+  </body>
+</html>

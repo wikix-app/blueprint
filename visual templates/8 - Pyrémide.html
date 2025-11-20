@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide12-1" data-slide="12.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          
+        }
+body {
+        background-color: #EDFAF0;
+        margin: 0;
+    }
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 2. PYRAMID BLOCKS */
+        .glass-card {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            filter: drop-shadow(0px 10px 0px rgba(22, 101, 52, 0.2));
+            box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.6);
+        }
+
+        /* GEOMETRY */
+        
+        /* CAPSTONE */
+        .level-0 {
+            top: 210px; 
+            width: 280px; 
+            height: 120px;
+            z-index: 10;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background: linear-gradient(180deg, #fde047 0%, #eab308 100%);
+        }
+        
+        .cap-text {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #854d0e;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+            pointer-events: auto;
+        }
+
+        /* Level 1 (Purple) */
+        .level-1 { 
+            top: 350px; 
+            width: 480px; 
+            height: 320px; 
+            z-index: 9; 
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Level 2 (Red) */
+        .level-2 { 
+            top: 690px; 
+            width: 680px; 
+            height: 320px; 
+            z-index: 8;
+            clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Level 3 (Orange) */
+        .level-3 { 
+            top: 1030px; 
+            width: 880px; 
+            height: 320px; 
+            z-index: 7;
+            clip-path: polygon(11% 0%, 89% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Level 4 (Teal) */
+        .level-4 { 
+            top: 1370px; 
+            width: 1080px; 
+            height: 320px; 
+            z-index: 6;
+            clip-path: polygon(9% 0%, 91% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* THEMES */
+        .theme-purple { background: linear-gradient(180deg, rgba(237, 233, 254, 0.95) 0%, rgba(216, 180, 254, 0.9) 100%); }
+        .theme-red    { background: linear-gradient(180deg, rgba(254, 226, 226, 0.95) 0%, rgba(252, 165, 165, 0.9) 100%); }
+        .theme-orange { background: linear-gradient(180deg, rgba(255, 237, 213, 0.95) 0%, rgba(253, 186, 116, 0.9) 100%); }
+        .theme-teal   { background: linear-gradient(180deg, rgba(204, 251, 241, 0.95) 0%, rgba(94, 234, 212, 0.9) 100%); }
+
+        /* ABSOLUTE POSITIONED TEXT ELEMENTS */
+
+        /* Title */
+        .card-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 12px;
+            white-space: nowrap;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-purple .card-title { color: #5b21b6; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .theme-red .card-title    { color: #991b1b; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .theme-teal .card-title   { color: #115e59; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.2); }
+
+        /* Main Text */
+        .card-text-main {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            
+            font-size: 32px; 
+            line-height: 1.1;
+            font-weight: 900;
+            z-index: 5;
+        }
+
+        .theme-purple .card-text-main { color: #581c87; }
+        .theme-red .card-text-main    { color: #991b1b; }
+        .theme-orange .card-text-main { color: #9a3412; }
+        .theme-teal .card-text-main   { color: #115e59; }
+
+        /* Background Box */
+        .sub-text-bg {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 150px;
+            
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+            z-index: 4;
+        }
+
+        /* SPECIFIC OVERRIDE FOR LEVEL 1 (Narrower Box) */
+        .level-1 .sub-text-bg {
+            width: 65%; /* Reduced width to avoid slanted edges */
+        }
+
+        /* Description Text */
+        .card-text-sub {
+            position: absolute;
+            bottom: 85px; /* Moved UP from 75px to avoid separator */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+            text-align: center;
+            
+            font-size: 22px;
+            color: #374151; 
+            line-height: 1.3;
+            font-weight: 600; 
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* SPECIFIC OVERRIDE FOR LEVEL 1 TEXT WIDTH */
+        .level-1 .card-text-sub {
+            width: 60%; /* Matches the narrower bg */
+        }
+
+        /* Key Fact */
+        .card-key-fact {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            text-align: center;
+            
+            font-size: 19px;
+            color: #1f2937;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 5;
+
+            border-top: 2px solid rgba(0,0,0,0.1);
+            padding-top: 8px;
+        }
+
+        /* BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1710px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 30; 
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title"> Hiérarchie des Règles </div>
+      <!-- Level 0: Capstone -->
+      <div class="glass-card level-0">
+        <div class="cap-text">Mission</div>
+      </div>
+      <!-- Level 1: Top -->
+      <div class="glass-card theme-purple level-1">
+        <div class="card-title">🏛️ Niveau 1</div>
+        <div class="card-text-main">Principes Fondateurs</div>
+        <div class="sub-text-bg"></div>
+        <!-- Shortened Text, Narrower Width -->
+        <div class="card-text-sub">La "Constitution" indépassable. Principes
+          immuables.</div>
+        <div class="card-key-fact">Ex: Neutralité</div>
+      </div>
+      <!-- Level 2: Upper Mid -->
+      <div class="glass-card theme-red level-2">
+        <div class="card-title">📜 Niveau 2</div>
+        <div class="card-text-main">Règles Officielles</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-sub">Normes obligatoires votées par la communauté
+          Enormes obligatoires votées par la communauté.</div>
+        <div class="card-key-fact">Ex: Pas de Travail Inédit</div>
+      </div>
+      <!-- Level 3: Lower Mid -->
+      <div class="glass-card theme-orange level-3">
+        <div class="card-title">🧭 Niveau 3</div>
+        <div class="card-text-main">Recommandations</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-sub">Conventions de style et bonnes pratiques.
+          Très suivies mais acceptent des exceptions occasionnelles selon le bon
+          sens.</div>
+        <div class="card-key-fact">Ex: Conventions Typographiques</div>
+      </div>
+      <!-- Level 4: Base -->
+      <div class="glass-card theme-teal level-4">
+        <div class="card-title">🛠️ Niveau 4</div>
+        <div class="card-text-main">Essais &amp; Outils</div>
+        <div class="sub-text-bg"></div>
+        <div class="card-text-sub">Réflexions personnelles, brouillons ou aides
+          techniques. Ils n'ont aucune valeur normative et ne peuvent pas être
+          utilisés comme argument d'autorité.</div>
+        <div class="card-key-fact">Ex: "Il ne faut pas mordre les nouveaux"</div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box">
+        <p class="explanation-text"> Il est crucial de distinguer une <span class="highlight">Règle</span>
+          (obligatoire) d'un simple <span class="highlight">Essai</span>
+          (opinion) lors d'un débat communautaire. </p>
+      </div>
+    </div>
+  </body>
+</html>

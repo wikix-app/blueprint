@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide11-1" data-slide="11.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. GRID BACKGROUND */
+        /* Removed as requested */
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 10;
+        }
+
+        /* 3. SVG CONNECTOR LAYER */
+        .svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .flow-line {
+            stroke: #166534;
+            stroke-width: 6;
+            fill: none;
+            opacity: 0.6;
+            stroke-linecap: round; /* Smoother ends */
+        }
+        
+        .flow-arrow {
+            fill: #166534;
+            opacity: 0.6;
+        }
+
+        /* 4. FLOWCHART NODES */
+        .glass-card {
+            position: absolute;
+            border-radius: 30px;
+            padding: 20px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-width: 3px;
+            border-style: solid;
+            z-index: 2;
+            box-shadow: 10px 10px 0px rgba(22, 101, 52, 0.15);
+        }
+
+        /* SIZES */
+        .card-wide { width: 540px; height: 220px; } 
+        .card-small { width: 300px; height: 380px; } 
+
+        /* POSITIONS */
+        
+        /* Row 1 */
+        .pos-1 { top: 260px; left: 50%; transform: translateX(-50%); }
+
+        /* Row 2 */
+        .pos-2 { top: 560px; left: 50%; transform: translateX(-50%); }
+
+        /* Row 3 */
+        .pos-3a { top: 900px; left: 30px; } /* Left */
+        .pos-3b { top: 900px; right: 30px; } /* Right */
+        .pos-3c { top: 900px; left: 50%; transform: translateX(-50%); } /* Center */
+        
+        /* Row 4 */
+        .pos-4a { top: 1360px; left: 50%; transform: translateX(-110%); } 
+        .pos-4b { top: 1360px; left: 50%; transform: translateX(10%); } 
+
+
+        /* THEMES */
+        .theme-blue   { background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.8) 100%); border-color: #60a5fa; box-shadow: 8px 8px 0px rgba(59, 130, 246, 0.3); }
+        .theme-purple { background: linear-gradient(135deg, rgba(237, 233, 254, 0.9) 0%, rgba(245, 243, 255, 0.8) 100%); border-color: #a78bfa; box-shadow: 8px 8px 0px rgba(139, 92, 246, 0.3); }
+        .theme-orange { background: linear-gradient(135deg, rgba(255, 237, 213, 0.9) 0%, rgba(255, 247, 237, 0.8) 100%); border-color: #fb923c; box-shadow: 8px 8px 0px rgba(249, 115, 22, 0.3); }
+        .theme-teal   { background: linear-gradient(135deg, rgba(204, 251, 241, 0.9) 0%, rgba(240, 253, 250, 0.8) 100%); border-color: #2dd4bf; box-shadow: 8px 8px 0px rgba(20, 184, 166, 0.3); }
+        .theme-red    { background: linear-gradient(135deg, rgba(254, 226, 226, 0.9) 0%, rgba(255, 241, 242, 0.8) 100%); border-color: #f87171; box-shadow: 8px 8px 0px rgba(220, 38, 38, 0.3); }
+        .theme-pink   { background: linear-gradient(135deg, rgba(252, 231, 243, 0.9) 0%, rgba(253, 242, 248, 0.8) 100%); border-color: #f472b6; box-shadow: 8px 8px 0px rgba(219, 39, 119, 0.3); }
+        .theme-cyan   { background: linear-gradient(135deg, rgba(207, 250, 254, 0.9) 0%, rgba(236, 254, 255, 0.8) 100%); border-color: #22d3ee; box-shadow: 8px 8px 0px rgba(8, 145, 178, 0.3); }
+
+        /* TYPOGRAPHY */
+        .card-title {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            padding: 5px 15px;
+            border-radius: 10px;
+            width: fit-content;
+            box-shadow: inset 0px 2px 6px rgba(0,0,0,0.1), 0px 1px 0px rgba(255,255,255,0.6);
+        }
+
+        .theme-blue .card-title   { color: #1e40af; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .theme-purple .card-title { color: #5b21b6; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .theme-orange .card-title { color: #9a3412; background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.2); }
+        .theme-teal .card-title   { color: #115e59; background: rgba(20, 184, 166, 0.15); border: 1px solid rgba(20, 184, 166, 0.2); }
+        .theme-red .card-title    { color: #991b1b; background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.2); }
+        .theme-pink .card-title   { color: #be185d; background: rgba(244, 114, 182, 0.15); border: 1px solid rgba(244, 114, 182, 0.2); }
+        .theme-cyan .card-title   { color: #0e7490; background: rgba(34, 211, 238, 0.15); border: 1px solid rgba(34, 211, 238, 0.2); }
+
+        .card-text-main {
+            font-size: 24px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .theme-blue .card-text-main   { color: #1e3a8a; }
+        .theme-purple .card-text-main { color: #581c87; }
+        .theme-orange .card-text-main { color: #9a3412; }
+        .theme-teal .card-text-main   { color: #115e59; }
+        .theme-red .card-text-main    { color: #991b1b; }
+        .theme-pink .card-text-main   { color: #be185d; }
+        .theme-cyan .card-text-main   { color: #0e7490; }
+
+        /* Sub-Text Box */
+        .sub-text-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 15px;
+            padding: 12px 18px;
+            width: 100%;
+            flex-grow: 1;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-text-sub {
+            font-size: 19px;
+            color: #374151; 
+            line-height: 1.3;
+            font-weight: 600; 
+        }
+
+        /* EMOJIS */
+        .card-emoji {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 45px;
+            filter: drop-shadow(0 4px 2px rgba(0,0,0,0.1));
+        }
+
+        /* BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1755px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+
+        /* LABEL PILLS ON LINES */
+        .line-label {
+            position: absolute;
+            background: #ffffff;
+            border: 2px solid #166534;
+            color: #166534;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 18px;
+            text-transform: uppercase;
+            z-index: 5;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title"> Processus de Suppression </div>
+      <!-- SVG Connections -->
+      <svg class="svg-layer">
+        <!-- 1. Top Stem -->
+        <!-- From Start (480) to Decision (560 - 20 Arrow = 540) -->
+        <line x1="540" y1="480" x2="540" y2="539" class="flow-line"></line>
+        <polygon points="540,560 530,540 550,540" class="flow-arrow"></polygon>
+        <!-- 2. Split from Decision (Bottom 780) -->
+        <!-- Vertical drop to 840 -->
+        <line x1="540" y1="780" x2="540" y2="840" class="flow-line"></line>
+        <!-- Left Branch (Delete) -->
+        <!-- Line stops at 880, Arrow tip at 900 -->
+        <path d="M540,840 L180,840 L180,880" class="flow-line" fill="none" style="stroke-dasharray: 12,12;"></path>
+        <polygon points="180,900 170,880 190,880" class="flow-arrow"></polygon>
+        <!-- Right Branch (Keep) -->
+        <!-- Line stops at 880, Arrow tip at 900 -->
+        <path d="M540,840 L900,840 L900,880" class="flow-line" fill="none" style="stroke-dasharray: 12,12;"></path>
+        <polygon points="900,900 890,880 910,880" class="flow-arrow"></polygon>
+        <!-- Center Branch (Debate) -->
+        <!-- Line stops at 880, Arrow tip at 900 -->
+        <line x1="540" y1="840" x2="540" y2="879" class="flow-line"></line>
+        <polygon points="540,900 530,880 550,880" class="flow-arrow"></polygon>
+        <!-- 3. Extensions from Debate (Bottom 1280) -->
+        <!-- Vertical drop to 1320, then split -->
+        <line x1="540" y1="1280" x2="540" y2="1320" class="flow-line"></line>
+        <!-- Left-Center (Fusion) -->
+        <!-- Target X: 360. Target Top: 1360. Line stops at 1340. -->
+        <path d="M540,1320 L360,1320 L360,1339" class="flow-line" fill="none"></path>
+        <polygon points="360,1360 350,1340 370,1340" class="flow-arrow"></polygon>
+        <!-- Right-Center (Draft) -->
+        <!-- Target X: 720. Target Top: 1360. Line stops at 1340. -->
+        <path d="M540,1320 L720,1320 L720,1339" class="flow-line" fill="none"></path>
+        <polygon points="720,1360 710,1340 730,1340" class="flow-arrow"></polygon>
+      </svg>
+      <!-- Labels on Lines -->
+      <div class="line-label" style="top: 840px; left: 360px;">Non Conforme</div>
+      <div class="line-label" style="top: 840px; left: 720px;">Admissible</div>
+      <div class="line-label" style="top: 840px; left: 540px;">Doute ?</div>
+      <div class="line-label" style="top: 1320px; left: 540px;">Solutions</div>
+      <!-- 1. START (Blue) -->
+      <div class="glass-card theme-blue card-wide pos-1" style="top: 232px; left: 540px; width: 540px; height: 248px;">
+        <div class="card-emoji" style="top: 20px; left: 461px;">📄</div>
+        <div class="card-title">1. Création</div>
+        <div class="card-text-main">Nouvelle Page</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Un contributeur rédige un nouvel article.
+            Il doit immédiatement citer des sources pour prouver l'admissibilité
+            du sujet.</div>
+        </div>
+      </div>
+      <!-- 2. DECISION (Purple) -->
+      <div class="glass-card theme-purple card-wide pos-2">
+        <div class="card-emoji">🔍</div>
+        <div class="card-title">2. Contrôle</div>
+        <div class="card-text-main">Analyse Communautaire</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Les patrouilleurs, bots et administrateurs
+            vérifient si la page respecte les critères (Notoriété, Copyright,
+            Sources).</div>
+        </div>
+      </div>
+      <!-- 3a. LEFT: DELETE (Red) -->
+      <div class="glass-card theme-red card-small pos-3a">
+        <div class="card-emoji">🗑️</div>
+        <div class="card-title">SI</div>
+        <div class="card-text-main">Suppression Immédiate</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Cas évidents : vandalisme, spam, bac à
+            sable, violation de droits d'auteur. Pas de débat nécessaire.</div>
+        </div>
+      </div>
+      <!-- 3c. CENTER: DEBATE (Orange) -->
+      <div class="glass-card theme-orange card-small pos-3c">
+        <div class="card-emoji">🗣️</div>
+        <div class="card-title">PàS</div>
+        <div class="card-text-main">Page à Supprimer</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Si un doute subsiste, un débat public de 7
+            à 14 jours est lancé. La communauté argumente pour décider.</div>
+        </div>
+      </div>
+      <!-- 3b. RIGHT: KEEP (Teal) -->
+      <div class="glass-card theme-teal card-small pos-3b">
+        <div class="card-emoji">✅</div>
+        <div class="card-title">OK</div>
+        <div class="card-text-main">Conservation</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">L'article répond aux critères
+            d'admissibilité. Il est conservé, catégorisé et pourra être
+            amélioré.</div>
+        </div>
+      </div>
+      <!-- 4a. NEW: FUSION (Pink) -->
+      <div class="glass-card theme-pink card-small pos-4a">
+        <div class="card-emoji">🔗</div>
+        <div class="card-title">Fusion</div>
+        <div class="card-text-main">Contenu Redondant</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">Le sujet est valable mais fait doublon avec
+            un autre. Les textes sont fusionnés en un seul article complet.</div>
+        </div>
+      </div>
+      <!-- 4b. NEW: DRAFT (Cyan) -->
+      <div class="glass-card theme-cyan card-small pos-4b">
+        <div class="card-emoji">📝</div>
+        <div class="card-title">Brouillon</div>
+        <div class="card-text-main">Déplacement</div>
+        <div class="sub-text-box">
+          <div class="card-text-sub">L'article est déplacé dans l'espace
+            personnel de l'auteur pour être amélioré avant une nouvelle
+            publication.</div>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1762px; left: 537px; width: 979px; height: 116px;">
+        <p class="explanation-text" style="margin-top: -25px;"> La suppression
+          se décide par <span class="highlight">consensus</span> et non à la
+          simple majorité des votes. </p>
+      </div>
+    </div>
+  </body>
+</html>

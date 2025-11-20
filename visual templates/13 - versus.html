@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide17-1" data-slide="17.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. GRID BACKGROUND */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        /* 2. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 3. COMPARISON COLUMNS */
+        .comp-column {
+            position: absolute;
+            top: 220px;
+            width: 460px;
+            height: 1300px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-width: 4px;
+            border-style: solid;
+            z-index: 5;
+            /* Layout for internal items */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        /* Left: Visual Editor (Blue) */
+        .col-left {
+            left: 60px;
+            background: linear-gradient(180deg, rgba(239, 246, 255, 0.85) 0%, rgba(219, 234, 254, 0.7) 100%);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Right: Wikitext (Orange/Code) */
+        .col-right {
+            right: 60px;
+            background: linear-gradient(180deg, rgba(255, 247, 237, 0.85) 0%, rgba(255, 237, 213, 0.7) 100%);
+            border-color: #f97316;
+            box-shadow: 0 20px 30px rgba(249, 115, 22, 0.15);
+        }
+
+        /* 4. VS BADGE (Center) */
+        .vs-badge {
+            position: absolute;
+            top: 280px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: #166534;
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 900;
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* 5. INTERNAL CONTENT */
+        
+        /* Header Group */
+        .col-header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .col-emoji {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+        }
+
+        .col-title {
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .col-left .col-title { color: #1e40af; background: rgba(255,255,255,0.6); border: 2px solid #3b82f6; }
+        .col-right .col-title { color: #9a3412; background: rgba(255,255,255,0.6); border: 2px solid #f97316; }
+
+        /* Description Text */
+        .col-desc {
+            font-size: 22px;
+            color: #374151;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.4);
+            padding: 15px;
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        /* Features Container (White Box) */
+        .features-box {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            /* Removed flex-grow, fixed height area */
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.8), 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+            margin-bottom: 30px;
+        }
+
+        .features-label {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #166534;
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: 2px solid rgba(22, 101, 52, 0.1);
+            padding-bottom: 5px;
+        }
+
+        /* Feature Pills */
+        .feature-pill {
+            background: #ffffff;
+            padding: 12px 15px;
+            border-radius: 15px;
+            font-size: 19px;
+            font-weight: 700;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 6px solid;
+            line-height: 1.2;
+        }
+
+        .col-left .feature-pill { border-left-color: #3b82f6; }
+        .col-right .feature-pill { border-left-color: #f97316; }
+
+        .pill-icon { font-size: 24px; }
+
+        /* NEW: BOTTOM SUMMARY BOX (Fills the gap) */
+        .summary-box {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            flex-grow: 1; /* Fills the remaining space to the bottom */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-left .summary-box { border-color: #93c5fd; }
+        .col-right .summary-box { border-color: #fdba74; }
+
+        .summary-header {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+
+        .col-left .summary-header { color: #1e40af; }
+        .col-right .summary-header { color: #9a3412; }
+
+        .summary-text {
+            font-size: 20px;
+            color: #374151;
+            line-height: 1.6;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        /* 6. BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1580px; /* Below columns */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Background -->
+      <div class="grid-bg"></div>
+      <!-- Title -->
+      <div class="main-title"> Modes d'Édition </div>
+      <!-- VS Badge -->
+      <div class="vs-badge">VS</div>
+      <!-- LEFT COLUMN: VISUAL EDITOR -->
+      <div class="comp-column col-left" style="top: 220px; height: 1324px;">
+        <div class="col-header"> <span class="col-emoji">👁️</span>
+          <div class="col-title">Éditeur Visuel</div>
+        </div>
+        <div class="col-desc"> Interface WYSIWYG moderne. Ressemble à Word ou
+          Google Docs. Idéal pour les débutants. </div>
+        <div class="features-box">
+          <div class="features-label">Points Forts</div>
+          <div class="feature-pill"> <span class="pill-icon">👍</span> Intuitif
+            : On voit le résultat en temps réel. </div>
+          <div class="feature-pill"> <span class="pill-icon">🔗</span> Facile
+            pour ajouter des liens et des sources. </div>
+          <div class="feature-pill"> <span class="pill-icon">📑</span> Gestion
+            simple des tableaux basiques. </div>
+          <div class="features-label" style="margin-top: 10px; color: #991b1b;">Limites</div>
+          <div class="feature-pill" style="border-left-color: #ef4444;"> <span
+
+              class="pill-icon">🐢</span> Plus lent à charger sur les grosses
+            pages. </div>
+          <div class="feature-pill" style="border-left-color: #ef4444;"> <span
+
+              class="pill-icon">🧩</span> Difficile pour les modèles complexes.
+          </div>
+        </div>
+        <!-- New Summary Box -->
+        <div class="summary-box"> <span class="summary-header">Contexte d'Usage</span>
+          <p class="summary-text"> L'éditeur visuel a été conçu pour abaisser la
+            barrière technique à l'entrée. Il permet à des contributeurs
+            non-techniciens de rédiger des articles de qualité sans jamais voir
+            une ligne de code. C'est l'outil par défaut recommandé.</p>
+        </div>
+      </div>
+      <!-- RIGHT COLUMN: WIKITEXT -->
+      <div class="comp-column col-right" style="top: 220px; height: 1324px;">
+        <div class="col-header"> <span class="col-emoji">💻</span>
+          <div class="col-title">Wikitexte</div>
+        </div>
+        <div class="col-desc"> Le code source brut (Markup). Interface
+          historique préférée des experts. </div>
+        <div class="features-box">
+          <div class="features-label">Points Forts</div>
+          <div class="feature-pill"> <span class="pill-icon">⚡</span> Ultra
+            rapide et précis. Chargement immédiat. </div>
+          <div class="feature-pill"> <span class="pill-icon">🛠️</span>
+            Contrôle total sur la syntaxe et les modèles. </div>
+          <div class="feature-pill"> <span class="pill-icon">💬</span>
+            Obligatoire pour les Pages de Discussion. </div>
+          <div class="features-label" style="margin-top: 10px; color: #991b1b;">Limites</div>
+          <div class="feature-pill" style="border-left-color: #ef4444;"> <span
+
+              class="pill-icon">🤯</span> Syntaxe [[crochets]] et {{accolades}}
+            austère. </div>
+          <div class="feature-pill" style="border-left-color: #ef4444;"> <span
+
+              class="pill-icon">📉</span> Courbe d'apprentissage plus raide. </div>
+        </div>
+        <!-- New Summary Box -->
+        <div class="summary-box"> <span class="summary-header">Puissance
+            Technique</span>
+          <p class="summary-text"> Le Wikitexte reste le langage natif de
+            l'infrastructure MediaWiki. Bien que plus aride au premier abord, il
+            offre une précision chirurgicale indispensable pour la maintenance
+            technique, la correction de modèles complexes. </p>
+        </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box">
+        <p class="explanation-text"> Vous pouvez basculer entre les deux modes à
+          tout moment. Il est conseillé de débuter avec l'<span class="highlight">Éditeur
+            Visuel</span> pour la rédaction, mais de connaître les bases du <span
+
+            class="highlight">Wikitexte</span> pour comprendre la structure
+          fine. </p>
+      </div>
+    </div>
+  </body>
+</html>

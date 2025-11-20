@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="slide slide16-1" data-slide="16.1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap"
+
+        rel="stylesheet">
+      <style>
+        * {
+            font-family: 'Nunito', sans-serif !important;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1920px;
+            background-color: #EDFAF0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 1. POP-OUT TITLE */
+        .main-title {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 56px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            width: 90%;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #ffffff; 
+            padding: 15px 20px;
+            border: 4px solid #166534;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px #166534; 
+            z-index: 20; 
+        }
+
+        /* 2. LEGEND CONTAINER */
+        .legend-container {
+            position: absolute;
+            top: 180px; /* Moved up */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            z-index: 10;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .legend-dot { width: 25px; height: 25px; border-radius: 50%; }
+        .legend-text { font-size: 22px; font-weight: 800; text-transform: uppercase; }
+
+        .legend-bad { border-color: #ef4444; color: #991b1b; }
+        .dot-bad { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+
+        .legend-good { border-color: #3b82f6; color: #1e3a8a; }
+        .dot-good { background: #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+
+
+        /* 3. SVG RADAR CHART LAYER */
+        .svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .radar-grid {
+            stroke: #166534;
+            stroke-width: 2;
+            stroke-dasharray: 5, 5;
+            fill: #ffffff;
+            fill-opacity: 0.4; 
+        }
+        
+        .radar-axis {
+            stroke: #166534;
+            stroke-width: 2;
+            opacity: 0.3;
+        }
+
+        .poly-bad {
+            fill: rgba(239, 68, 68, 0.3);
+            stroke: #ef4444;
+            stroke-width: 6;
+            filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.3));
+        }
+
+        .poly-good {
+            fill: rgba(59, 130, 246, 0.4); 
+            stroke: #3b82f6;
+            stroke-width: 6;
+            mix-blend-mode: multiply; 
+        }
+
+
+        /* 4. LABEL CARDS */
+        .label-card {
+            position: absolute;
+            width: 360px; 
+            height: 260px; /* INCREASED HEIGHT for more text */
+            border-radius: 25px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(15px);
+            border-width: 3px;
+            border-style: solid;
+            z-index: 10;
+        }
+
+        /* THEMES */
+        .card-purple {
+            background: linear-gradient(135deg, rgba(243, 232, 255, 0.85) 0%, rgba(250, 245, 255, 0.8) 100%);
+            border-color: #a78bfa;
+            box-shadow: 5px 5px 15px rgba(139, 92, 246, 0.15);
+        }
+        .card-teal {
+            background: linear-gradient(135deg, rgba(204, 251, 241, 0.85) 0%, rgba(240, 253, 250, 0.8) 100%);
+            border-color: #2dd4bf;
+            box-shadow: 5px 5px 15px rgba(20, 184, 166, 0.15);
+        }
+        .card-orange {
+            background: linear-gradient(135deg, rgba(255, 237, 213, 0.85) 0%, rgba(255, 247, 237, 0.8) 100%);
+            border-color: #fb923c;
+            box-shadow: 5px 5px 15px rgba(249, 115, 22, 0.15);
+        }
+        .card-indigo {
+            background: linear-gradient(135deg, rgba(224, 231, 255, 0.85) 0%, rgba(238, 242, 255, 0.8) 100%);
+            border-color: #818cf8;
+            box-shadow: 5px 5px 15px rgba(99, 102, 241, 0.15);
+        }
+        .card-pink {
+            background: linear-gradient(135deg, rgba(252, 231, 243, 0.85) 0%, rgba(253, 242, 248, 0.8) 100%);
+            border-color: #f472b6;
+            box-shadow: 5px 5px 15px rgba(236, 72, 153, 0.15);
+        }
+        
+        /* NEW YELLOW THEME (Replaces Green) */
+        .card-yellow {
+            background: linear-gradient(135deg, rgba(254, 252, 232, 0.85) 0%, rgba(255, 255, 255, 0.8) 100%);
+            border-color: #eab308; /* Gold/Yellow border */
+            box-shadow: 5px 5px 15px rgba(234, 179, 8, 0.15);
+        }
+
+        /* POSITIONS - Adjusted for bigger cards */
+        /* Center point: 540, 900 */
+        
+        /* 1. Top (Neutrality) */
+        .card-1 { top: 390px; left: 50%; transform: translateX(-50%); }
+        
+        /* 2. Top-Right (Sources) */
+        .card-2 { top: 600px; right: 20px; }
+        
+        /* 3. Bottom-Right (Updates) */
+        .card-3 { top: 1080px; right: 20px; }
+        
+        /* 4. Bottom (Structure) */
+        .card-4 { top: 1280px; left: 50%; transform: translateX(-50%); }
+        
+        /* 5. Bottom-Left (Media) */
+        .card-5 { top: 1080px; left: 20px; }
+        
+        /* 6. Top-Left (Style) */
+        .card-6 { top: 600px; left: 20px; }
+
+
+        /* TYPOGRAPHY */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-emoji { font-size: 30px; }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .card-text {
+            font-size: 18px;
+            color: #4b5563;
+            line-height: 1.4; /* Improved line height */
+            font-weight: 600;
+            text-align: left;
+            flex-grow: 1; /* Fills available space */
+            margin-bottom: 10px;
+        }
+
+        /* Sub-Box */
+        .card-sub-box {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 8px 12px;
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .card-rule {
+            font-size: 16px;
+            color: #1f2937;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+
+        /* 5. BOTTOM EXPLANATION */
+        .explanation-box {
+            position: absolute;
+            top: 1560px; /* Adjusted for new bottom card position */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 980px;
+            background-color: #2E8B57;
+            padding: 35px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 15px 0px rgba(20, 83, 45, 0.4);
+            border: 2px solid #166534;
+        }
+
+        .explanation-text {
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            text-align: justify;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #baf990;
+            font-weight: 800;
+        }
+    </style>
+      <!-- Title -->
+      <div class="main-title" style="top: 114px; left: 534px;"> Profil de
+        Qualité </div>
+      <!-- Legend -->
+      <div class="legend-container" style="top: 290px; height: 61px; left: 505px; width: 803px;">
+        <div class="legend-item legend-bad">
+          <div class="legend-dot dot-bad"></div>
+          &nbsp; <span class="legend-text">Promo (Rejeté)</span> </div>
+        <div class="legend-item legend-good">
+          <div class="legend-dot dot-good"></div>
+          &nbsp;&nbsp; <span class="legend-text">Idéal (AdQ)</span> </div>
+      </div>
+      <!-- SVG Radar Chart -->
+      <svg class="svg-layer">
+        <!-- Grid Levels -->
+        <polygon points="540,640 765,770 765,1030 540,1160 315,1030 315,770" class="radar-grid"></polygon>
+        <polygon points="540,726 690,813 690,986 540,1073 390,986 390,813" class="radar-grid"></polygon>
+        <polygon points="540,813 615,856 615,943 540,986 465,943 465,856" class="radar-grid"></polygon>
+        <!-- Axis Lines -->
+        <line x1="540" y1="900" x2="540" y2="640" class="radar-axis"></line>
+        <line x1="540" y1="900" x2="765" y2="770" class="radar-axis"></line>
+        <line x1="540" y1="900" x2="765" y2="1030" class="radar-axis"></line>
+        <line x1="540" y1="900" x2="540" y2="1160" class="radar-axis"></line>
+        <line x1="540" y1="900" x2="315" y2="1030" class="radar-axis"></line>
+        <line x1="540" y1="900" x2="315" y2="770" class="radar-axis"></line>
+        <!-- DATA: RED -->
+        <polygon points="540,848 562,887 630,952 540,1082 337,1030 315,770" class="poly-bad"></polygon>
+        <!-- DATA: BLUE -->
+        <polygon points="540,640 765,770 720,1004 540,1160 382,991 360,822" class="poly-good"></polygon>
+      </svg>
+      <!-- LABELS -->
+      <!-- 1. Neutrality (Purple) -->
+      <div class="label-card card-purple card-1" style="top: 387px; left: 517px; height: 235px; width: 418px;">
+        <div class="card-header"> <span class="card-emoji">⚖️</span> <span class="card-title">Neutralité</span>
+        </div>
+        <div class="card-text"> Ton impartial exigé. Présentation honnête des
+          points de vue contradictoires selon leur importance (Proportion).
+          Aucun parti pris, pas de "cherry picking" ou de censure. </div>
+        <div class="card-sub-box"> <span class="card-rule">Règle : Pas de
+            jugement personnel.</span> </div>
+      </div>
+      <!-- 2. Sources (Teal) -->
+      <div class="label-card card-teal card-2" style="left: 778px; width: 273px; top: 557px; height: 336px;">
+        <div class="card-header"> <span class="card-emoji">📚</span> <span class="card-title">Sources</span>
+        </div>
+        <div class="card-text"> Privilégiez les sources secondaires (analyses,
+          livres) plutôt que primaires (interviews). Les sources doivent être
+          indépendantes du sujet et d'envergure nationale. </div>
+        <div class="card-sub-box"> <span class="card-rule">Critère : Fiabilité
+            &amp; Centrage.</span> </div>
+      </div>
+      <!-- 3. Updates (Orange) -->
+      <div class="label-card card-orange card-3" style="left: 784px; width: 260px; top: 963px; height: 303px;">
+        <div class="card-header"> <span class="card-emoji">🔄</span> <span class="card-title">Actualisation</span>
+        </div>
+        <div class="card-text"> Le contenu ne doit pas être figé. Les chiffres
+          datent de l'année en cours. Les liens morts sont réparés et les
+          sections "Controverses" sont à jour. </div>
+        <div class="card-sub-box"> <span class="card-rule">Action : Maintenance
+            régulière.</span> </div>
+      </div>
+      <!-- 4. Structure (Indigo) -->
+      <div class="label-card card-indigo card-4" style="top: 1181px; left: 573px; width: 360px; height: 248px;">
+        <div class="card-header"> <span class="card-emoji">📑</span> <span class="card-title">Structure</span>
+        </div>
+        <div class="card-text"> Résumé introductif complet qui synthétise
+          l'article. Plan logique avec titres clairs. Présence obligatoire des
+          sections "Notes", "Références" et "Voir aussi". </div>
+        <div class="card-sub-box"> <span class="card-rule">Standard : Le RI est
+            crucial.</span> </div>
+      </div>
+      <!-- 5. Media (Pink) -->
+      <div class="label-card card-pink card-5" style="top: 1060px; left: 29px; width: 331px;">
+        <div class="card-header"> <span class="card-emoji">📸</span> <span class="card-title">Illustration</span>
+        </div>
+        <div class="card-text"> Images pertinentes sous licence libre (Commons).
+          Elles doivent apporter de l'info. Chaque image doit avoir une légende
+          descriptive et un texte alternatif (ALT). </div>
+        <div class="card-sub-box"> <span class="card-rule">Contrainte : Droit
+            d'auteur strict.</span> </div>
+      </div>
+      <!-- 6. Style (Yellow - CHANGED) -->
+      <div class="label-card card-yellow card-6" style="left: 43px; width: 231px; top: 567px; height: 334px;">
+        <div class="card-header"> <span class="card-emoji">💅</span> <span class="card-title">Style</span>
+        </div>
+        <div class="card-text"> Ton encyclopédique froid et précis. Utilisez le
+          présent de narration. Bannir les termes élogieux ("magnifique",
+          "célèbre") et le "nous" ou "je". </div>
+        <div class="card-sub-box"> <span class="card-rule">Forme : Sobriété et
+            Précision.</span> </div>
+      </div>
+      <!-- Bottom Explanation -->
+      <div class="explanation-box" style="top: 1456px; left: 543px;">
+        <p class="explanation-text"> Un article publicitaire (rouge) mise tout
+          sur la forme (Style, Photos) mais néglige le fond. Un article
+          encyclopédique (bleu) maximise la <span class="highlight">Neutralité</span>
+          et la <span class="highlight">Vérifiabilité</span>. </p>
+      </div>
+    </div>
+  </body>
+</html>

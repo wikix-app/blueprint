@@ -18,18 +18,8 @@
             overflow: hidden;
         }
 
-        /* 1. GRID BACKGROUND */
-        .grid-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(#2E8B57 2px, transparent 2px);
-            background-size: 50px 50px;
-            opacity: 0.15;
-            z-index: 0;
-        }
+        /* 1. BACKGROUND CLEAN (Removed Dots) */
+        /* No .grid-bg */
 
         /* 2. POP-OUT TITLE */
         .main-title {
@@ -52,13 +42,13 @@
             z-index: 10;
         }
 
-        /* 3. CHART CONTAINER */
+        /* 3. CHART CONTAINER (Moved Down to 240px) */
         .chart-container {
             position: absolute;
-            top: 180px; /* Moved up slightly */
+            top: 240px; 
             left: 50%;
             transform: translateX(-50%);
-            width: 460px; /* 460px size */
+            width: 460px;
             height: 460px;
             z-index: 2;
             display: flex;
@@ -79,33 +69,26 @@
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* PRETTIER CONIC DONUT CHART */
+        /* CONIC DONUT CHART */
         .donut-chart {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            /* 
-               Clean segments with white separators (0.4% gap)
-               Blue (Tech): 45%
-               Purple (Community): 32%
-               Teal (Admin): 13%
-               Orange (Fundraising): 10%
-            */
             background: conic-gradient(
-                #60a5fa 0% 44.8%,    /* Blue end */
-                #ffffff 44.8% 45.2%, /* White separator */
-                #a78bfa 45.2% 76.8%, /* Purple end */
-                #ffffff 76.8% 77.2%, /* White separator */
-                #2dd4bf 77.2% 89.8%, /* Teal end */
-                #ffffff 89.8% 90.2%, /* White separator */
-                #fb923c 90.2% 100%   /* Orange end */
+                #60a5fa 0% 44.8%,    
+                #ffffff 44.8% 45.2%, 
+                #a78bfa 45.2% 76.8%, 
+                #ffffff 76.8% 77.2%, 
+                #2dd4bf 77.2% 89.8%, 
+                #ffffff 89.8% 90.2%, 
+                #fb923c 90.2% 100%   
             );
             box-shadow: 12px 12px 0px rgba(22, 101, 52, 0.2);
             position: relative;
-            border: 8px solid #ffffff; /* Thicker white rim */
+            border: 8px solid #ffffff; 
         }
 
-        /* The Hole with Depth */
+        /* The Hole */
         .donut-hole {
             position: absolute;
             top: 50%;
@@ -119,7 +102,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Inner shadow for depth */
             box-shadow: inset 0px 10px 20px rgba(0,0,0,0.1);
             border: 1px solid rgba(0,0,0,0.05);
         }
@@ -130,19 +112,19 @@
         /* 4. LIST CONTAINER */
         .list-container {
             position: absolute;
-            top: 680px; /* Starts lower */
+            top: 740px; /* Starts below chart (240+460+40) */
             left: 50%;
             transform: translateX(-50%);
             width: 960px; 
             display: flex;
             flex-direction: column;
-            gap: 35px; /* More breathing room */
+            gap: 30px; /* Optimized gap */
         }
 
         /* 5. BIGGER GLASS CARDS */
         .legend-card {
             width: 100%;
-            height: 210px; /* Increased Height */
+            height: 200px; /* Optimized height */
             border-radius: 30px;
             padding: 0; 
             display: flex;
@@ -179,7 +161,7 @@
 
         /* Left Stripe */
         .card-stripe {
-            width: 150px; /* Wider stripe */
+            width: 150px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -264,17 +246,17 @@
         }
 
         .card-text-sub {
-            font-size: 22px;
+            font-size: 20px;
             color: #374151; 
             line-height: 1.3;
             font-weight: 600; 
         }
 
         /* BOTTOM EXPLANATION */
-        /* Chart (180+460=640) -> List Start (680).
-           List: 4 * 210 + 3 * 35 = 840 + 105 = 945.
-           List End: 680 + 945 = 1625px.
-           Bottom Container: 1625 + 25px gap = 1650px.
+        /* Calculation: List starts at 740px. 
+           Height: (4 * 200) + (3 * 30) = 890px.
+           End of list: 740 + 890 = 1630px.
+           Box Top: 1650px.
         */
         .explanation-box {
             position: absolute;
@@ -303,9 +285,6 @@
             font-weight: 800;
         }
     </style>
-
-    <!-- Background -->
-    <div class="grid-bg"></div>
 
     <!-- Title -->
     <div class="main-title">
@@ -403,7 +382,7 @@
     <!-- Bottom Explanation -->
     <div class="explanation-box">
         <p class="explanation-text">
-            La Wikimedia Foundation est une organisation à <span class="highlight">but non lucratif</span>. La grande majorité du budget est réinvestie directement dans l'infrastructure technique pour garder le site rapide, sécurisé et sans publicité, ainsi que dans le soutien aux communautés locales.
+            La Wikimedia Foundation est une organisation à <span class="highlight">but non lucratif</span>. Les dons garantissent un accès libre, rapide et sans publicité au savoir pour tous.
         </p>
     </div>
 </div>
