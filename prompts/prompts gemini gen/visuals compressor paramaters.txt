@@ -1,0 +1,40 @@
+
+- 4k
+- 9:16
+- coupé tout en bas dessous, laisser un tout petit peu au dessus
+
+------------
+
+Quality 80-35
+Chroma 4:4:4 / 4:2:0
+Max long side 2800
+Effort 10
+resize algo Lanczos
+sharpen : 0.5 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================
+- parametres avif. resize lanczos3 50%. AVIF 444 65 (60 ?) effort 10. de 23mb à 411kb. sinon 60 422 : 350

@@ -1,0 +1,308 @@
+/* tweak the image size for slide 19*/
+  .slide img {
+    /* Let slide-specific wrappers control exact width; keep just a safe viewport max */
+    max-width: 99vw !important;      /* allow closer to screen edges */
+    max-height: 80vh !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Ultra-specific override so slide 19.1 can ignore the global limits */
+  /* tweak visual slides 19.1*/
+  .slide.slide19-1 img {
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+}
+
+
+
+
+<!-- Slide 19 images -->
+   <div class="slide slide19" data-slide="19">
+    <div class="content">
+      <div class="photo-wrapper" style="
+            display: inline-block;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            touch-action: none;
+            border: 3px solid #3CB371;
+            border-radius: 8px;
+          ">
+        <img src="https://img.wikix-thegreatapp.workers.dev/aurora-2025.10.10-e6f1d36d4d824c57f5eb8e8c47517d9aaafdd1b29954679e62010bf3fcb9815f.jpg?cb=1760109039040" style="
+            display: block;
+            width: 100%;
+            height: auto;
+            transform-origin: center center;
+            touch-action: none;
+            cursor: grab;
+            user-select: none;
+          ">
+      </div>
+      <p style="margin-top:10px; text-align:center !important;">
+        <i>Image d'une éruption solaire prise par le satellite TRACE de la NASA</i>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+  (() => {
+    const wrappers = document.querySelectorAll(".photo-wrapper");
+    const TAP_DELAY = 250;
+    let singleTapTimeout = null;
+  
+    wrappers.forEach(wrapper => {
+      const img = wrapper.querySelector("img");
+      let scale = 1, lastScale = 1;
+      let posX = 0, posY = 0;
+      let lastX = 0, lastY = 0;
+      let dragging = false;
+      let lastTap = 0;
+  
+      function clampPosition() {
+        const wrapperW = wrapper.clientWidth;
+        const wrapperH = wrapper.clientHeight;
+        const imgW = img.clientWidth * scale;
+        const imgH = img.clientHeight * scale;
+  
+        const maxX = Math.max(0, (imgW - wrapperW)/2);
+        const maxY = Math.max(0, (imgH - wrapperH)/2);
+  
+        posX = Math.min(maxX, Math.max(-maxX, posX));
+        posY = Math.min(maxY, Math.max(-maxY, posY));
+      }
+  
+      function updateTransform() {
+        clampPosition();
+        img.style.transform = `translate(${posX}px,${posY}px) scale(${scale})`;
+      }
+  
+      function getDistance(e) {
+        const [t1, t2] = e.touches;
+        return Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+      }
+  
+      wrapper.addEventListener("touchstart", e => {
+        if(e.touches.length === 2) {
+          lastScale = scale;
+          startDist = getDistance(e);
+        } else if(e.touches.length === 1) {
+          lastX = e.touches[0].clientX - posX;
+          lastY = e.touches[0].clientY - posY;
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("touchend", e => {
+        if(e.touches.length > 0) return;
+        if(e.changedTouches.length !== 1) return;
+  
+        const now = Date.now();
+        if(now - lastTap < TAP_DELAY) {
+          // double-tap → toggle zoom
+          scale = scale > 1 ? 1 : 2;
+          posX = 0; posY = 0;
+          updateTransform();
+          if(singleTapTimeout) { clearTimeout(singleTapTimeout); singleTapTimeout = null; }
+          lastTap = 0;
+        } else {
+          lastTap = now;
+          singleTapTimeout = setTimeout(() => {
+            singleTapTimeout = null;
+            if(scale <= 1){
+              // single-tap: slide navigation
+              const mid = window.innerWidth / 2;
+              if(e.changedTouches[0].clientX > mid) nextSlide();
+              else prevSlide();
+            }
+          }, TAP_DELAY + 10);
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("touchmove", e => {
+        if(e.touches.length === 2) {
+          const dist = getDistance(e);
+          scale = Math.max(1, lastScale * dist/startDist);
+          updateTransform();
+        } else if(e.touches.length === 1 && scale > 1) {
+          posX = e.touches[0].clientX - lastX;
+          posY = e.touches[0].clientY - lastY;
+          lastX = e.touches[0].clientX - posX;
+          lastY = e.touches[0].clientY - posY;
+          updateTransform();
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("mousedown", e => {
+        if(scale <= 1) return;
+        dragging = true;
+        lastX = e.clientX - posX;
+        lastY = e.clientY - posY;
+      });
+      window.addEventListener("mousemove", e => {
+        if(!dragging) return;
+        posX = e.clientX - lastX;
+        posY = e.clientY - lastY;
+        updateTransform();
+      });
+      window.addEventListener("mouseup", e => { dragging = false; });
+    });
+  })();
+  </script>
+
+
+<!-- Slide 19.1 visuals -->
+
+  <div class="slide slide19-1" data-slide="19.1" style="
+  background-color:#EDFAF0;
+  width:100vw ;
+  height:100vh ;
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+">
+<div class="content" style="
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  ">
+<div class="photo-wrapper" style="
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      touch-action:none;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    ">
+  <img src="https://i.ibb.co/RkjwpPKP/nano-2-9-16-topbottom-coupes-mais-moins-60-422.jpg" style="
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      display:block;
+      transform-origin:center center;
+      cursor:grab;
+      user-select:none;
+      touch-action:none;
+    ">
+</div>
+</div>
+</div>
+
+
+  <script>
+  (() => {
+    const wrappers = document.querySelectorAll(".slide19-1 .photo-wrapper");
+    const TAP_DELAY = 250;
+    let singleTapTimeout = null;
+  
+    wrappers.forEach(wrapper => {
+      const img = wrapper.querySelector("img");
+      let scale = 1, lastScale = 1;
+      let posX = 0, posY = 0;
+      let lastX = 0, lastY = 0;
+      let dragging = false;
+      let startDist = 0;
+      let lastTap = 0;
+  
+      function clampPosition() {
+        const wrapperW = wrapper.clientWidth;
+        const wrapperH = wrapper.clientHeight;
+        const imgW = img.clientWidth * scale;
+        const imgH = img.clientHeight * scale;
+        const maxX = Math.max(0, (imgW - wrapperW)/2);
+        const maxY = Math.max(0, (imgH - wrapperH)/2);
+        posX = Math.min(maxX, Math.max(-maxX, posX));
+        posY = Math.min(maxY, Math.max(-maxY, posY));
+      }
+  
+      function updateTransform() {
+        clampPosition();
+        img.style.transform = `translate(${posX}px,${posY}px) scale(${scale})`;
+      }
+  
+      function getDistance(e) {
+        const [t1, t2] = e.touches;
+        return Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+      }
+  
+      wrapper.addEventListener("touchstart", e => {
+        if(e.touches.length === 2){
+          lastScale = scale;
+          startDist = getDistance(e);
+        } else if(e.touches.length === 1){
+          lastX = e.touches[0].clientX - posX;
+          lastY = e.touches[0].clientY - posY;
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("touchend", e => {
+        if(e.touches.length > 0) return;
+        if(e.changedTouches.length !== 1) return;
+  
+        const now = Date.now();
+        if(now - lastTap < TAP_DELAY){
+          scale = scale > 1 ? 1 : 2;
+          posX = 0; posY = 0;
+          updateTransform();
+          if(singleTapTimeout){ clearTimeout(singleTapTimeout); singleTapTimeout = null; }
+          lastTap = 0;
+        } else {
+          lastTap = now;
+          singleTapTimeout = setTimeout(() => {
+            singleTapTimeout = null;
+            if(scale <= 1){
+              const mid = window.innerWidth / 2;
+              if(e.changedTouches[0].clientX > mid) nextSlide();
+              else prevSlide();
+            }
+          }, TAP_DELAY + 10);
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("touchmove", e => {
+        if(e.touches.length === 2){
+          const dist = getDistance(e);
+          scale = Math.max(1, lastScale * dist/startDist);
+          updateTransform();
+        } else if(e.touches.length === 1 && scale > 1){
+          posX = e.touches[0].clientX - lastX;
+          posY = e.touches[0].clientY - lastY;
+          lastX = e.touches[0].clientX - posX;
+          lastY = e.touches[0].clientY - posY;
+          updateTransform();
+        }
+      }, {passive:false});
+  
+      wrapper.addEventListener("mousedown", e => {
+        if(scale <= 1) return;
+        dragging = true;
+        lastX = e.clientX - posX;
+        lastY = e.clientY - posY;
+      });
+      window.addEventListener("mousemove", e => {
+        if(!dragging) return;
+        posX = e.clientX - lastX;
+        posY = e.clientY - lastY;
+        updateTransform();
+      });
+      window.addEventListener("mouseup", e => { dragging = false; });
+    });
+  })();
+  </script>
+  

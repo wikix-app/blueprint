@@ -1,0 +1,65 @@
+For this request : 
+- SS are the name of the template slides from the template.
+- Slides are the name of the slides from the .json
+- IMPORTANT : Special slides : emphasis box, image, visual, quote
+
+0) Instructions:
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny17.html
+- This file is the **visual template**. 
+- You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
+- Fill only the placeholder text with the course .json 
+
+1) Content
+
+- You MUST:
+  - Keep these slides in their position : 1 (title), 2 (introduction), and the last 3 (conclusion, summary, further readings), using the corresponding SS
+
+- You HAVE TO:
+  - REARRANGE THE SS TO FIT THE COURSE  
+  - MAKE SURE YOU USE SS FROM EVERY PART OF THE TEMPLATE, NOT JUST THE FIRST HALF OF THE TEMPLATE
+  - Make sure emphasis box SS are only used for the most important points/ key takeaways
+  - Make sure images are alone (no title, one caption) 
+  - Make sure quote box is ONLY USED TO PUT AN ATTRIBUTED QUOTE, OTHERWISE DO NOT USE IT
+  - Make sure SS 23 (circle) is used with a small text, as it is a small slide 
+  - Add 1-3 #2E8B57 bold to emphasis important words, or chunk of words, for slides that don't have enough. EXCEPT for emphasis box slides that have #2E8B57 background colors. For these slides, the bold emphasis words are #baf990
+
+- You CANNOT :
+  - USE THE SAME SS TWICE (unless it's a special slide)
+  - PUT 2 SPECIAL SLIDES NEXT TO EACH OTHER. Each special slide should be surrounded by normal slides.
+  - une another SS than 19 (images) for images
+  - use another SS than 19.1 (visual) for visuals
+  - use a quote SS when the slide does not contain a real quote from a real person
+
+2) QUOTE BOX RULES - READ CAREFULLY:
+- Quote boxes can ONLY be used when the slide content contains:
+  * An ACTUAL QUOTE with quotation marks from a real named person
+- If the slide does NOT contain a direct quote with attribution, DO NOT USE quote box SS
+   
+3) BEFORE WE START:
+
+3.1) IN A MARKDOWN ARTIFACT :
+- You will send me the list of planned slides/SS before starting so i can validate them. 
+Format : - Slide X - title (SS data-slide="Y") (Text/Image/Visual) *return to line*
+
+CRITICAL FORMATTING RULES - CHECK BEFORE SENDING:
+- Emphasis box lines: wrap the ENTIRE line in **bold markdown** like **- Slide X - title (SS...) (Emphasis box)**
+- Visuals lines: wrap the ENTIRE line in _underline markdown_ like _- Slide X - title (SS...) (Visual)_
+- Image lines: wrap the ENTIRE line in *italic markdown* like *- Slide X - title (SS...) (Image)*
+- Regular text: no formatting at all
+
+BEFORE YOU SEND: Visually verify that emphasis boxes are bold, visuals are underlined, images are italic in the artifact.
+
+3.2)In conversation (NOT IN THE ARTIFACT) :
+- you will explain the rason for choosing these SS :
+* emphasis box (why is it important ?)
+* quote box (ONLY FOR QUOTES) 
+* images : (only SS 19)
+* visuals : (only SS 19.1)
+
+- You will tell me how many SS you have used for each half of the template : both numbers should be the same. ONLY THE NUMBER.
+- you will tell me if other images/visuals could have been useful to add to this artifact ? or not.
+
+4)
+- After sending the completed list (in a dedicated markdown code block) : stop output
+
+

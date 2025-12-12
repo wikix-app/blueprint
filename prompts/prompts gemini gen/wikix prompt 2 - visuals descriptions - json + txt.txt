@@ -1,0 +1,41 @@
+Read this course, and you can use wikipedia article on the course topic as well.
+
+1)
+- Find at least 7-15 visuals you could add, that would improve this course. 
+
+2)
+- Create slides with these visuals (IN FRENCH) (only placeholders for now), and interpolate them inside the .json
+- Do not put a visual next to an image, only next to text content.
+- In the slide, just add a placeholder url indicating the type of visual (it will be the image of the visual later on)
+- NO CAPTIONS, NO TITLES.
+- Name exemple : VISUAL_14_PREDICTION_FLOW
+
+3) 
+- The visuals can also replace one slide if it's now redundant
+- In doubt : keep the visual, not the slide
+
+4)
+- Every visual must be of a different type
+- They should all be useful and relevant to their position in the course, and add an information that wasn't there yet.
+- They should be scattered all around the course, not all in the first slides
+- Every word in french except specific names, expressions or quotes that are more known in their original language. Put them inside "" if not french.
+
+5) 
+- make sure no image and visual are next to each others
+- adjust the slide numbers for all document (all slides should follow a slide number, even visuals and images, so we know how many slides total)
+
+
+6) 
+- IMPORTANT : The visuals should contain A LOT OF information, not just a few words !
+- Provide short, clear captions for any numbers, units, symbols, abbreviations, or terms that might be difficult to understand
+
+7) Output :
+A. the updated .json
+B. a dedicated text document giving all content necessary to create the visuals (no layout or description, or slide numbers : only content). Numerically sorted
+- Do not give write the slide number, or visual layout suggestions
+
+C. a small paragraph text in conversation, explaining the slide number for each visual, and how many there are, and which ones have been removed
+
+
+
+

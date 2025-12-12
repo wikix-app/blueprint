@@ -1,0 +1,43 @@
+
+0) BEFORE WE START:
+
+- YOU WILL ONLY DO 5 SLIDES AT A TIME, AND CONFIRM HERE WHEN YOU ARE READY FOR THE NEXT SLIDES
+- YOU WILL NOT REWRITE ANY SLIDE EVER : ONCE WRITTEN, IT IS DONE.
+- YOU WILL CONFIRM YOU HAVE UNDERSTOOD STEP 2 AND WILL APPLY IT TO EVERY SLIDE BEFORE STARTING.
+
+- Now read the instructions
+
+1) Instructions:
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny17.html
+- This file is the visual template. 
+- Fill the placeholders with the content from course .json
+
+2) MANDATORY :
+
+EXTREMELY IMPORTANT : 
+- Use the .md doc to know which slide goes with which template slide, searching by data-slide="x" in the template
+- Use the EXACT visual structure from template slide data-slide="x"  that you fetched - copy its internal divs, containers, and styling, then fill it with the content.
+- Do not change the slides order
+- use the two linked .txt to implement the slide navigation system, and the exact html/CSS/js for photos (slide 19) and visuals (slide 19.1). DO NOT CHANGE ANYTHING ABOUT THESE 3 ELEMENTS.
+
+3) Content :
+
+- You MUST:
+  - Keep this local font src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  - Replace "Point x" of the summary by the actual point (do not keep "point x")
+
+4) Size :
+- Each slide must contain ≤150 words
+- If more text is needed, create additional slides using the template.
+
+5) Rules (do not violate):
+- No scrolling anywhere. Never use overflow, max-height + scroll, or custom CSS.
+- Keep template classes/IDs and default sizes; do not change fonts/margins.
+- Do not place anything under the progress bar area.
+- Do NOT rewrite CSS, create new classes, or add new global styles.
+- Every slide MUST START with <!-- Slide X: name of the slide --> above it
+- Photo captions MUST BE CENTERED
+
+---
+
+6) After sending the completed html artifact : stop output

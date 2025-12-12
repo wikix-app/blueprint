@@ -1,0 +1,45 @@
+
+
+Constraints :
+
+1) Basics :
+- 4K OUTPUT MANDATORY
+- 9:16 format ratio
+- EVERY WORD IN FRENCH, except quotes
+- DO NOT PUT ANY TITLE OR SUBTITLE, we should understand it by reading the visual
+- Do not mention that the course is in french
+
+2) Visually :
+- MANDATORY EXACTLY #EDFAF0 background 
+- For the rest : pretty modern colors, vibrant, beautiful, original
+- Use MEDIUM-TO-HIGH saturation colors with good contrast against the background, not pale but not overwhelming
+- Images in simple drawing, sketches, paint, pencil, felt-tip, colored (more than realism)
+- If you can make it 3D, do it
+- Rough, spontaneous, imperfect, but still made by a professional (not too childish)
+- Important : With visible hand-drawn strokes every time.
+- MAKE THE VISUAL FEEL FULL, NOT TOO MUCH EMPTY BACKGROUND SPACE
+
+3) Containers :
+- Pretty containers in theme with the topic, like drawings, with colored backgrounds
+- ALWAYS light/white fonts 
+- ALWAYS darker color containers
+
+4) Text :
+- Nunito font everywhere
+- Crisp text, sharp, clear
+- VERY BIG TEXT so it's easily readable, FILL THE BLANK SPACE with text and color
+- Do not make the text all black and similar : break monotony
+- Put any non-French word inside quotation marks.
+
+5) Content :
+- You can synthetize the content to make text bigger and more readable, without losing info NOR PROPER SENTENCE STRUCTURE
+- Add sufficient information, it should not just be images, we need text and information
+
+NO TITLE. NO TITLE. NO TITLE.
+
+DO NOT ASK ME A QUESTION, START THE VISUAL RIGHT AWAY, NO QUESTION
+
+
+
+
+

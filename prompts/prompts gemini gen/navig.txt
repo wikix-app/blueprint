@@ -1,0 +1,146 @@
+ <script>
+  let currentSlide = 0;
+  let isTransitioning = false;   // prevents fast multi-trigger
+
+
+  const slides = document.querySelectorAll(".slide"),
+
+
+        totalSlides = slides.length,
+        progressTrack = document.getElementById("progressTrack"),
+        progressBar = document.getElementById("progressBar");
+  
+  let touchStartX = 0, touchEndX = 0;
+  
+  let _fitRaf = null;
+  function requestFit() {
+    if (!_fitRaf) {
+      _fitRaf = requestAnimationFrame(() => {
+        _fitRaf = null;
+        //fitActiveSlide();
+      });
+    }
+  }
+  
+  // Progress bar
+  function updateProgressBar() {
+    const percent = Math.min((currentSlide + 1) / totalSlides * 100, 100);
+    progressBar.style.width = percent + "%";
+    currentSlide > 0
+      ? progressTrack.classList.add("visible")
+      : progressTrack.classList.remove("visible");
+  }
+
+  function showSlide(index) {
+
+
+  if (isTransitioning) return;     // <<< ADD THIS
+  isTransitioning = true;          // <<< ADD THIS
+
+  const current = document.querySelector('.slide.active');
+  const next = slides[index];
+  target = slides[index];
+  
+  if (current === next) {
+    isTransitioning = false;       // <<< ADD THIS
+    return;
+  }
+
+  next.classList.add('active');
+
+  if (current) {
+    current.classList.add('fade-out');
+    setTimeout(() => {
+      current.classList.remove('fade-out', 'active');
+    }, 120);
+  }
+
+  currentSlide = index;
+  updateProgressBar();
+  //fitActiveSlide();
+  console.log(`Slide: ${currentSlide + 1} OR ${target.getAttribute("data-slide")} of ${totalSlides}`);
+
+  // RELEASE LOCK after animation ends
+  setTimeout(() => {
+    isTransitioning = false;       // <<< ADD THIS
+  }, 150);                         // fade = 120ms, so use 150
+}
+
+
+
+  
+  function nextSlide() {
+    if (isTransitioning) return;     // <<< ADD THIS
+    currentSlide < totalSlides - 1 ? showSlide(++currentSlide) : showSlide(currentSlide = 0);
+  }
+  
+  function prevSlide() {
+    if (isTransitioning) return;     // <<< ADD THIS
+    currentSlide > 0 ? showSlide(--currentSlide) : showSlide(currentSlide = totalSlides - 1);
+  }
+  
+  // Swipe handling
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 10) nextSlide();
+    else if (touchEndX > touchStartX + 10) prevSlide();
+  }
+  
+  // ===== EVENT LISTENERS =====
+  window.addEventListener("resize", requestFit);
+  
+  window.addEventListener("message", e => {
+    try {
+      const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+      if (!data || !data.type) return;
+      if (data.type === "wikix:refit" || data.type === "wikix:show") requestFit();
+    } catch {}
+  });
+  
+  // Progress bar click
+  progressTrack.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const rect = progressTrack.getBoundingClientRect(),
+          clickX = e.clientX - rect.left,
+          ratio = Math.max(0, Math.min(1, clickX / rect.width)) * (totalSlides - 1),
+          slideIndex = Math.round(ratio);
+    currentSlide = Math.max(0, Math.min(slideIndex, totalSlides - 1));
+    showSlide(currentSlide);
+  });
+  
+  // Click navigation (ignore images)
+  document.addEventListener("click", e => {
+    if (e.target.tagName === "IMG" || e.target.closest(".photo-wrapper")) return; // 🚫 ignore clicks on images
+    if (e.target === progressTrack || progressTrack.contains(e.target)) return;
+    const mid = window.innerWidth / 2;
+    e.clientX > mid ? nextSlide() : prevSlide();
+  });
+  
+  // Keyboard navigation
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight") nextSlide();
+    else if (e.key === "ArrowLeft") prevSlide();
+  });
+  
+  // Touch navigation (ignore images)
+  document.addEventListener("touchstart", e => {
+    if (e.target.tagName === "IMG" || e.target.closest(".photo-wrapper")) return;
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  document.addEventListener("touchend", e => {
+    if (e.target.tagName === "IMG" || e.target.closest(".photo-wrapper")) return;
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  // Initial setup
+  updateProgressBar();
+ // fitActiveSlide();
+  console.log(`Starting presentation with ${totalSlides} slides`);
+  console.log(`Current slide: 1 of ${totalSlides}`);
+ // window.addEventListener("load",  fitActiveSlide );
+  document.addEventListener("load", e => {
+    if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "VIDEO")) requestFit();
+  }, true);
+  </script>

@@ -1,0 +1,40 @@
+0)Topic : Aurores Polaires
+
+1) Instruction :
+
+- Create a fun but full of knowledge fifteen-minutes course to know everything there is to know on that subject, using the information on wikipedia (in french).
+- it should be a full 15 minutes, not too short, exhaustive. 25 slides minimum (not including image slides).
+- Do not mention the 15 minutes length, nor sources.
+- USE ONLY ENGLISH WIKIPEDIA AS A SOURCE, french wikipedia as a last resort
+- YOU WILL ONLY OUTPUT A .JSON FILE, NOT AN HTML ARTIFACT
+- Slide numbers, and type of slides, included in the .json
+
+2) Images in linked .txt :
+
+- Add the images scattered relevantly throughout the course 
+- Use full https links for images
+- Use the fetched captions from the tool under each image, translate them to french. Synthetize them without losing info
+- If a course slide introduces a topic, the corresponding image should be placed just AFTER that slide, not before
+- If 2 images have a similar caption, exceptionnaly put them next to each others and split the caption in 2 parts
+
+3) Specific slides :
+
+- 1st slide : The main title consists of only the topic name in french, with pronoun if relevant, NOTHING MORE, no other text or emojis.
+- 2nd slide : "Introduction" : an factual introduction to the topic, explanation of the subject, with the main points that will be covered. No storytelling, no emojis. DO NOT MENTION "ce cours", JUST FACTS ABOUT THE SUBJECT.
+
+Last three slides 
+-1: "Conclusion" (NO EMOJI) : A fitting conclusion, factual, no unnecessary storytelling.
+-2: "📝 Points essentiels" : A short summary of the most important points to remember.
+-3: "📚 Pour aller plus loin" : Further readings : 5 possibilities of articles on similar subjects, to continue on. 
+
+
+4) Content :
+- Make it fun, but knowledge oriented. No exclamation points everywhere.
+- Add relevant emojis to titles and lists
+- Every info should be interesting.
+- In a clear, engaging teaching tone — like a great instructor speaking directly to curious learners. Active voice with varied rhythm. Include quick real-world examples or micro case studies to make concepts concrete. Liveliness from storytelling, clarity, and pacing.
+- NOT TOO COMPLEX OR OBSCURE ! SHOULD BE ACCESSIBLE TO ANYONE.
+
+5) At the end :
+- give me the result in a dedicated .json code block
+- Tell me (in conversation) the number of images in the course, and their position, making sure that NEVER TWO IMAGES ARE PLACED IN ADJACENT SLIDES
