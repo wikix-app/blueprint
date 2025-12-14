@@ -27,11 +27,15 @@ Read this course, and you can use wikipedia article on the course topic as well.
 
 6) 
 - IMPORTANT : The visuals should contain A LOT OF information, not just a few words !
-- Provide short, clear captions for any numbers, units, symbols, abbreviations, or terms that might be difficult to understand
 
-7) Output :
+7) - At the end of each visual :
+- Provide short, clear captions for any numbers, units, symbols, abbreviations, or terms that might be difficult to understand
+- DO NOT ADD A TITLE to that part
+
+8) Output :
 A. the updated .json
-B. a dedicated text document giving all content necessary to create the visuals (no layout or description, or slide numbers : only content). Numerically sorted
+B. a dedicated text document giving all content necessary to create the visuals (no layout or description, or slide numbers : only content). 
+- Numerically sorted. Visual1, Visual2...
 - Do not give write the slide number, or visual layout suggestions
 
 C. a small paragraph text in conversation, explaining the slide number for each visual, and how many there are, and which ones have been removed

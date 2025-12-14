@@ -1,5 +1,15 @@
-- Topic : Theory of Everything
-- Wikipedia does not have enough relevant images on this topic
-- Go on other wikipedia and wiki commons (ONLY) articles and give me 10 relevant images to that topic, with caption translated to french, explaining why this image is relevant to this topic. 
+- Topic : expansion de l'univers
+- the wikimedia commons page does not have enough relevant images on this topic
+- Go on OTHERS wikipedia and wiki commons (ONLY) articles and give me 10 relevant images to that topic, with caption translated to french, explaining why this image is relevant to this topic. 
 - Photos of relevant people, places and object, related to that topic.
 - Give me the url, and the caption EXPLAINING WHY THIS IMAGE IS RELEVANT TO THE TOPIC
+
+
+
+---------
+url1
+caption1
+url2
+caption2
+
+the captions must both use the original caption from wikipedia to describe the image, but also add why it is relevant to the topic 

@@ -10,7 +10,7 @@ Constraints :
 - Do not mention that the course is in french
 
 2) Visually :
-- MANDATORY EXACTLY #EDFAF0 background 
+- MANDATORY black background 
 - For the rest : pretty modern colors, vibrant, beautiful, original
 - Use MEDIUM-TO-HIGH saturation colors with good contrast against the background, not pale but not overwhelming
 - Images in simple drawing, sketches, paint, pencil, felt-tip, colored (more than realism)
