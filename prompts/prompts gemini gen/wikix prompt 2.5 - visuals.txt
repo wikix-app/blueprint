@@ -18,6 +18,7 @@ Constraints :
 - Rough, spontaneous, imperfect, but still made by a professional (not too childish)
 - Important : With visible hand-drawn strokes every time.
 - MAKE THE VISUAL FEEL FULL, NOT TOO MUCH EMPTY BACKGROUND SPACE
+- MAKE SURE DRAWINGS ARE ACTUALLY BELIEVABLE AS DRAWINGS, NOT TOO AI
 
 3) Containers :
 - Pretty containers in theme with the topic, like drawings, with colored backgrounds

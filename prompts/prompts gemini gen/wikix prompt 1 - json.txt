@@ -1,4 +1,4 @@
-0)Topic : Aurores Polaires
+0)Topic : Jupiter
 
 1) Instruction :
 
@@ -16,6 +16,7 @@
 - Use the fetched captions from the tool under each image, translate them to french. Synthetize them without losing info
 - If a course slide introduces a topic, the corresponding image should be placed just AFTER that slide, not before
 - If 2 images have a similar caption, exceptionnaly put them next to each others and split the caption in 2 parts
+- EVERY IMAGE FROM THE FILE SHOULD BE INCLUDED
 
 3) Specific slides :
 

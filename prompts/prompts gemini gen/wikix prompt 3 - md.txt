@@ -4,7 +4,7 @@ For this request :
 - IMPORTANT : Special slides : emphasis box, image, visual, quote
 
 0) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny17.html
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny18.html
 - This file is the **visual template**. 
 - You must COPY ITS STYLE AND STRUCTURE EXACTLY :same fonts, colors, containers, transitions, spacing, and layout logic.
 - Fill only the placeholder text with the course .json 

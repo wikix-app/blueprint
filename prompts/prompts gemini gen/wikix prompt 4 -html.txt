@@ -8,7 +8,7 @@
 - Now read the instructions
 
 1) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny17.html
+- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny18.html
 - This file is the visual template. 
 - Fill the placeholders with the content from course .json
 
