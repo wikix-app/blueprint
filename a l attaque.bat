@@ -1,0 +1,1 @@
+npx html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true --minify-urls true todo.html -o tiny18.html
