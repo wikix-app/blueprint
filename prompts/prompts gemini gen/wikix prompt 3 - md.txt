@@ -25,7 +25,7 @@ For this request :
 
 - You CANNOT :
   - USE THE SAME SS TWICE (unless it's a special slide)
-  - PUT 2 SPECIAL SLIDES NEXT TO EACH OTHER. Each special slide should be surrounded by normal slides.
+  - PUT AN IMAGE NEXT TO A VISUAL
   - une another SS than 19 (images) for images
   - use another SS than 19.1 (visual) for visuals
   - use a quote SS when the slide does not contain a real quote from a real person

@@ -1,5 +1,3 @@
-
-
 Constraints :
 
 1) Basics :
@@ -13,12 +11,17 @@ Constraints :
 - MANDATORY black background 
 - For the rest : pretty modern colors, vibrant, beautiful, original
 - Use MEDIUM-TO-HIGH saturation colors with good contrast against the background, not pale but not overwhelming
+---
+- MANDATORY : PAINTING IN THE BACKGROUND, drawings over it. 
 - Images in simple drawing, sketches, paint, pencil, felt-tip, colored (more than realism)
-- If you can make it 3D, do it
 - Rough, spontaneous, imperfect, but still made by a professional (not too childish)
-- Important : With visible hand-drawn strokes every time.
+- IMPORTANT : With visible hand-drawn strokes every time.
+- MAKE SURE PAINTINGS ARE ACTUALLY BELIEVABLE AS HUMAN's, NOT AI
+- PAINTING PAINTING PAINTING
+---
+- If you can make it 3D, do it
 - MAKE THE VISUAL FEEL FULL, NOT TOO MUCH EMPTY BACKGROUND SPACE
-- MAKE SURE DRAWINGS ARE ACTUALLY BELIEVABLE AS DRAWINGS, NOT TOO AI
+
 
 3) Containers :
 - Pretty containers in theme with the topic, like drawings, with colored backgrounds
@@ -39,8 +42,3 @@ Constraints :
 NO TITLE. NO TITLE. NO TITLE.
 
 DO NOT ASK ME A QUESTION, START THE VISUAL RIGHT AWAY, NO QUESTION
-
-
-
-
-

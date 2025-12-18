@@ -1,16 +1,7 @@
 
-0) BEFORE WE START:
-
-- YOU WILL ONLY DO 5 SLIDES AT A TIME, AND CONFIRM HERE WHEN YOU ARE READY FOR THE NEXT SLIDES
-- YOU WILL NOT REWRITE ANY SLIDE EVER : ONCE WRITTEN, IT IS DONE.
-- YOU WILL CONFIRM YOU HAVE UNDERSTOOD STEP 2 AND WILL APPLY IT TO EVERY SLIDE BEFORE STARTING.
-
-- Now read the instructions
-
 1) Instructions:
-- Fetch and use the full HTML + CSS from: https://raw.githubusercontent.com/wikix-app/blueprint/refs/heads/main/tiny18.html
-- This file is the visual template. 
-- Fill the placeholders with the content from course .json
+- The html file is the visual template. 
+- Fill the placeholders with the content from the .json
 - Change the file name to the course name.
 
 2) MANDATORY :

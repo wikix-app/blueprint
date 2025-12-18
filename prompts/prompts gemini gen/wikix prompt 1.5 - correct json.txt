@@ -1,0 +1,9 @@
+- IMPORTANT : Double the size of each slide, except the images/visuals, the title, summary, and further reading.
+
+- Introduction : 
+* Remove any mention of "ce cours".
+* No storytelling. Just facts
+
+- Conclusion :
+* No storytelling. Just facts
+
