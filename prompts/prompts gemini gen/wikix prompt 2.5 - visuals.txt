@@ -32,6 +32,7 @@ Constraints :
 - Nunito font everywhere
 - Crisp text, sharp, clear
 - VERY BIG TEXT so it's easily readable, FILL THE BLANK SPACE with text and color
+- if there is a lot of info, make sure there is always at least one HUGE TEXT to summarize each part
 - Do not make the text all black and similar : break monotony
 - Put any non-French word inside quotation marks.
 
